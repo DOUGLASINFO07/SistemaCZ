@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00303F"
+    tools:context=".TelaTratamentoFocalActivity">
+
+    <ImageView
+        android:id="@+id/imageViewlogoSistema"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="357dp"
+        android:src="@mipmap/logo_sistema"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewLogoMarca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSaudacao"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginLeft="66dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginBottom="10dp"
+        android:background="#00303F"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBoletimDiario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewlogoSistema"
+        tools:text="CONTROLE DE DENUNCIA" />
+
+    <Button
+        android:id="@+id/buttonBoletimDiario"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="#DCAE1D"
+        android:text="BOLETIM DIÁRIO"
+        android:textColor="#00303F"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConsultaBoletimDiario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSaudacao" />
+
+    <Button
+        android:id="@+id/buttonConsultaBoletimDiario"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="#DCAE1D"
+        android:text="Consultar Boletim Diário"
+        android:textColor="#00303F"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonQuarteiraoConcluido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBoletimDiario" />
+
+    <Button
+        android:id="@+id/buttonQuarteiraoConcluido"
+        android:layout_width="250dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="10dp"
+        android:background="#DCAE1D"
+        android:text="Quarteirão Concluído"
+        android:textColor="#00303F"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConsultaBoletimDiario" />
+
+    <ImageView
+        android:id="@+id/imageViewLogoMarca"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:src="@mipmap/logomarca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewlogoSistema" />
+
+
+</android.support.constraint.ConstraintLayout>

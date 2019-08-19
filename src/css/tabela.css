@@ -1,0 +1,51 @@
+.root{
+    -fx-background-color: blueviolet;
+}
+
+.table-view{
+    -fx-background-color: transparent;
+    -fx-text-fill: blue;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+    -fx-text-fill: blue;
+    -fx-border-color: -fx-focus-color;
+    -fx-border-width: 4px;
+    -fx-background-radius: 6.4, 4, 5, 3;
+    -fx-background-insets: -1.4, 0, 1, 2;
+}
+
+.table-row-cell:focus{
+    /*-fx-background-color: blueviolet;*/
+     -fx-text-fill: blue;
+ 
+}
+
+.table-row-cell:odd{
+    -fx-background-color: white;
+    -fx-background-insets: 0,0 0 1 0;
+    -fx-text-fill: blue;
+}
+.table-row-cell:even{
+    -fx-background-color: lightblue;
+    -fx-background-insets: 0,0 0 1 0;
+    -fx-text-fill: blue;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+.table-view{
+    -fx-border-width: 1.5px;
+    -fx-border-color: gray;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 12px;
+    -fx-padding: 0px;
+    -fx-font-weight: 600;
+    -fx-font-family: 'System' , 'helvetica Neue', 'Arial', 'sans-serif';
+    -fx-text-fill:blue;
+}

@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Funcionario" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="128ed282-eeb1-4a4d-bd87-7b9912f7166f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pesquisarPor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nome" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tituloPesquisa" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     funcionario.`nome` AS funcionario_nome,
+     funcionario.`cpf` AS funcionario_cpf,
+     funcionario.`rg` AS funcionario_rg,
+     funcionario.`orgaoEmissorRG` AS funcionario_orgaoEmissorRG,
+     funcionario.`estadoOrgaoEmissorRG` AS funcionario_estadoOrgaoEmissorRG,
+     funcionario.`dataEmissaoRG` AS funcionario_dataEmissaoRG,
+     funcionario.`habilitacao` AS funcionario_habilitacao,
+     funcionario.`categoriaHabilitacao` AS funcionario_categoriaHabilitacao,
+     funcionario.`data1habilitacao` AS funcionario_data1habilitacao,
+     funcionario.`dataNascimento` AS funcionario_dataNascimento,
+     funcionario.`municipioNascimento` AS funcionario_municipioNascimento,
+     funcionario.`estadoNascimento` AS funcionario_estadoNascimento,
+     funcionario.`nomeMae` AS funcionario_nomeMae,
+     funcionario.`nomePai` AS funcionario_nomePai,
+     funcionario.`logradouroEndereco` AS funcionario_logradouroEndereco,
+     funcionario.`numeroEndereco` AS funcionario_numeroEndereco,
+     funcionario.`bairroEndereco` AS funcionario_bairroEndereco,
+     funcionario.`cepEndereco` AS funcionario_cepEndereco,
+     funcionario.`cidadeEndereco` AS funcionario_cidadeEndereco,
+     funcionario.`estadoEndereco` AS funcionario_estadoEndereco,
+     funcionario.`email` AS funcionario_email,
+     funcionario.`telefone` AS funcionario_telefone,
+     funcionario.`telefoneContato` AS funcionario_telefoneContato,
+     funcionario.`whatsApp` AS funcionario_whatsApp,
+     funcionario.`cargo` AS funcionario_cargo,
+     funcionario.`vinculoEmpregaticio` AS funcionario_vinculoEmpregaticio,
+     funcionario.`matricula` AS funcionario_matricula,
+     funcionario.`equipe` AS funcionario_equipe,
+     funcionario.`areaTrabalho` AS funcionario_areaTrabalho,
+     funcionario.`situacaoFuncionario` AS funcionario_situacaoFuncionario,
+     funcionario.`dataAdmissao` AS funcionario_dataAdmissao,
+     funcionario.`dataDemissao` AS funcionario_dataDemissao,
+     funcionario.`formaIngresso` AS funcionario_formaIngresso,
+     funcionario.`formaEgresso` AS funcionario_formaEgresso,
+     funcionario.`observacao` AS funcionario_observacao,
+     funcionario.`fotoFuncionario` AS funcionario_fotoFuncionario
+FROM
+     `funcionario` funcionario
+WHERE $P!{pesquisarPor} LIKE "$P!{nome}%"
+
+ORDER BY NOME]]>
+	</queryString>
+	<field name="funcionario_nome" class="java.lang.String"/>
+	<field name="funcionario_cpf" class="java.lang.String"/>
+	<field name="funcionario_rg" class="java.lang.String"/>
+	<field name="funcionario_orgaoEmissorRG" class="java.lang.String"/>
+	<field name="funcionario_estadoOrgaoEmissorRG" class="java.lang.String"/>
+	<field name="funcionario_dataEmissaoRG" class="java.sql.Date"/>
+	<field name="funcionario_habilitacao" class="java.lang.String"/>
+	<field name="funcionario_categoriaHabilitacao" class="java.lang.String"/>
+	<field name="funcionario_data1habilitacao" class="java.sql.Date"/>
+	<field name="funcionario_dataNascimento" class="java.sql.Date"/>
+	<field name="funcionario_municipioNascimento" class="java.lang.String"/>
+	<field name="funcionario_estadoNascimento" class="java.lang.String"/>
+	<field name="funcionario_nomeMae" class="java.lang.String"/>
+	<field name="funcionario_nomePai" class="java.lang.String"/>
+	<field name="funcionario_logradouroEndereco" class="java.lang.String"/>
+	<field name="funcionario_numeroEndereco" class="java.lang.String"/>
+	<field name="funcionario_bairroEndereco" class="java.lang.String"/>
+	<field name="funcionario_cepEndereco" class="java.lang.String"/>
+	<field name="funcionario_cidadeEndereco" class="java.lang.String"/>
+	<field name="funcionario_estadoEndereco" class="java.lang.String"/>
+	<field name="funcionario_email" class="java.lang.String"/>
+	<field name="funcionario_telefone" class="java.lang.String"/>
+	<field name="funcionario_telefoneContato" class="java.lang.String"/>
+	<field name="funcionario_whatsApp" class="java.lang.String"/>
+	<field name="funcionario_cargo" class="java.lang.String"/>
+	<field name="funcionario_vinculoEmpregaticio" class="java.lang.String"/>
+	<field name="funcionario_matricula" class="java.lang.String"/>
+	<field name="funcionario_equipe" class="java.lang.String"/>
+	<field name="funcionario_areaTrabalho" class="java.lang.String"/>
+	<field name="funcionario_situacaoFuncionario" class="java.lang.String"/>
+	<field name="funcionario_dataAdmissao" class="java.sql.Date"/>
+	<field name="funcionario_dataDemissao" class="java.sql.Date"/>
+	<field name="funcionario_formaIngresso" class="java.lang.String"/>
+	<field name="funcionario_formaEgresso" class="java.lang.String"/>
+	<field name="funcionario_observacao" class="java.lang.String"/>
+	<field name="funcionario_fotoFuncionario" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="10" backcolor="#CC9900" uuid="aa65609e-4d58-4d4b-a68d-a89bbcef58fa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="62" width="802" height="10" backcolor="#003366" uuid="705514a0-a97e-4d21-b8eb-cf36f7e4b88a"/>
+			</rectangle>
+			<image>
+				<reportElement x="754" y="15" width="40" height="40" uuid="8cc8c110-b8e7-4dfe-84f3-591de94913e6"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\logoExemplo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="5" y="15" width="40" height="40" uuid="4a876401-548f-467e-a4c9-1982c4d838e9"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\iconeSistemaCZ.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="45" y="11" width="709" height="24" forecolor="#666666" uuid="aad324a0-9d7b-4eb5-82f7-b0eb03a59d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISTEMA DE GERENCIAMENTO DE CONTROLE DE ZOONOSES - PASSOS MG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="104" y="35" width="317" height="25" forecolor="#666666" uuid="a957f9fd-abc6-4523-bcee-b199fe906a14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO  DE FUNCIONARIOS POR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="429" y="35" width="199" height="25" forecolor="#666666" uuid="50b6a098-f207-4770-8df5-87ff7f4215a6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tituloPesquisa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="216" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="175" width="802" height="20" backcolor="#CCCCCC" uuid="b105f135-889d-47c2-97cc-06ee0d86ad93"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="95" width="802" height="20" backcolor="#CCCCCC" uuid="3c3ad77f-e832-4e3b-b323-114284d9439e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="55" width="802" height="20" backcolor="#CCCCCC" uuid="b2ce58a3-73d9-4d55-912c-47bb11fb5d16"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="14" width="802" height="20" backcolor="#CCCCCC" uuid="c8788066-69d1-4e3c-adad-339dbf72967f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="241" y="35" width="90" height="20" forecolor="#000000" uuid="a52dd110-8dcc-47f7-8bc4-fa3af9c74c47"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="35" width="241" height="20" forecolor="#000000" uuid="23aa251b-6dfa-41f3-936e-2ce397092cb5"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="14" width="241" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="829a1339-5c65-40da-9563-bcfda6bf0be1"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="15" width="90" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="db6dec05-9ad0-4e9c-b7f8-a58acd02f871"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="15" width="75" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="c7d56974-1c5e-4e35-b439-75fedd6b4fcd"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="331" y="35" width="75" height="20" forecolor="#000000" uuid="a631e6fa-1794-46e4-939b-2c2a355926c9"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_rg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="406" y="15" width="51" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="9c52eb8e-65e5-4c96-b2d8-f71e09fb5c61"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ORGÃO]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="457" y="35" width="55" height="20" forecolor="#000000" uuid="668202c1-1f5f-461a-8d5b-7440388b56d1"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_estadoOrgaoEmissorRG}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="582" y="15" width="82" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="e66837b4-e742-439f-8940-454dabea76d4"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CART. HAB]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="582" y="34" width="82" height="20" forecolor="#000000" uuid="f8feaf90-ae1f-40d8-93a6-06f58ce96870"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_habilitacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="664" y="15" width="55" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="7c98562e-1908-4684-ade1-2f9e9c897ab9"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CAT. HAB.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="664" y="35" width="55" height="20" forecolor="#000000" uuid="55e2418f-fb5b-44d9-b64a-b2fd5b2af369"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_categoriaHabilitacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="719" y="15" width="83" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="36ad57b0-3a8a-4510-8c9e-5f910148f4df"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DATA 1ª HAB.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="719" y="35" width="83" height="20" forecolor="#000000" uuid="b0cde8f4-4841-4b30-b36b-e6247ee6569c"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_data1habilitacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="54" width="80" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="434028c4-f399-4488-8544-f0f312ba2b58"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DATA NASC.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="74" width="80" height="20" forecolor="#000000" uuid="9fa9c452-c903-48c2-b815-159331a66e1b"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_dataNascimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="55" width="212" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="f79c1d93-baab-42c0-9b56-e864a57c446b"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[MUNIC. NASC.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="74" width="212" height="20" forecolor="#000000" uuid="de6f89e1-c777-49d3-b6da-f2318575950e"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_municipioNascimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="292" y="55" width="70" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="e4e66bf8-8972-4986-b3cf-722fa6291c42"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[EST. NASC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="292" y="74" width="70" height="20" forecolor="#000000" uuid="5439dbc2-10df-408f-b931-53f69817b899"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_estadoNascimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="362" y="55" width="220" height="20" forecolor="#666666" uuid="c5da3e88-35ea-4876-9138-85aa9ecca2d2"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[NOME DA MÃE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="362" y="75" width="220" height="20" forecolor="#000000" uuid="c1b4434f-e6de-45c6-8816-9b986c206768"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_nomeMae}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="582" y="55" width="220" height="20" forecolor="#666666" uuid="bf18d95b-dd14-46b3-9b54-717eabdc685f"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[NOME DO PAI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="582" y="75" width="220" height="20" forecolor="#000000" uuid="e03fea9e-5151-40eb-a650-be58d01a9ed8"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_nomePai}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="95" width="190" height="20" forecolor="#666666" uuid="35caf948-6693-4625-b6be-392b0b1dcbbb"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LOGRADOURO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="115" width="190" height="20" forecolor="#000000" uuid="9edfa9a6-caa5-476b-9f0b-bc23bbbe870a"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_logradouroEndereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="95" width="60" height="20" forecolor="#666666" uuid="ee5af5c8-dcc4-4055-b7bd-283ee07ea352"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[NUMERO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="115" width="60" height="20" forecolor="#000000" uuid="7f773e1c-ace4-4502-aa55-f3850f0ffaea"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_numeroEndereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="95" width="130" height="20" forecolor="#666666" uuid="39983fda-de12-41bf-9611-e44b0264df7c"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[BAIRRO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="115" width="130" height="20" forecolor="#000000" uuid="2ce3ad58-cf17-471c-9a72-93cfe5198c74"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_bairroEndereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="95" width="130" height="20" forecolor="#666666" uuid="da3e216c-7a6a-4aa2-be28-ca8f44cfd3c7"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CIDADE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="115" width="130" height="20" forecolor="#000000" uuid="83cbcd65-b271-452c-b3f7-ace3fbc30284"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_cidadeEndereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="510" y="95" width="57" height="20" forecolor="#666666" uuid="763920cb-6774-46a0-92ee-1a0dfb675617"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ESTADO ENDEREÇO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="510" y="115" width="57" height="20" forecolor="#000000" uuid="6e57d7d7-a6a4-487e-965a-95a98ea6945c"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_estadoEndereco}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="135" width="802" height="20" backcolor="#CCCCCC" uuid="0b3af3f5-e35b-4bf1-aea3-9de8ade5e87f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="567" y="94" width="235" height="20" forecolor="#666666" uuid="dcbee011-717d-4c1a-9fc0-5ff98d5bed72"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[E-MAIL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="567" y="114" width="235" height="20" forecolor="#000000" uuid="0819c497-f953-4ff6-aece-489bf00d2eef"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="135" width="100" height="20" forecolor="#666666" uuid="78e5fe0c-9b59-4ca1-ba0d-fe0d358bdeb8"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TELEFONE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="155" width="100" height="20" forecolor="#000000" uuid="9f2efade-4647-4b29-a4c5-81982af78b8d"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_telefone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="135" width="100" height="20" forecolor="#666666" uuid="12266d40-6a97-492e-9374-19dddcae5055"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CONTATO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="155" width="100" height="20" forecolor="#000000" uuid="0f392e96-8f14-462e-bce9-9eff50e5aafc"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_telefoneContato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="135" width="100" height="20" forecolor="#666666" uuid="c272a9d6-b5e4-4554-b614-1c0c4388bdee"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[WHATSAPP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="155" width="100" height="20" forecolor="#000000" uuid="9b6e3da3-e852-4eb6-a122-6cc5adf6da11"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_whatsApp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="135" width="130" height="20" forecolor="#666666" uuid="0bb0f43f-9db5-4ffb-a71d-12a54314c2ec"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CARGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="155" width="130" height="20" forecolor="#000000" uuid="b0cbdf6a-7c3a-4e2e-9797-6f46a4da4017"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_cargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="135" width="90" height="20" forecolor="#666666" uuid="ebc19c8f-f7e8-4fbd-9b14-858538105b31"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[VÍNCULO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="155" width="90" height="20" forecolor="#000000" uuid="fe0eb24e-f4e4-4a31-812b-facdf9a87777"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_vinculoEmpregaticio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="520" y="135" width="55" height="20" forecolor="#666666" uuid="b802ae8e-8112-451f-abef-565923392dd6"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[MATRIC.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="520" y="155" width="55" height="20" forecolor="#000000" uuid="02e5466e-3f1a-4e68-8e6a-5ec3a03162b7"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_matricula}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="575" y="135" width="75" height="20" forecolor="#666666" uuid="29bbc288-8e0a-4394-8360-c1af60bdf4f2"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[EQUIPE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="575" y="155" width="75" height="20" forecolor="#000000" uuid="d1b9befc-9bb5-4bcd-ae47-c7b9d2593aa5"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_equipe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="650" y="135" width="152" height="20" forecolor="#666666" uuid="58e30b9e-5fb8-4f4f-9ad1-3936acb41b97"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ÁREA TRABALHO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="650" y="155" width="152" height="20" forecolor="#000000" uuid="ff4f31a0-f544-4c86-818c-835bf290c8b9"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_areaTrabalho}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="175" width="126" height="20" forecolor="#666666" uuid="40424ad5-242d-4599-9904-81f3dcc35cd9"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[SITUAÇÃO FUNC.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="195" width="126" height="20" forecolor="#000000" uuid="4d3ebdfe-bd0f-4b6c-8e0c-347ceec2ca4b"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_situacaoFuncionario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="126" y="175" width="85" height="20" forecolor="#666666" uuid="36929fdf-0ee9-4882-84ca-0c8bade5e5ac"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DATA ADMIS.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="126" y="195" width="85" height="20" forecolor="#000000" uuid="d4e1a764-c022-49ae-8140-88c3ca17cd0c"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_dataAdmissao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="175" width="80" height="20" forecolor="#666666" uuid="9110084d-5b7a-49d8-88cb-c10695557789"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DATA DEMIS.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="211" y="195" width="80" height="20" forecolor="#000000" uuid="35f4d1d3-3180-42d3-a0bd-b9ddfa3df034"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_dataDemissao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="291" y="175" width="135" height="20" forecolor="#666666" uuid="b5711eba-a546-4ad4-b7ad-abfbe48ac149"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[FORMA INGRESSO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="291" y="195" width="135" height="20" forecolor="#000000" uuid="43c0419e-d568-4b77-8e7f-fdb38580ebc4"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_formaIngresso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="426" y="175" width="110" height="20" forecolor="#666666" uuid="3a7f8799-f00f-4ef3-a598-73fe88770cc4"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[FORMA EGRESSO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="426" y="195" width="110" height="20" forecolor="#000000" uuid="73afe8ab-b6d9-4831-8413-266ad1bd1e85"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_formaEgresso} == "Selecione" ?  "" : $F{funcionario_formaEgresso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="536" y="175" width="266" height="20" forecolor="#666666" uuid="82888153-65ef-444f-ad50-2af2553b217d"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[OBSERVAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="536" y="195" width="266" height="20" forecolor="#000000" uuid="e9411d2b-74a7-46a6-82c2-9261a5afad84"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<bottomPen lineWidth="0.5" lineColor="#666666"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_observacao}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="2" width="802" height="10" backcolor="#CC9900" uuid="9d297046-3740-4066-a086-8fadcae44e16"/>
+			</rectangle>
+			<textField>
+				<reportElement x="406" y="35" width="51" height="20" forecolor="#000000" uuid="c495512f-5b41-4dc9-b742-276641944762"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_orgaoEmissorRG}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="457" y="15" width="55" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="d3932b61-56fd-4b8c-88aa-1972f80db5e3"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="512" y="15" width="70" height="20" forecolor="#666666" uuid="bbe75230-ca45-4305-92dd-f11e52573ddf"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA EMIS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="512" y="35" width="70" height="20" forecolor="#000000" uuid="057fe838-2c2d-4b85-bb0b-312bc44c167e"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_dataEmissaoRG}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="10" backcolor="#003366" uuid="5d956fdd-e744-4ecc-8f3a-a9bf4e71b0c2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="28" width="802" height="10" backcolor="#CC9900" uuid="6d1ca639-32d5-45da-8afb-5617a45a1de1"/>
+			</rectangle>
+			<textField>
+				<reportElement x="729" y="11" width="73" height="15" forecolor="#999999" backcolor="#999999" uuid="7ed20de8-4987-4c9f-82d6-9d8bee6c63e4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="11" width="237" height="15" forecolor="#999999" backcolor="#999999" uuid="03263889-27e1-44cf-aa4f-9f37742d2a5f"/>
+				<box leftPadding="6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

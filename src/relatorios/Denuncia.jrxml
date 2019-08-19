@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Funcionario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="128ed282-eeb1-4a4d-bd87-7b9912f7166f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="322"/>
+	<parameter name="numeroDenuncia" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     denuncia.`numeroDenuncia` AS denuncia_numeroDenuncia,
+     denuncia.`dataDenuncia` AS denuncia_dataDenuncia,
+     denuncia.`recebidaPor` AS denuncia_recebidaPor,
+     denuncia.`denunciante` AS denuncia_denunciante,
+     denuncia.`denunciado` AS denuncia_denunciado,
+     denuncia.`logradouro` AS denuncia_logradouro,
+     denuncia.`numeroEndereco` AS denuncia_numeroEndereco,
+     denuncia.`bairro` AS denuncia_bairro,
+     denuncia.`tipoImovel` AS denuncia_tipoImovel,
+     denuncia.`tipoDenuncia` AS denuncia_tipoDenuncia,
+     denuncia.`detalhesDenuncia` AS denuncia_detalhesDenuncia,
+     denuncia.`ace1` AS denuncia_ace1,
+     denuncia.`ace2` AS denuncia_ace2,
+     denuncia.`situacaoVisita` AS denuncia_situacaoVisita,
+     denuncia.`dataVisita` AS denuncia_dataVisita,
+     denuncia.`detalhesVisita` AS denuncia_detalhesVisita
+FROM
+     `denuncia` denuncia
+WHERE numeroDenuncia = $P{numeroDenuncia}]]>
+	</queryString>
+	<field name="denuncia_numeroDenuncia" class="java.lang.Integer"/>
+	<field name="denuncia_dataDenuncia" class="java.sql.Date"/>
+	<field name="denuncia_recebidaPor" class="java.lang.String"/>
+	<field name="denuncia_denunciante" class="java.lang.String"/>
+	<field name="denuncia_denunciado" class="java.lang.String"/>
+	<field name="denuncia_logradouro" class="java.lang.String"/>
+	<field name="denuncia_numeroEndereco" class="java.lang.String"/>
+	<field name="denuncia_bairro" class="java.lang.String"/>
+	<field name="denuncia_tipoImovel" class="java.lang.String"/>
+	<field name="denuncia_tipoDenuncia" class="java.lang.String"/>
+	<field name="denuncia_detalhesDenuncia" class="java.lang.String"/>
+	<field name="denuncia_ace1" class="java.lang.String"/>
+	<field name="denuncia_ace2" class="java.lang.String"/>
+	<field name="denuncia_situacaoVisita" class="java.lang.String"/>
+	<field name="denuncia_dataVisita" class="java.sql.Date"/>
+	<field name="denuncia_detalhesVisita" class="java.lang.String"/>
+	<title>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="90" y="16" width="454" height="26" forecolor="#666666" uuid="a957f9fd-abc6-4523-bcee-b199fe906a14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREFEITURA MUNICIPAL DE PASSOS MG]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="10" backcolor="#FF9900" uuid="4230e98e-714d-4e34-9119-d0d7df7fc9b8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="113" width="555" height="10" backcolor="#003399" uuid="a821c539-6368-4677-a4aa-4dd42b0399c9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="90" y="42" width="454" height="20" forecolor="#666666" uuid="65f88319-5fcf-45c2-8fdf-18f9e2b43bbf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECRETARIA DE SAÚDE -  VIGILÂNCIA AMBIENTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="63" width="454" height="20" forecolor="#666666" uuid="8961fb4c-e878-42a5-9023-c0219974cb71"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚCLEO DE CONTROLE DE ZOONOSES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="84" width="454" height="25" forecolor="#666666" uuid="3da4af67-d2c0-42b6-b937-fcf3c1c734d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTROLE DE DENÚNCIA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="16" width="90" height="93" uuid="84b497ce-d64f-4ff7-a372-e7f0711b0e96"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\brasaoPassos.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="641">
+			<frame>
+				<reportElement x="0" y="26" width="555" height="77" uuid="b4a06f8d-0a7b-48aa-9ffd-0fc1d2525a4e"/>
+				<box>
+					<pen lineStyle="Double" lineColor="#333333"/>
+					<topPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<leftPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<rightPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+				</box>
+				<staticText>
+					<reportElement x="5" y="4" width="124" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="92253703-1ee6-4127-8190-ee4599aa79c5"/>
+					<box leftPadding="5">
+						<pen lineWidth="1.0" lineColor="#999999"/>
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nº DA DENUNCIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="283" y="4" width="149" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="7688533a-beb3-4634-9c28-f38cae9933c1"/>
+					<box leftPadding="5">
+						<pen lineWidth="1.0" lineColor="#999999"/>
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DATA DE DENUNCIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="27" width="225" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="a2481bf1-0315-4f34-9d03-b3ac295cc0d7"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DENUNCIA GERADA PELO ACE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="52" width="113" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="1fdaa0a9-00a7-4f83-8387-b80184ac9e6b"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DENUNCIANTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="284" y="52" width="102" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="13a1c1b4-3f6a-4296-83ca-127a1cc3c8e2"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DENUNCIADO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="130" y="4" width="142" height="20" uuid="5a0c3077-0e3d-4574-a560-e1d1bea4e8da"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_numeroDenuncia}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="432" y="4" width="117" height="20" uuid="2b064559-6b8e-4f53-8d72-e38fa6257d4a"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_dataDenuncia}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="230" y="27" width="319" height="20" uuid="c5bf2177-e75d-4209-932a-1aac969afba0"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_recebidaPor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="118" y="52" width="154" height="20" uuid="a6815a79-0671-49e9-b3b8-2892b7af8ac5"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_denunciante}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="387" y="52" width="162" height="20" uuid="44822962-c393-48a5-ae08-89d01d2e117d"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_denunciado}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="6" width="555" height="20" forecolor="#333333" uuid="594a4ec0-bec6-4328-a7ad-e60f2262fc44"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DADOS DA DENÚNCIA]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="133" width="555" height="54" uuid="ab6af629-79c9-44c0-86ce-a072ca802a49"/>
+				<box>
+					<pen lineStyle="Double" lineColor="#333333"/>
+					<topPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<leftPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<rightPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+				</box>
+				<staticText>
+					<reportElement x="5" y="5" width="113" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="a2c18b69-9a67-47e0-b2c0-dfd4b54f3846"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LOGRADOURO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="432" y="5" width="29" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="2e49e3d6-bb2e-4734-a73a-90fd6bfcd344"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nº ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="29" width="64" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="0c60cb77-57df-463e-96fd-d3dfa3b7b689"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[BAIRRO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="349" y="29" width="102" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="48d3840d-89f4-4f30-b587-8bc83a420c24"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TIPO IMÓVEL]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="118" y="5" width="302" height="20" uuid="3300834f-d6b9-47dd-81c1-84efa77d00ee"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_logradouro}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="461" y="5" width="88" height="20" uuid="1e7627eb-190a-4684-9195-fc5ed895f0c2"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_numeroEndereco}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="69" y="29" width="269" height="20" uuid="0cf77002-629d-4ffa-aee5-a5fb4d885e05"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_bairro}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="451" y="29" width="98" height="20" uuid="e501413a-8ece-416c-9ece-bcd04f3d945e"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_tipoImovel}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="109" width="555" height="20" forecolor="#333333" uuid="a071a619-3c12-41d7-86bc-bf72ba43dea4"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineColor="#666666"/>
+					<rightPen lineWidth="0.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="213" width="555" height="148" uuid="8939b4e8-2647-4596-a5c3-71bd7667be7f"/>
+				<box>
+					<pen lineStyle="Double" lineColor="#333333"/>
+					<topPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<leftPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<rightPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+				</box>
+				<staticText>
+					<reportElement x="5" y="5" width="143" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="8bdd31dc-1d71-4ce7-9e06-ef99517eaa21"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TIPO DE DENÚNCIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="31" width="555" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="4f67ea13-a492-4ad5-982b-aabff5e9bbc5"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.0" lineColor="#666666"/>
+						<rightPen lineWidth="0.0" lineColor="#666666"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[OBSERVAÇÕES DA DENÚNCIA]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="148" y="5" width="401" height="20" uuid="44979ff7-47af-4fc7-8dbb-022d6d9d1bf9"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_tipoDenuncia}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="5" y="56" width="544" height="85" uuid="a92b9f00-f6b0-430e-a1d2-f90db9378959"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_detalhesDenuncia}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="193" width="555" height="20" forecolor="#333333" uuid="00b88d3d-9284-4aca-865e-211d07d0b83e"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineColor="#666666"/>
+					<rightPen lineWidth="0.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALHES DA DENÚNCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="365" width="555" height="20" forecolor="#333333" uuid="8a4273d4-0276-4554-aebb-3ca8bc899b32"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.0" lineColor="#666666"/>
+					<rightPen lineWidth="0.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESFECHO DA DENÚNCIA]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="385" width="555" height="253" uuid="46b13933-7409-43cd-858d-45fe5417dcc7"/>
+				<box>
+					<pen lineStyle="Double" lineColor="#333333"/>
+					<topPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<leftPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+					<rightPen lineWidth="1.0" lineStyle="Double" lineColor="#333333"/>
+				</box>
+				<staticText>
+					<reportElement x="5" y="6" width="225" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="0247dc5c-d504-4eab-ae8e-af6253ffdf43"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ACE RESPONSÁVEL TÉCNICO 1]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="79" width="555" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="5c10b497-9b85-4aa1-9207-034e24b043bd"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.0" lineColor="#666666"/>
+						<rightPen lineWidth="0.0" lineColor="#666666"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DETALHAMENTO DA DENÚNCIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="31" width="225" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="803e6c4a-5dc0-410d-96e4-6d0d181097ab"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ACE RESPONSÁVEL TÉCNICO 2]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="55" width="181" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="50694d85-1b5b-43e4-8a0b-4e5489b846e8"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SITUAÇÃO DA DENUNCIA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="314" y="55" width="118" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="72febd82-df31-4d13-912f-21bc54cfb00d"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DATA DA VISITA]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="230" y="6" width="319" height="20" uuid="a52cc22f-2592-4cdc-a0d3-aaac3592e674"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_ace1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="230" y="31" width="319" height="20" uuid="7f83c281-e055-4cc0-87cb-b96583873f95"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_ace2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="186" y="55" width="117" height="20" uuid="dfae54f3-a85a-4fb5-ab06-c37feb4680bb"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_situacaoVisita}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="432" y="55" width="117" height="20" uuid="de41b867-2367-4346-adbc-f404393fcf5a"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_dataVisita}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="5" y="103" width="543" height="140" uuid="e322bbb9-14c3-4246-b70a-80e6e4578e68"/>
+					<box leftPadding="5">
+						<topPen lineWidth="1.0" lineColor="#999999"/>
+						<leftPen lineWidth="1.0" lineColor="#999999"/>
+						<bottomPen lineWidth="1.0" lineColor="#999999"/>
+						<rightPen lineWidth="1.0" lineColor="#999999"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{denuncia_detalhesVisita}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="482" y="10" width="73" height="15" forecolor="#999999" backcolor="#999999" uuid="7ed20de8-4987-4c9f-82d6-9d8bee6c63e4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="10" width="237" height="15" forecolor="#999999" backcolor="#999999" uuid="03263889-27e1-44cf-aa4f-9f37742d2a5f"/>
+				<box leftPadding="6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="10" backcolor="#003399" uuid="84fd86fb-4181-4ac8-b998-6ac84d3d10bb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="28" width="555" height="10" backcolor="#FF9900" uuid="2420b5e2-4de0-4394-8673-4c9aa0619b8d"/>
+			</rectangle>
+		</band>
+	</pageFooter>
+</jasperReport>

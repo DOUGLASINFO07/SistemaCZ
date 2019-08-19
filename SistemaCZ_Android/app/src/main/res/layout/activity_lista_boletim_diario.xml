@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListaImoveisTrabalhadosActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewQuarteirao"
+            android:layout_width="61dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="5dp"
+            android:background="#00303F"
+            android:gravity="center"
+            android:text="000"
+            android:textColor="#ffffff"
+            android:textSize="23dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoQuarteirao"
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="#00303F"
+            android:gravity="top|center"
+            android:text="QT."
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewBairro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/textViewQuarteirao"
+            android:text="Nossa Senhora da Penha"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewLogradouro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewBairro"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewQuarteirao"
+            android:text="Rua Sebastião Teófilo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoNumeroImovel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewLogradouro"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewQuarteirao"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:text="Nº -"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewNumeroImovel"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewLogradouro"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/textViewTextoNumeroImovel"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:text="81"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoSequencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewLogradouro"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/textViewNumeroImovel"
+            android:text="SEQ.-"
+            android:textColor="@android:color/black"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewSequencia"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewLogradouro"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoSequencia"
+            android:text="0101"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textViewTextoComplemento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewLogradouro"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/textViewSequencia"
+            android:text="COMPL."
+            android:textColor="@android:color/black"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewComplemento"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewLogradouro"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoComplemento"
+            android:text="CASA"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoTipoVisita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewQuarteirao"
+            android:text="T. VISITA - "
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTipoVisita"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoTipoVisita"
+            android:text="RESGATE"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoCiclo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTipoVisita"
+            android:text="CICLO -"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewCiclo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/textViewTextoCiclo"
+            android:text="T.FOCAL 01-2019"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewBarra"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginTop="16dp"
+            android:background="#DCAE1D"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</LinearLayout>

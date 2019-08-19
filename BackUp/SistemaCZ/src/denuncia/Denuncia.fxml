@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="736.0" prefWidth="1280.0" styleClass="AnchorPane" stylesheets="@../css/corFundo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="denuncia.DenunciaControllerFXML">
+   <children>
+      <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="756.0" stylesheets="@../css/label_tituloPagina.css" text="DENÚNCIAS - CONTROLE DE ZOONOSES" />
+         </children>
+      </FlowPane>
+      <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="40.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="15.0" />
+         </padding>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="181.0" layoutY="935.0" prefHeight="30.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="448.0" stylesheets="@../css/hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" stylesheets="@../css/hora_Data.css" text="Label" />
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+      <FlowPane layoutY="100.0" minHeight="444.0" prefHeight="494.0" prefWidth="1280.0" stylesheets="@../css/flowPane.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <FlowPane alignment="CENTER" prefHeight="417.0" prefWidth="1280.0">
+               <children>
+                  <Pane maxHeight="-Infinity" prefHeight="478.0" prefWidth="150.0">
+                     <children>
+                        <Button fx:id="salvarBT" disable="true" layoutX="15.0" layoutY="292.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="SALVAR" />
+                        <Button fx:id="atualizarBT" disable="true" layoutX="15.0" layoutY="358.0" mnemonicParsing="false" onKeyPressed="#atualizarBTTeclado" onMouseClicked="#atualizarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="ATUALIZAR" />
+                        <Button fx:id="excluirBT" disable="true" layoutX="15.0" layoutY="421.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="EXCLUIR" />
+                        <Button fx:id="novoCadastroBT" layoutX="15.0" layoutY="2.0" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="NOVO" />
+                        <Button fx:id="imprimirBT" disable="true" layoutX="15.0" layoutY="226.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="IMPRIMIR" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="497.0" prefWidth="730.0">
+                     <children>
+                        <VBox layoutY="6.0" prefHeight="468.0" prefWidth="350.0">
+                           <children>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="57.0" prefWidth="348.0">
+                                 <children>
+                                    <TextField fx:id="numeroDenunciaTF" layoutY="30.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <Label prefHeight="27.0" prefWidth="170.0" text="NÚMERO DA DENÚNCIA" />
+                                    <Label layoutX="174.0" prefHeight="27.0" prefWidth="170.0" text="DATA" />
+                                    <DatePicker fx:id="dataDenunciaDP" layoutX="172.0" layoutY="30.0" prefWidth="170.0" />
+                                 </children>
+                              </Pane>
+                              <Label prefHeight="27.0" prefWidth="113.0" text="RECEBIDA POR" />
+                              <ComboBox fx:id="recebidaPorCB" prefHeight="25.0" prefWidth="351.0" />
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="57.0" prefWidth="348.0">
+                                 <children>
+                                    <Label layoutX="170.0" prefHeight="27.0" prefWidth="108.0" text="DENUNCIADO" />
+                                    <TextField fx:id="denuncianteTF" layoutY="30.0" prefWidth="170.0" />
+                                    <Label prefHeight="27.0" prefWidth="104.0" text="DENUNCIANTE" />
+                                    <TextField fx:id="denunciadoTF" layoutX="170.0" layoutY="30.0" prefHeight="25.0" prefWidth="180.0" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="55.0" prefWidth="350.0">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="108.0" text="LOGRADOURO" />
+                                    <TextField fx:id="logradouraTF" layoutY="30.0" prefHeight="25.0" prefWidth="280.0" />
+                                    <TextField fx:id="numeroEnderecoTF" layoutX="275.0" layoutY="30.0" prefHeight="25.0" prefWidth="73.0" />
+                                    <Label layoutX="275.0" text="Nº" />
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="67.0" prefHeight="55.0" prefWidth="350.0">
+                                 <children>
+                                    <Label prefHeight="27.0" prefWidth="188.0" text="BAIRRO" />
+                                    <ComboBox fx:id="bairroCB" layoutY="30.0" prefHeight="25.0" prefWidth="240.0" />
+                                    <Label layoutX="236.0" prefHeight="27.0" prefWidth="90.0" text="TIPO IMÓVEL" />
+                                    <ComboBox fx:id="tipoImovelCB" layoutX="236.0" layoutY="30.0" prefHeight="25.0" prefWidth="115.0" />
+                                 </children>
+                              </Pane>
+                              <Label text="TIPO DE DENÚNCIA" />
+                              <ComboBox fx:id="tipoDenunciaCB" prefHeight="25.0" prefWidth="353.0" />
+                              <Label text="DETALHES DA DENUNCIA" />
+                              <TextArea fx:id="detalhesDenunciaTA" onKeyPressed="#detalhesDenunciaTATeclado" prefHeight="110.0" prefWidth="350.0" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="367.0" layoutY="7.0" prefHeight="468.0" prefWidth="350.0">
+                           <children>
+                              <Label text="ACE RESPONSÁVEL PELA VISITA" />
+                              <ComboBox fx:id="ace1CB" prefHeight="25.0" prefWidth="344.0" />
+                              <Label layoutX="10.0" layoutY="10.0" text="ACE RESPONSÁVEL PELA VISITA" />
+                              <ComboBox fx:id="ace2CB" layoutX="10.0" layoutY="37.0" prefHeight="25.0" prefWidth="344.0" />
+                              <Pane layoutX="10.0" layoutY="270.0" prefHeight="57.0" prefWidth="348.0">
+                                 <children>
+                                    <Label text="SITUAÇÃO DA VISITA" />
+                                    <CheckBox fx:id="abertaCheckBox" layoutY="30.0" mnemonicParsing="false" onKeyPressed="#abertaCheckBoxTeclado" onMouseClicked="#abertaCheckBoxMouse" prefHeight="27.0" prefWidth="75.0" text="ABERTA" />
+                                    <CheckBox fx:id="concluidoCheckBox" layoutX="75.0" layoutY="30.0" mnemonicParsing="false" onKeyPressed="#concluidoCheckBoxTeclado" onMouseClicked="#concluidoCheckBoxMouse" prefWidth="90.0" text="CONCLUÍDA" />
+                                    <DatePicker fx:id="dataVisitaDP" layoutX="175.0" layoutY="24.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <Label layoutX="175.0" text="DATA VISITA" />
+                                 </children>
+                              </Pane>
+                              <Label text="RELATÓRIO DE VISITA" />
+                              <TextArea fx:id="relatorioVisitaTA" onKeyPressed="#relatorioVisitaTATeclado" prefHeight="196.0" prefWidth="350.0" wrapText="true" />
+                              <Pane prefHeight="98.0" prefWidth="350.0">
+                                 <children>
+                                    <TextField fx:id="numeroDenunciaPesquisaTF" layoutX="118.0" layoutY="63.0" prefHeight="25.0" prefWidth="90.0" />
+                                    <Label alignment="TOP_CENTER" layoutX="2.0" layoutY="26.0" prefHeight="40.0" prefWidth="350.0" text="PESQUISAR DENÚNCIA" />
+                                    <Button fx:id="listarBT" layoutX="219.0" layoutY="60.0" mnemonicParsing="false" onKeyPressed="#listarBTTeclado" onMouseClicked="#listarBTMouse" prefHeight="30.0" prefWidth="131.0" stylesheets="@../css/button.css" text="BUSCAR" />
+                                    <Label layoutX="2.0" layoutY="62.0" text="Nº DA DENUNCIA" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </FlowPane>
+         </children></FlowPane>
+   </children>
+</AnchorPane>

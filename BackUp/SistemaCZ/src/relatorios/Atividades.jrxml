@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Funcionario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="128ed282-eeb1-4a4d-bd87-7b9912f7166f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="atividades" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     atividades.`codigo` AS atividades_codigo,
+     atividades.`atividades` AS atividades_atividades,
+     atividades.`dataInicio` AS atividades_dataInicio,
+     atividades.`dataTermino` AS atividades_dataTermino,
+     atividades.`observacao` AS atividades_observacao,
+     atividades.`nomeAtividade` AS atividades_nomeAtividade
+FROM
+     `atividades` atividades
+WHERE
+	atividades LIKE $P{atividades}
+ORDER BY
+	atividades DESC]]>
+	</queryString>
+	<field name="atividades_codigo" class="java.lang.Integer"/>
+	<field name="atividades_atividades" class="java.lang.String"/>
+	<field name="atividades_dataInicio" class="java.sql.Date"/>
+	<field name="atividades_dataTermino" class="java.sql.Date"/>
+	<field name="atividades_observacao" class="java.lang.String"/>
+	<field name="atividades_nomeAtividade" class="java.lang.String"/>
+	<title>
+		<band height="65" splitType="Stretch">
+			<image>
+				<reportElement x="515" y="15" width="40" height="40" uuid="8cc8c110-b8e7-4dfe-84f3-591de94913e6"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\logoExemplo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="5" y="15" width="40" height="40" uuid="4a876401-548f-467e-a4c9-1982c4d838e9"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\iconeSistemaCZ.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="50" y="11" width="454" height="20" forecolor="#666666" uuid="aad324a0-9d7b-4eb5-82f7-b0eb03a59d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISTEMA DE GERENCIAMENTO DE CONTROLE DE ZOONOSES - PASSOS MG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="35" width="454" height="20" forecolor="#666666" uuid="a957f9fd-abc6-4523-bcee-b199fe906a14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE ATIVIDADES]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="10" backcolor="#FF9900" uuid="4230e98e-714d-4e34-9119-d0d7df7fc9b8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="55" width="555" height="10" backcolor="#003399" uuid="a821c539-6368-4677-a4aa-4dd42b0399c9"/>
+			</rectangle>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#E2DFD6" uuid="be8f44b1-f764-4186-a0d6-22e1165b1d8a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="152" height="20" forecolor="#666666" uuid="92253703-1ee6-4127-8190-ee4599aa79c5"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATIVIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="0" width="80" height="20" forecolor="#666666" uuid="1a09e24d-8b15-4023-9d69-2bdf05e22dd0"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA INÍCIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="0" width="86" height="20" forecolor="#666666" uuid="80e10e45-a20d-40e2-82c9-c916b51d583d"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA TÉRMINO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="0" width="97" height="20" forecolor="#666666" uuid="7688533a-beb3-4634-9c28-f38cae9933c1"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME DO CICLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="0" width="140" height="20" forecolor="#666666" uuid="51a6add9-812a-493a-9a65-b439dba4c8d5"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBSERVAÇÃO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="152" height="20" uuid="18347b92-c996-46ae-a2b3-b5af7f108a5b"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineColor="#666666"/>
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<bottomPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atividades_atividades}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="152" y="1" width="80" height="20" uuid="45f5dd68-57ba-47d5-a0bb-95cb1526f76a"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineColor="#666666"/>
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<bottomPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atividades_dataInicio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="232" y="1" width="86" height="20" uuid="29ce5be6-26e0-4330-a764-9487abf7d8af"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineColor="#666666"/>
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<bottomPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atividades_dataTermino}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="318" y="1" width="97" height="20" uuid="42388945-4854-43e8-b6fc-2227d654e901"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineColor="#666666"/>
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<bottomPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atividades_nomeAtividade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="1" width="140" height="20" uuid="5180356f-a655-4ff5-a248-acb429837fd0"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineColor="#666666"/>
+					<leftPen lineWidth="1.0" lineColor="#666666"/>
+					<bottomPen lineWidth="1.0" lineColor="#666666"/>
+					<rightPen lineWidth="1.0" lineColor="#666666"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atividades_observacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="482" y="10" width="73" height="15" forecolor="#999999" backcolor="#999999" uuid="7ed20de8-4987-4c9f-82d6-9d8bee6c63e4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="10" width="237" height="15" forecolor="#999999" backcolor="#999999" uuid="03263889-27e1-44cf-aa4f-9f37742d2a5f"/>
+				<box leftPadding="6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="10" backcolor="#003399" uuid="84fd86fb-4181-4ac8-b998-6ac84d3d10bb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="28" width="555" height="10" backcolor="#FF9900" uuid="2420b5e2-4de0-4394-8673-4c9aa0619b8d"/>
+			</rectangle>
+		</band>
+	</pageFooter>
+</jasperReport>

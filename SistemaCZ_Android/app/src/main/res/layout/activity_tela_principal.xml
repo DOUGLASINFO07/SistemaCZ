@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00303F"
+    tools:context=".TelaPrincipalActivity">
+
+    <ImageView
+        android:id="@+id/imageViewlogoSistema"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="330dp"
+        android:src="@mipmap/logo_sistema"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewLogoMarca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSaudacao"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginLeft="66dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginBottom="30dp"
+        android:background="#00303F"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewlogoSistema"
+        tools:text="Olá Douglas, faça sua escolha!" />
+
+    <TextView
+        android:id="@+id/textViewMenu"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginLeft="66dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginBottom="30dp"
+        android:background="#00303F"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBoletimDiario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSaudacao"
+        tools:text="TELA DE MENU" />
+
+    <Button
+        android:id="@+id/buttonBoletimDiario"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="#DCAE1D"
+        android:text="Boletim Diário"
+        android:textColor="#00303F"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDenuncia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSaudacao" />
+
+
+    <Button
+        android:id="@+id/buttonDenuncia"
+        android:layout_width="250dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="10dp"
+        android:background="#DCAE1D"
+        android:text="Denuncia"
+        android:textColor="#00303F"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBoletimDiario" />
+
+ />
+
+    <ImageView
+        android:id="@+id/imageViewLogoMarca"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:src="@mipmap/logomarca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewlogoSistema" />
+
+
+</android.support.constraint.ConstraintLayout>

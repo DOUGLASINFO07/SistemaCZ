@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListaDenunciaLancadaActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewNumeroDenuncia"
+            android:layout_width="61dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="5dp"
+            android:background="#00303F"
+            android:gravity="bottom|center"
+            android:text="00000"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoNumeroDenuncia"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:background="#00303F"
+            android:gravity="bottom|center|top"
+            android:text="NÚMERO DENUNCIA"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#ffffff"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewBairro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/textViewTextoNumeroDenuncia"
+            android:text="Nossa Senhora da Penha"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewLogradouro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewBairro"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoNumeroDenuncia"
+            android:text="Rua Sebastião Teófilo"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoNumeroImovel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewLogradouro"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoNumeroDenuncia"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:text="Nº -"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewNumeroImovel"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewLogradouro"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/textViewTextoNumeroImovel"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:text="81"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTextoTipoImovel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewLogradouro"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewNumeroImovel"
+            android:text="TIPO IMÓVEL"
+            android:textColor="@android:color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTipoImovel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewLogradouro"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/textViewTextoTipoImovel"
+            android:text="Terreno Baldio"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textViewTextoTipoDenuncia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoNumeroDenuncia"
+            android:text="TIPO DE DENUNCIA"
+            android:textColor="@android:color/black"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTipoDenuncia"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@+id/textViewTextoTipoDenuncia"
+            android:text="Terreno Baldio"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewBarra"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/textViewTextoNumeroImovel"
+            android:layout_marginTop="16dp"
+            android:background="#DCAE1D"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="736.0" prefWidth="1280.0" styleClass="AnchorPane" stylesheets="@../css/corFundo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="relatorioQuarteirao.RelatorioQuarteiraoControllerFXML">
+   <children>
+      <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="756.0" stylesheets="@../css/label_tituloPagina.css" text="CONTROLE DE ZOONOSES - RELATÓRIOS DE QUARTEIRÕES" />
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </FlowPane>
+      <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="40.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="15.0" />
+         </padding>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="181.0" layoutY="935.0" prefHeight="30.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="448.0" stylesheets="@../css/hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" stylesheets="@../css/hora_Data.css" text="Label" />
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+      <FlowPane layoutY="100.0" minHeight="444.0" prefHeight="487.0" prefWidth="1280.0" stylesheets="@../css/flowPane.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <FlowPane alignment="CENTER" prefHeight="492.0" prefWidth="1280.0">
+               <children>
+                  <Pane prefHeight="489.0" prefWidth="1269.0">
+                     <children>
+                        <Pane layoutX="20.0" layoutY="10.0" prefHeight="50.0" prefWidth="283.0">
+                           <children>
+                              <ComboBox fx:id="pesquisarPorCB" layoutX="4.0" layoutY="8.0" onAction="#pesquisarPorCBMouse" onKeyPressed="#pesquisarPorCBTeclado" prefHeight="25.0" prefWidth="273.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneCampoPesquisaCB" layoutX="285.0" layoutY="10.0" prefHeight="50.0" prefWidth="400.0" visible="false">
+                           <children>
+                              <ComboBox fx:id="campoPesquisaCB" layoutX="4.0" layoutY="8.0" onKeyPressed="#campoPesquisaCBTeclado" onMouseClicked="#campoPesquisaCBMouse" prefHeight="25.0" prefWidth="390.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneCampoPesquisaTF" layoutX="285.0" layoutY="10.0" prefHeight="50.0" prefWidth="400.0" visible="false">
+                           <children>
+                              <TextField fx:id="campoPesquisaTF" layoutX="4.0" layoutY="8.0" onKeyPressed="#campoPesquisaTFTeclado" onMouseClicked="#campoPesquisaTFMouse" prefHeight="25.0" prefWidth="390.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneCampoPesquisa2CB" layoutX="700.0" layoutY="10.0" prefHeight="50.0" prefWidth="220.0" visible="false">
+                           <children>
+                              <ComboBox fx:id="campoPesquisa2CB" layoutX="4.0" layoutY="8.0" prefHeight="25.0" prefWidth="210.0" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="pesquisarBT" disable="true" layoutX="929.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#pesquisarBTTeclado" onMouseClicked="#pesquisarBTMouse" prefHeight="30.0" prefWidth="151.0" stylesheets="@../css/button.css" text="PESQUISAR" />
+                        <Button fx:id="imprimirBT" disable="true" layoutX="1093.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="30.0" prefWidth="151.0" stylesheets="@../css/button.css" text="IMPRIMIR" />
+                        <TableView fx:id="relatorioPesquisaTV" layoutX="27.0" layoutY="60.0" onKeyPressed="#relatorioPesquisaTVTeclado" onMouseClicked="#relatorioPesquisaTVMouse" prefHeight="427.0" prefWidth="1218.0">
+                          <columns>
+                            <TableColumn fx:id="localidadeCT" prefWidth="170.0" text="LOCALIDADE" />
+                            <TableColumn fx:id="macroAreaCT" prefWidth="90.0" text="MACRO ÁREA" />
+                              <TableColumn fx:id="microAreaCT" prefWidth="90.0" text="MICRO ÁREA" />
+                              <TableColumn fx:id="supervisorCT" prefWidth="170.0" text="SUPERVISOR" />
+                              <TableColumn fx:id="aceCT" prefWidth="170.0" text="ACE" />
+                              <TableColumn fx:id="rgCT" prefWidth="85.0" text="RG" />
+                              <TableColumn fx:id="quarteiraoCT" prefWidth="55.0" text="QT." />
+                              <TableColumn fx:id="residenciaCT" prefWidth="55.0" text="RESID." />
+                              <TableColumn fx:id="comercioCT" prefWidth="55.0" text="COM." />
+                              <TableColumn fx:id="terrenoBaldioCT" prefWidth="55.0" text="T.B." />
+                              <TableColumn fx:id="PECT" prefWidth="55.0" text="P.E." />
+                              <TableColumn fx:id="outrosCT" prefWidth="55.0" text="OUT." />
+                              <TableColumn fx:id="totalCT" prefWidth="55.0" text="TOTAL" />
+                              <TableColumn fx:id="habitanteCT" prefWidth="55.0" text="HABIT." />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </children>
+            </FlowPane>
+         </children></FlowPane>
+   </children>
+</AnchorPane>

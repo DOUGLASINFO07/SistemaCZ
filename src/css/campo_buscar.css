@@ -1,0 +1,9 @@
+.text-field{
+    -fx-font-size: 12px;
+    -fx-padding: 0 0 0 5;
+    -fx-font-weight: 900;
+    -fx-font-family: 'System' , 'helvetica Neue', 'Arial', 'sans-serif';
+    -fx-text-fill: #373f27;  
+    -fx-prompt-text:px;
+}
+

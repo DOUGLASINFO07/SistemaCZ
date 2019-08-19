@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Funcionario" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="128ed282-eeb1-4a4d-bd87-7b9912f7166f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="localidade" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ciclo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     servicotratamentofocal.`rg` AS servicotratamentofocal_rg,
+     servicotratamentofocal.`localidade` AS servicotratamentofocal_localidade,
+     servicotratamentofocal.`categoria` AS servicotratamentofocal_categoria,
+     servicotratamentofocal.`tipo` AS servicotratamentofocal_tipo,
+     servicotratamentofocal.`zona` AS servicotratamentofocal_zona,
+     servicotratamentofocal.`data` AS servicotratamentofocal_data,
+     servicotratamentofocal.`semana` AS servicotratamentofocal_semana,
+     servicotratamentofocal.`ciclo` AS servicotratamentofocal_ciclo,
+     servicotratamentofocal.`ace` AS servicotratamentofocal_ace,
+     servicotratamentofocal.`supervisor` AS servicotratamentofocal_supervisor,
+     servicotratamentofocal.`comoTrabalhou` AS servicotratamentofocal_comoTrabalhou,
+     servicotratamentofocal.`observacao` AS servicotratamentofocal_observacao,
+     servicotratamentofocal.`quarteirao` AS servicotratamentofocal_quarteirao,
+     servicotratamentofocal.`lado` AS servicotratamentofocal_lado,
+     servicotratamentofocal.`residencia` AS servicotratamentofocal_residencia,
+     servicotratamentofocal.`comercio` AS servicotratamentofocal_comercio,
+     servicotratamentofocal.`terrenoBaldio` AS servicotratamentofocal_terrenoBaldio,
+     servicotratamentofocal.`outros` AS servicotratamentofocal_outros,
+     servicotratamentofocal.`visitaResgate` AS servicotratamentofocal_visitaResgate,
+     servicotratamentofocal.`eliminado` AS servicotratamentofocal_eliminado,
+     servicotratamentofocal.`imovelTratado` AS servicotratamentofocal_imovelTratado,
+     servicotratamentofocal.`larvicida` AS servicotratamentofocal_larvicida,
+     servicotratamentofocal.`quantLarvicida` AS servicotratamentofocal_quantLarvicida,
+     servicotratamentofocal.`quantTratado` AS servicotratamentofocal_quantTratado,
+     servicotratamentofocal.`situacaoQuarteirao` AS servicotratamentofocal_situacaoQuarteirao
+FROM
+     `servicotratamentofocal` servicotratamentofocal
+WHERE
+localidade = $P{localidade}
+AND
+ciclo = $P{ciclo}
+ORDER BY
+quarteirao]]>
+	</queryString>
+	<field name="servicotratamentofocal_rg" class="java.lang.String"/>
+	<field name="servicotratamentofocal_localidade" class="java.lang.String"/>
+	<field name="servicotratamentofocal_categoria" class="java.lang.String"/>
+	<field name="servicotratamentofocal_tipo" class="java.lang.String"/>
+	<field name="servicotratamentofocal_zona" class="java.lang.String"/>
+	<field name="servicotratamentofocal_data" class="java.sql.Date"/>
+	<field name="servicotratamentofocal_semana" class="java.lang.String"/>
+	<field name="servicotratamentofocal_ciclo" class="java.lang.String"/>
+	<field name="servicotratamentofocal_ace" class="java.lang.String"/>
+	<field name="servicotratamentofocal_supervisor" class="java.lang.String"/>
+	<field name="servicotratamentofocal_comoTrabalhou" class="java.lang.String"/>
+	<field name="servicotratamentofocal_observacao" class="java.lang.String"/>
+	<field name="servicotratamentofocal_quarteirao" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_lado" class="java.lang.String"/>
+	<field name="servicotratamentofocal_residencia" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_comercio" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_terrenoBaldio" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_outros" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_visitaResgate" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_eliminado" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_imovelTratado" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_larvicida" class="java.lang.String"/>
+	<field name="servicotratamentofocal_quantLarvicida" class="java.lang.Double"/>
+	<field name="servicotratamentofocal_quantTratado" class="java.lang.Integer"/>
+	<field name="servicotratamentofocal_situacaoQuarteirao" class="java.lang.String"/>
+	<variable name="TOTAL" class="java.lang.String" calculation="Sum">
+		<variableExpression><![CDATA[$F{servicotratamentofocal_residencia}+$F{servicotratamentofocal_comercio}+$F{servicotratamentofocal_terrenoBaldio}+$F{servicotratamentofocal_outros}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="10" backcolor="#CC9900" uuid="aa65609e-4d58-4d4b-a68d-a89bbcef58fa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="60" width="802" height="10" backcolor="#003366" uuid="705514a0-a97e-4d21-b8eb-cf36f7e4b88a"/>
+			</rectangle>
+			<image>
+				<reportElement x="754" y="15" width="40" height="40" uuid="8cc8c110-b8e7-4dfe-84f3-591de94913e6"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\logoExemplo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="5" y="15" width="40" height="40" uuid="4a876401-548f-467e-a4c9-1982c4d838e9"/>
+				<imageExpression><![CDATA["..\\src\\imagens\\iconeSistemaCZ.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="45" y="11" width="709" height="24" forecolor="#666666" uuid="aad324a0-9d7b-4eb5-82f7-b0eb03a59d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISTEMA DE GERENCIAMENTO DE CONTROLE DE ZOONOSES - PASSOS MG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="35" width="709" height="25" forecolor="#666666" uuid="a957f9fd-abc6-4523-bcee-b199fe906a14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO - SERVIÇO TRATAMENTO FOCAL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="70">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="20" backcolor="#CCCCCC" uuid="c8788066-69d1-4e3c-adad-339dbf72967f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="34" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="829a1339-5c65-40da-9563-bcfda6bf0be1"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="0" width="217" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="db6dec05-9ad0-4e9c-b7f8-a58acd02f871"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LOCALIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="0" width="80" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="c7d56974-1c5e-4e35-b439-75fedd6b4fcd"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CATEGORIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="0" width="58" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="9c52eb8e-65e5-4c96-b2d8-f71e09fb5c61"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="0" width="83" height="20" forecolor="#666666" uuid="bbe75230-ca45-4305-92dd-f11e52573ddf"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CICLO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="20" width="34" height="20" uuid="eeacacd8-1a79-4d55-98f3-2d3d230998ee"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_rg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="20" width="217" height="20" uuid="ad52e2f3-2fe2-4cd3-b95c-32bc2dd1a9f9"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_localidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="20" width="80" height="20" uuid="509ab516-0014-4109-8932-810e6f25da6f"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="20" width="58" height="20" uuid="eb3f5b64-b655-4937-8b7f-6e499b2ce977"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="20" width="62" height="20" uuid="82fa91bd-642c-4cf8-a259-23de58bcc35a"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="20" width="83" height="20" uuid="f80bc883-aba4-4ea6-88b9-e41318c27120"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_ciclo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="389" y="0" width="62" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="e4e66bf8-8972-4986-b3cf-722fa6291c42"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ZONA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="0" width="195" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="434028c4-f399-4488-8544-f0f312ba2b58"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[SUPERVISOR]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="50" width="802" height="20" backcolor="#CCCCCC" uuid="b2ce58a3-73d9-4d55-912c-47bb11fb5d16"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="50" width="30" height="20" forecolor="#666666" uuid="c5da3e88-35ea-4876-9138-85aa9ecca2d2"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[QT]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="40" width="802" height="10" backcolor="#CC9900" uuid="9d297046-3740-4066-a086-8fadcae44e16"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="276" y="50" width="30" height="20" forecolor="#666666" uuid="ee5af5c8-dcc4-4055-b7bd-283ee07ea352"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RES.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="50" width="30" height="20" forecolor="#666666" uuid="39983fda-de12-41bf-9611-e44b0264df7c"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[COM.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="50" width="25" height="20" forecolor="#666666" uuid="da3e216c-7a6a-4aa2-be28-ca8f44cfd3c7"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[T.B.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="50" width="30" height="20" forecolor="#666666" uuid="763920cb-6774-46a0-92ee-1a0dfb675617"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[OUT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="50" width="40" height="20" forecolor="#666666" uuid="dcbee011-717d-4c1a-9fc0-5ff98d5bed72"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="50" width="35" height="20" forecolor="#666666" uuid="ebc19c8f-f7e8-4fbd-9b14-858538105b31"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RESG.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="50" width="35" height="20" forecolor="#666666" uuid="b802ae8e-8112-451f-abef-565923392dd6"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ELIM.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="50" width="40" height="20" forecolor="#666666" uuid="29bbc288-8e0a-4394-8360-c1af60bdf4f2"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[I. TRAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="541" y="50" width="45" height="20" forecolor="#666666" uuid="0bb0f43f-9db5-4ffb-a71d-12a54314c2ec"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Q.LARV.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="586" y="50" width="45" height="20" forecolor="#666666" uuid="12266d40-6a97-492e-9374-19dddcae5055"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Q.TRAT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="729" y="0" width="73" height="20" forecolor="#666666" uuid="c272a9d6-b5e4-4554-b614-1c0c4388bdee"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LARVICIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="719" y="50" width="83" height="20" forecolor="#666666" uuid="9110084d-5b7a-49d8-88cb-c10695557789"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[SITUAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="534" y="20" width="195" height="20" uuid="ba78a9d1-9c10-46a3-9b18-1ecb0a8e5693"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_supervisor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="50" width="160" height="20" forecolor="#666666" backcolor="#CCCCCC" uuid="f79c1d93-baab-42c0-9b56-e864a57c446b"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ACE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="729" y="20" width="73" height="20" uuid="f1906eee-3987-473e-b495-02a9044ec62b"/>
+				<box topPadding="0" leftPadding="5" bottomPadding="0">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_larvicida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="631" y="50" width="88" height="20" forecolor="#666666" uuid="6cffd48a-4d47-4651-b109-9ff3ab5c9f0f"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[COMO TRAB.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="50" width="59" height="20" forecolor="#666666" uuid="93770c54-ec3b-4f08-a1bf-506b6086421a"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="50" width="27" height="20" forecolor="#666666" uuid="bd072e89-d048-4f51-be5b-0884aedf8165"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.5" lineColor="#999999"/>
+					<rightPen lineWidth="0.5" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[SEM.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="160" height="20" uuid="40673b86-bb59-4135-80a4-870bf3b2b92e"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_ace}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20" uuid="01b9c38f-4b99-45a0-9f20-d89d8e5a78b7"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_quarteirao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="30" height="20" uuid="fafe2ad7-5a5b-4ee5-8bd5-bfa2151b36e9"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_residencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="0" width="30" height="20" uuid="93026676-eef5-4f7d-847b-4cf6f57c0356"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_comercio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="25" height="20" uuid="ac0ee37e-24c6-4075-a290-90d972e4fefa"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_terrenoBaldio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="0" width="30" height="20" uuid="02ceaf5f-ac82-48e2-bc51-f0bfdba77192"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_outros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="0" width="40" height="20" uuid="4c023a5e-fb54-41c2-9fef-2c3cb9a8bbc5"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="0" width="35" height="20" uuid="428759eb-fb61-4086-8639-06fbf892d86f"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_visitaResgate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="0" width="35" height="20" uuid="99dcc395-d918-49f4-a825-07226320ba9f"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_eliminado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="0" width="40" height="20" uuid="7b487941-e277-425d-b038-84127aae5104"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_imovelTratado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="541" y="0" width="45" height="20" uuid="5235eba9-dbd0-45a9-8496-5a90fb943fad"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_quantLarvicida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="586" y="0" width="45" height="20" uuid="c63573c9-abfb-4b73-89b3-4d608b9bf0c2"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_quantTratado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="719" y="0" width="83" height="20" uuid="5b524a38-f809-4ede-91d1-984e8ac9ec11"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_situacaoQuarteirao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="631" y="0" width="88" height="20" uuid="1c3fd292-c76f-43de-ba68-c9891eefee1d"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_comoTrabalhou}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="27" height="20" uuid="4ac418dc-a595-42f3-ba33-fa138232247a"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_semana}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="217" y="0" width="59" height="20" uuid="dec3ed9d-0e6f-472f-82c0-6f0d4f833336"/>
+				<box leftPadding="4">
+					<leftPen lineWidth="1.0" lineColor="#999999"/>
+					<bottomPen lineWidth="1.0" lineColor="#999999"/>
+					<rightPen lineWidth="1.0" lineColor="#999999"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{servicotratamentofocal_data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="10" backcolor="#003366" uuid="5d956fdd-e744-4ecc-8f3a-a9bf4e71b0c2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="28" width="802" height="10" backcolor="#CC9900" uuid="6d1ca639-32d5-45da-8afb-5617a45a1de1"/>
+			</rectangle>
+			<textField>
+				<reportElement x="729" y="11" width="73" height="15" forecolor="#999999" backcolor="#999999" uuid="7ed20de8-4987-4c9f-82d6-9d8bee6c63e4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="11" width="237" height="15" forecolor="#999999" backcolor="#999999" uuid="03263889-27e1-44cf-aa4f-9f37742d2a5f"/>
+				<box leftPadding="6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
