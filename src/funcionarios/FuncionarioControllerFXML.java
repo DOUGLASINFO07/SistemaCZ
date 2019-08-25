@@ -9,9 +9,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -26,14 +24,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import login.LoginMetodos;
+import util.CarregarPagina;
 import util.Relogio;
 import util.Utilitario;
 import util.ValidarCPF;
 
 public class FuncionarioControllerFXML implements Initializable {
+
+    CarregarPagina cp = new CarregarPagina();
 
     FuncionarioMetodo FM = new FuncionarioMetodo();
 
@@ -354,17 +353,13 @@ public class FuncionarioControllerFXML implements Initializable {
 
     @FXML
     void voltarMenuBTMouse(MouseEvent event) {
-//        FM.abrirMenu();
-//        FM.fecharFuncionario();
-//
-carregarPagina("/menu/Menu.fxml");
+        cp.carregarPagina("/menu/Menu.fxml");
     }
 
     @FXML
     void voltarMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            FM.abrirMenu();
-            FM.fecharFuncionario();
+            cp.carregarPagina("/menu/Menu.fxml");
         }
 
     }
@@ -382,29 +377,27 @@ carregarPagina("/menu/Menu.fxml");
             imprimirBT.setDisable(true);
         }
     }
-    
+
     @FXML
     void cepEnderecoTFMouse(MouseEvent event) {
-        
-        
+
     }
 
     @FXML
     void cepEnderecoTFTeclado(KeyEvent event) throws IOException {
         BuscaCEP buscaCEP = new BuscaCEP();
         if (event.getCode() == KeyCode.TAB || event.getCode() == KeyCode.ENTER) {
-           String CEP = cepEnderecoTF.getText();
+            String CEP = cepEnderecoTF.getText();
             bairroEnderecoTF.setText(buscaCEP.getBairro(CEP.replace(".", "").replace("-", "")));
             logradouroEnderecoTF.setText(buscaCEP.getEndereco(CEP.replace(".", "").replace("-", "")));
             cidadeEnderecoTF.setText(buscaCEP.getCidade(CEP.replace(".", "").replace("-", "")));
             estadoEnderecoCB.setValue(buscaCEP.getUF(CEP.replace(".", "").replace("-", "")));
         }
     }
-    
+
     @FXML
     void cpfTFMouse(MouseEvent event) {
-        
-        
+
     }
 
     @FXML
@@ -412,17 +405,17 @@ carregarPagina("/menu/Menu.fxml");
         ValidarCPF validarCPF = new ValidarCPF();
         if (event.getCode() == KeyCode.TAB || event.getCode() == KeyCode.ENTER) {
             String CPF = cpfTF.getText();
-          if(validarCPF.isCPF(CPF.replace(".", "").replace("-", "")) == true){
-              
-          }else{
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText("CONTROLE DE ZOONOSES\nCADASTRO DE FUNCIONÁRIO");
-                    alert.setContentText("ATENÇÃO!!\n CPF INVÁLIDO!!\n"
-                            + "O NÚMERO DO CPF NÃO EXISTE!!");
-                    alert.show();//Fim do if.
-                    cpfTF.setText("");
-                    Platform.runLater(cpfTF::requestFocus);//fim do run.
-          }
+            if (validarCPF.isCPF(CPF.replace(".", "").replace("-", "")) == true) {
+
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("CONTROLE DE ZOONOSES\nCADASTRO DE FUNCIONÁRIO");
+                alert.setContentText("ATENÇÃO!!\n CPF INVÁLIDO!!\n"
+                        + "O NÚMERO DO CPF NÃO EXISTE!!");
+                alert.show();//Fim do if.
+                cpfTF.setText("");
+                Platform.runLater(cpfTF::requestFocus);//fim do run.
+            }
         }
     }
 
@@ -994,7 +987,6 @@ carregarPagina("/menu/Menu.fxml");
         );
         Platform.runLater(novoCadastroBT::requestFocus);//fim do run.
     }
-    
 
     @FXML
     void habilitacaoTFTeclado(KeyEvent event) {
@@ -1019,21 +1011,5 @@ carregarPagina("/menu/Menu.fxml");
             }
         });
     }
-    
-    private void carregarPagina(String nomeCaminho) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeCaminho));
-            AnchorPane newAnchorPane = loader.load();
-            
-            Scene mainsScene = LoginMetodos.getMainScene();
-            
-            AnchorPane anchorPaneLogin = (AnchorPane) mainsScene.getRoot();
-            anchorPaneLogin.getChildren().clear();
-            anchorPaneLogin.getChildren().addAll(newAnchorPane.getChildren());
-            
-            
-        } catch (IOException e) {
-            System.out.println("Erro ao carregar pagina.");
-        }
-    }
+
 }

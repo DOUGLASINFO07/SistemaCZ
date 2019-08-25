@@ -1,6 +1,6 @@
 .label{
-    -fx-font-size: 2px;
-    -fx-padding: 3 0 0 5;
+    -fx-font-size: 12px;
+    -fx-padding: 10 0 0 5;
     -fx-font-weight: 800;
     -fx-font-family: 'System' , 'Arial', 'sans-serif';
     -fx-text-fill:gray;

@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -15,53 +14,26 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import java.util.Optional;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import login.LoginMetodos;
+import javafx.scene.control.DialogPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import util.CarregarPagina;
 import util.Relogio;
 
 public class MenuControllerFXML implements Initializable {
 
-    @FXML
-    private Button cadastroFuncionarioBT;
-
-    @FXML
-    private Button cadastroLocalidadeBT;
-
-    @FXML
-    private Button cadastroQuarteiraoBT;
-
-    @FXML
-    private Button lancamentoTratamentoFocalBT;
-
-    @FXML
-    private Button relatorioFuncionarioBT;
-
-    @FXML
-    private Button relatorioLocalidadeBT;
-
-    @FXML
-    private Button relatorioQuarteiraoBT;
-
-    @FXML
-    private Button relatorioAtividadesBT;
-
-    @FXML
-    private Button sairBT;
+    CarregarPagina cp = new CarregarPagina();
 
     @FXML
     private Label dataLB;
 
     @FXML
     private Label horasLB;
-
-    @FXML
-    private Button cadastroMenuBT;
 
     @FXML
     private VBox VBoxCadastro;
@@ -73,213 +45,149 @@ public class MenuControllerFXML implements Initializable {
     private VBox VBoxRelatorio;
 
     @FXML
-    private Button cadastroAtividadesBT;
+    private Button cadastroMenuBT;
 
-    static Stage stage;
     @FXML
     private Button lancamentoMenuBT;
+
     @FXML
-    private Button denunciaBT;
+    private Button relatorioBT;
 
-    public Stage getStage() {
-        return stage;
-    }//Fim do método
+    @FXML
+    private FlowPane flowPaneSubMenu;
 
-    public void setStage(Stage stage) {
-        MenuControllerFXML.stage = stage;
-    }//Fim do método setStage().
-
-    public void fecharFuncionario() {
-        getStage().close();
-    }//FIM DO MÉTODO.
+    @FXML
+    private FlowPane flowPaneBackground;
 
     @FXML
     void cadastroFuncionarioBTMouse(MouseEvent event) throws IOException, Exception {
-//        MenuMetodos menu = new MenuMetodos();
-//        menu.abrirFuncionario();
-        carregarPagina("/funcionarios/Funcionario.fxml");
+        cp.carregarPagina("/funcionarios/Funcionario.fxml");
     }
 
     @FXML
     void cadastroFuncionarioBTTeclado(KeyEvent event) throws Exception {
-//        MenuMetodos menu = new MenuMetodos();
-//        if (event.getCode() == KeyCode.ENTER) {
-//            menu.abrirFuncionario();
-//        }
+         if (event.getCode() == KeyCode.ENTER) {
+        cp.carregarPagina("/funcionarios/Funcionario.fxml");
+         }
     }
 
     @FXML
     void cadastroLocalidadeBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        if (event.getClickCount() == 1) {
-            menu.abrirLocalidade();
-        }
+            cp.carregarPagina("/localidades/Localidade.fxml");
     }
 
     @FXML
     void cadastroLocalidadeBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirLocalidade();
+            cp.carregarPagina("/localidades/Localidade.fxml");
         }
     }
 
     @FXML
     void cadastroQuarteiraoBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirQuarteirao();
+        cp.carregarPagina("/quarteirao/Quarteirao.fxml");
     }
 
     @FXML
     void cadastroQuarteiraoBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirQuarteirao();
+            cp.carregarPagina("/quarteirao/Quarteirao.fxml");
         }
     }
 
     @FXML
     void cadastroAtividadesBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirAtividades();
+        cp.carregarPagina("/atividades/Atividades.fxml");
     }
 
     @FXML
     void cadastroAtividadesBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirAtividades();
+            cp.carregarPagina("/atividades/Atividades.fxml");
         }
     }
 
     @FXML
     void lancamentoTratamentoFocalBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirLancamentoTratamentoFocal();
+            cp.carregarPagina("/servicoTratamentoFocal/ServicoTratamentoFocal.fxml");
         }
     }
 
     @FXML
     void lancamentoTratamentoFocalBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirLancamentoTratamentoFocal();
+        cp.carregarPagina("/servicoTratamentoFocal/ServicoTratamentoFocal.fxml");
     }
 
     @FXML
     void denunciaBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirDenuncia();
+            cp.carregarPagina("/denuncia/Denuncia.fxml");
         }
     }
 
     @FXML
     void denunciaBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirDenuncia();
+        cp.carregarPagina("/denuncia/Denuncia.fxml");
     }
 
     @FXML
     void relatorioFuncionarioBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirRelatorioFuncionario();
+            cp.carregarPagina("/relatorioFuncionario/RelatorioFuncionario.fxml");
         }
     }
 
     @FXML
     void relatorioFuncionarioBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirRelatorioFuncionario();
+        cp.carregarPagina("/relatorioFuncionario/RelatorioFuncionario.fxml");
     }
 
     @FXML
     void relatorioLocalidadeBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirRelatorioLocalidade();
+            cp.carregarPagina("/relatorioLocalidade/RelatorioLocalidade.fxml");
         }
     }
 
     @FXML
     void relatorioLocalidadeBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirRelatorioLocalidade();
+        cp.carregarPagina("/relatorioLocalidade/RelatorioLocalidade.fxml");
     }
 
     @FXML
     void relatorioQuarteiraoBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirRelatorioQuarteirao();
+            cp.carregarPagina("/relatorioQuarteirao/RelatorioQuarteirao.fxml");
         }
     }
 
     @FXML
     void relatorioQuarteiraoBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirRelatorioQuarteirao();
+        cp.carregarPagina("/relatorioQuarteirao/RelatorioQuarteirao.fxml");
     }
 
     @FXML
     void relatorioAtividadesBTTeclado(KeyEvent event) {
-        MenuMetodos menu = new MenuMetodos();
         if (event.getCode() == KeyCode.ENTER) {
-            menu.abrirRelatorioAtividades();
+            cp.carregarPagina("/relatorioAtividades/RelatorioAtividades.fxml");
         }
     }
 
     @FXML
     void relatorioAtividadesBTMouse(MouseEvent event) {
-        MenuMetodos menu = new MenuMetodos();
-        menu.abrirRelatorioAtividades();
+        cp.carregarPagina("/relatorioAtividades/RelatorioAtividades.fxml");
     }
 
     @FXML
     void sairBTMouse(MouseEvent event) {
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("MENU CONTROLE DE ZOONOSES");
-        alert.setHeaderText("ATENÇÃO!!");
-        alert.setContentText("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?");
-
-        ButtonType buttonTypeOne = new ButtonType("Sim");
-        ButtonType buttonTypeTwo = new ButtonType("Não");
-        ButtonType buttonTypeCancel = new ButtonType("Cancela", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonTypeOne) {
-            sairBT.getScene().getWindow().hide();
-        } else if (result.get() == buttonTypeTwo) {
-
-        } else {
-
-        }
+        alertSair();
     }
 
     @FXML
     void sairBTTeclado(KeyEvent event) {
-
         if (event.getCode() == KeyCode.ENTER) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("MENU CONTROLE DE ZOONOSES");
-            alert.setHeaderText("ATENÇÃO!!");
-            alert.setContentText("TEM CERTEZA QUE DESEJA SAIR DO SISTEMA?");
-
-            ButtonType buttonTypeOne = new ButtonType("Sim");
-            ButtonType buttonTypeTwo = new ButtonType("Não");
-            ButtonType buttonTypeCancel = new ButtonType("Cancela", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == buttonTypeOne) {
-                sairBT.getScene().getWindow().hide();
-            } else if (result.get() == buttonTypeTwo) {
-
-            } else {
-            }
+            alertSair();
         }
     }
 
@@ -296,13 +204,52 @@ public class MenuControllerFXML implements Initializable {
             System.out.println("" + ex);
         }
         System.gc();
-    }
 
-    @FXML
-    void cadastroMenuBTMouse(MouseEvent event) {
-        VBoxCadastro.setVisible(true);
-        VBoxLancamento.setVisible(false);
-        VBoxRelatorio.setVisible(false);
+        cadastroMenuBT.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                VBoxCadastro.setVisible(true);
+                VBoxLancamento.setVisible(false);
+                VBoxRelatorio.setVisible(false);
+            }
+        });
+
+        lancamentoMenuBT.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                VBoxCadastro.setVisible(false);
+                VBoxLancamento.setVisible(true);
+                VBoxRelatorio.setVisible(false);
+            }
+        });
+
+        relatorioBT.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                VBoxCadastro.setVisible(false);
+                VBoxLancamento.setVisible(false);
+                VBoxRelatorio.setVisible(true);
+            }
+        });
+
+        flowPaneSubMenu.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                VBoxCadastro.setVisible(false);
+                VBoxLancamento.setVisible(false);
+                VBoxRelatorio.setVisible(false);
+            }
+        });
+
+        flowPaneBackground.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                VBoxCadastro.setVisible(false);
+                VBoxLancamento.setVisible(false);
+                VBoxRelatorio.setVisible(false);
+            }
+        });
+
     }
 
     @FXML
@@ -315,26 +262,12 @@ public class MenuControllerFXML implements Initializable {
     }
 
     @FXML
-    void lancamentoMenuBTMouse(MouseEvent event) {
-        VBoxLancamento.setVisible(true);
-        VBoxCadastro.setVisible(false);
-        VBoxRelatorio.setVisible(false);
-    }
-
-    @FXML
     void lancamentoMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             VBoxLancamento.setVisible(true);
             VBoxCadastro.setVisible(false);
             VBoxRelatorio.setVisible(false);
         }
-    }
-
-    @FXML
-    void relatorioMenuBTMouse(MouseEvent event) {
-        VBoxLancamento.setVisible(false);
-        VBoxCadastro.setVisible(false);
-        VBoxRelatorio.setVisible(true);
     }
 
     @FXML
@@ -346,19 +279,39 @@ public class MenuControllerFXML implements Initializable {
         }
     }
 
-    private void carregarPagina(String nomeCaminho) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeCaminho));
-            AnchorPane newAnchorPane = loader.load();
+    private void alertSair() {
+        Image img = new Image("imagens/iconeSistemaCZ100x100.png");
 
-            Scene mainsScene = LoginMetodos.getMainScene();
+        javafx.scene.control.Alert alert4 = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
+        alert4.setTitle("SISTEMACZ");
+        alert4.setContentText("O que deseja fazer?");
+        alert4.setGraphic(new ImageView(img));
+        alert4.setHeaderText("SISTEMA DE GERENCIAMENTO E CONTROLE DE ZOONOSES");
+        alert4.setResizable(true);
+        alert4.getDialogPane().setPrefSize(480, 270);
 
-            AnchorPane anchorPaneLogin = (AnchorPane) mainsScene.getRoot();
-            anchorPaneLogin.getChildren().clear();
-            anchorPaneLogin.getChildren().addAll(newAnchorPane.getChildren());
+        DialogPane dialogPane = alert4.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/css/Alerts.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-Pane");
 
-        } catch (IOException e) {
-            System.out.println("Erro ao carregar pagina.");
+        ButtonType buttonTypeSair = new ButtonType("Sair");
+        ButtonType buttonTypeDeslogar = new ButtonType("Deslogar");
+        ButtonType buttonTypeCancela = new ButtonType("Cancela", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert4.getButtonTypes()
+                .setAll(
+                        buttonTypeSair,
+                        buttonTypeDeslogar,
+                        buttonTypeCancela
+                );
+
+        Optional<ButtonType> resultado = alert4.showAndWait();
+        if (resultado.get().getText() == "Sair") {
+            System.exit(0);
+        } else if (resultado.get().getText() == "Deslogar") {
+            cp.carregarPagina("/login/Login.fxml");
+        } else {
         }
     }
 

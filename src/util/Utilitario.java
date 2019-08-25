@@ -11,10 +11,14 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Region;
 import jeanderson.br.util.MaskFormatter;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -25,9 +29,8 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author douglas borges egidio
  * @since 04/10/2018.
- * 
+ *
  */
-
 public class Utilitario {
 
     //CLASSE DE CONEXÃO.
@@ -264,7 +267,7 @@ public class Utilitario {
 
     public void relatorio(String relatorio) {
         JasperPrint jasperPrint = null;
-        System.out.println(""+relatorio);
+        System.out.println("" + relatorio);
         try {
             jasperPrint = JasperFillManager.fillReport(relatorio, null, conn);
         } catch (JRException ex) {
@@ -354,13 +357,13 @@ public class Utilitario {
             }
         });
     }
-    
+
     public static void cpfCnpjField(TextField textField) {
 
         textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, 
+            public void changed(ObservableValue<? extends Boolean> observableValue,
                     Boolean aBoolean, Boolean fieldChange) {
                 String value = textField.getText();
                 if (!fieldChange) {
@@ -383,13 +386,13 @@ public class Utilitario {
         });
 //        maxField(textField, 11);
     }
-    
+
     public void rgField(TextField textField) {
 
         textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, 
+            public void changed(ObservableValue<? extends Boolean> observableValue,
                     Boolean aBoolean, Boolean fieldChange) {
                 String value = textField.getText();
                 if (!fieldChange) {
@@ -420,12 +423,13 @@ public class Utilitario {
         });
 //        maxField(textField, 11);
     }
+
     public void CEPField(TextField textField) {
 
         textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, 
+            public void changed(ObservableValue<? extends Boolean> observableValue,
                     Boolean aBoolean, Boolean fieldChange) {
                 String value = textField.getText();
                 if (!fieldChange) {
@@ -456,21 +460,40 @@ public class Utilitario {
         });
 //        maxField(textField, 11);
     }
-    
-     public void maxField(final TextField textField, final Integer length) {
+
+    public void maxField(final TextField textField, final Integer length) {
         textField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
-                if (newValue.length() > length)
+                if (newValue.length() > length) {
                     textField.setText(oldValue);
+                }
             }
         });
     }
-     
-     //FORMATAR CAMPO TELEFONE.
+
+    //FORMATAR CAMPO TELEFONE.
     public void formatarTelefone(TextField telefone) {
         MaskFormatter formatter = new MaskFormatter(telefone);
         formatter.setMask(MaskFormatter.TEL_9DIG);
     }//FIM DO MÉTODO FORMATAR TELEFONE.
+
+    public void alertSimples(String cabecalho, String contexto) {
+        Image img = new Image("imagens/iconeSistemaCZ100x100.png");
+
+        Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
+        alert.setTitle("SISTEMA DE CONTROLE E GERENCIAMENTO DE ZOONOSES");
+        alert.setContentText(contexto);
+        alert.setGraphic(new ImageView(img));
+        alert.setHeaderText(cabecalho);
+        alert.setResizable(true);
+        alert.getDialogPane().setPrefSize(480, 270);
+        alert.show();
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/css/Alerts.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-Pane");
+    }
 
 }

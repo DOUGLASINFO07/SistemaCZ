@@ -18,10 +18,7 @@ import static javafx.application.Application.launch;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -32,7 +29,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jeanderson.br.util.MaskFormatter;
@@ -40,7 +36,9 @@ import menu.MenuMetodos;
 import util.Utilitario;
 
 /**
- * @author dougl
+ * @author douglas borges egidio
+ * @author DIMTech
+ * @since 24/08/2019
  */
 public class FuncionarioMetodo extends Application {
 
@@ -54,7 +52,6 @@ public class FuncionarioMetodo extends Application {
 
     private static Scene mainScene;
 
-//    FuncionarioDAO dao = new FuncionarioDAO();
     public FuncionarioMetodo() {
     }
 
@@ -76,60 +73,13 @@ public class FuncionarioMetodo extends Application {
     //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
     private static Stage stage;
 
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
     public static void main(String[] args) {
         launch(args);
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("/funcionarios/Funcionario.fxml"));
-//        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-//        Scene scene = new Scene(root);
-//        stage.setTitle("Cadastro de Funcionários");
-//        stage.setFullScreen(true);
-//        stage.setScene(scene);
-//        stage.show();
-//        setStage(stage);
-
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/funcionarios/Funcionario.fxml"));
-//        AnchorPane newAnchorPane = loader.load();
-//
-//        mainScene = new Scene(newAnchorPane);
-//        stage.setTitle("Sistema Gerenciamento de Controle de Zoonoses - Tela de Login");
-//        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-//        stage.setScene(mainScene);
-//        stage.setFullScreen(true);
-//        stage.show();
-
-    }
-    //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
-
     public static Scene getMainScene() {
         return mainScene;
     }
-
-    //MÉTODO FECHAR USUARIO.
-    public void fecharFuncionario() {
-        getStage().close();
-    }//FIM DO MÉTODO FECHAR USUARIO.
-
-    //MÉTODO QUE ABRE A TELA MENU.
-    public void abrirMenu() {
-        try {
-            menuMetodos.start(new Stage());
-            fecharFuncionario();
-        } catch (Exception ex) {
-            Logger.getLogger(FuncionarioMetodo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
 
     public void limparFormulario(
             Button novoCadastro,
@@ -214,7 +164,6 @@ public class FuncionarioMetodo extends Application {
         formaIngressoCB.setValue("Selecione");
         observacaoTA.setText("");
         fotoFuncionarioIV.setImage(new Image("/imagens/usuario.png"));
-//        FA.setFotoFuncionario("/imagens/usuario.png");
     }
 
     public void liberarCamposFormulario(
@@ -270,9 +219,7 @@ public class FuncionarioMetodo extends Application {
         orgaoEmissorRGCB.setDisable(false);
         estadoOrgaoRGEmissorCB.setDisable(false);
         dataEmissaoRGDP.setDisable(false);
-//        data1HabilitacaoDP.setDisable(false);
         habilitacaoTF.setDisable(false);
-//        categoriaHabilitacaoCB.setDisable(false);
         dataNascimentoDP.setDisable(false);
         municipioNascimentoTF.setDisable(false);
         estadoNascimentoCB.setDisable(false);
@@ -399,7 +346,6 @@ public class FuncionarioMetodo extends Application {
 
     public ObservableList<FuncionarioAtributos> atualizaTabela(String buscarFuncionario) {
         FuncionarioDAO dao = new FuncionarioDAO();
-        System.out.println("" + buscarFuncionario);
         return FXCollections.observableArrayList(dao.listaFuncionario(
                 buscarFuncionario
         ));
@@ -452,8 +398,6 @@ public class FuncionarioMetodo extends Application {
             TextField buscarFuncionarioTF,
             Button listarTodosBT
     ) {
-//        FuncionarioAtributos FA = new FuncionarioAtributos();
-
         String nome = tabelaFuncionarioTV.getSelectionModel().getSelectedItem().toString();
         FuncionarioDAO dao = new FuncionarioDAO();
         dao.buscarDadosFuncionario(nome, FA);
@@ -506,8 +450,6 @@ public class FuncionarioMetodo extends Application {
         formaIngressoCB.setValue(FA.getFormaIngresso());
         observacaoTA.setText(FA.getObservacao());
         fotoFuncionarioIV.setImage(new Image("file:../src/" + FA.getFotoFuncionario()));
-
-        System.out.println(FA.getFotoFuncionario());
 
     }
     //FIM DOS MÉTODO PARA MANIPULAÇÃO DA TABELA.
@@ -566,7 +508,6 @@ public class FuncionarioMetodo extends Application {
         FA.setOrgaoEmissorRG(orgaoEmissorRGCB.getSelectionModel().getSelectedItem().toString());
         FA.setEstadoOrgaoEmissorRG(estadoOrgaoRGEmissorCB.getSelectionModel().getSelectedItem().toString());
 
-//        String emissao = dataEmissaoRGDP.getEditor().getText();
         if (dataEmissaoRGDP.getEditor().getText().equals("")) {
             FA.setDataEmissaoRG(null);
         } else {
@@ -625,12 +566,6 @@ public class FuncionarioMetodo extends Application {
         FA.setFormaEgresso(formaEgressoCB.getSelectionModel().getSelectedItem().toString());
         FA.setObservacao(observacaoTA.getText());
 
-//
-//        String teste = fotoFuncionarioIV.getImage().impl_getUrl();
-//        String teste = fotoFuncionarioIV.getClass().getResource(STYLESHEET_MODENA);
-//        FA.setFotoFuncionario(teste);
-        System.out.println("" + FA.getFotoFuncionario());
-
         if (nomeTF.getText().equals("")
                 || cpfTF.getText().equals("")
                 || rgTF.getText().equals("")
@@ -659,7 +594,9 @@ public class FuncionarioMetodo extends Application {
                 || formaIngressoCB.getValue().equals("Selecione")
                 || FA.getFotoFuncionario().equals("/imagens/usuario.png")) {
 
-            util.alertConfiraFormulario();
+            util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!"
+                    + "\nConfira o formulário!"
+                    + "\nTodos os campos devem ser preenchidos!");
 
             Platform.runLater(new Runnable() {
                 @Override
@@ -676,10 +613,9 @@ public class FuncionarioMetodo extends Application {
                         telefoneTF.positionCaret(telefoneTF.getText().length());
                     }
                 });
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-                alert.setContentText("ATENÇÃO!!\n Confira o número do telefone!!");
-                alert.show();//Fim do if.
+
+                util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!!\n Confira o número do telefone!!");
+
             } else {
                 Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
                 Matcher m = p.matcher(emailTF.getText());
@@ -690,10 +626,7 @@ public class FuncionarioMetodo extends Application {
                             emailTF.requestFocus();
                         }
                     });
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-                    alert.setContentText("ATENÇÃO!!\nConfira o email!!");
-                    alert.show();//Fim do if.
+                    util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!!\n Confira o E-mail!!");
                 } else {
                     //Confere se está tudo ok com o banco de dados
                     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
@@ -832,7 +765,7 @@ public class FuncionarioMetodo extends Application {
                                 listarTodosBT
                         );
                         //exibe mensagem de cadastrado com sucesso.
-                        util.alertCadastrado("Funcionário " + nomeTF.getText());//Fim do if.
+                        util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "Cadastro realizado com sucesso!!");
 
                         Platform.runLater(new Runnable() {
                             @Override
@@ -843,7 +776,7 @@ public class FuncionarioMetodo extends Application {
                         salvarBT.setDisable(true);
                         buscarImagemBT.setDisable(true);
                     } else {
-                        util.alertNaoCadastrado("Funcionário " + nomeTF.getText());
+                        util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "Atenção!!\nO cadastro do funcionário, NÃO pode ser realizado!");
                     }
                 }
             }
@@ -903,7 +836,6 @@ public class FuncionarioMetodo extends Application {
         FA.setOrgaoEmissorRG(orgaoEmissorRGCB.getSelectionModel().getSelectedItem().toString());
         FA.setEstadoOrgaoEmissorRG(estadoOrgaoRGEmissorCB.getSelectionModel().getSelectedItem().toString());
 
-//        String emissao = dataEmissaoRGDP.getEditor().getText();
         if (dataEmissaoRGDP.getEditor().getText().equals("")) {
             FA.setDataEmissaoRG(null);
         } else {
@@ -962,10 +894,6 @@ public class FuncionarioMetodo extends Application {
         FA.setFormaEgresso(formaEgressoCB.getSelectionModel().getSelectedItem().toString());
         FA.setObservacao(observacaoTA.getText());
 
-        System.out.println("" + FA.getFotoFuncionario());
-
-//        FuncionarioAtributos FA1 = new FuncionarioAtributos();
-//        dao.buscarFoto(nomeTF.getText(), FA);
         if (nomeTF.getText().equals("")
                 || cpfTF.getText().equals("")
                 || rgTF.getText().equals("")
@@ -994,37 +922,28 @@ public class FuncionarioMetodo extends Application {
                 || formaIngressoCB.getValue().equals("Selecione")
                 || FA.getFotoFuncionario().equals("/imagens/usuario.png")) {
 
-            util.alertConfiraFormulario();
+            util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!"
+                    + "\nConfira o formulário!"
+                    + "\nTodos os campos devem ser preenchidos!");
 
         } else {
             //confere se o campo telefone contem todos os números.
             if (telefoneTF.getText().length() < 15) {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        telefoneTF.requestFocus();
-                        telefoneTF.positionCaret(telefoneTF.getText().length());
-                    }
+                Platform.runLater(() -> {
+                    telefoneTF.requestFocus();
+                    telefoneTF.positionCaret(telefoneTF.getText().length());
                 });
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-                alert.setContentText("ATENÇÃO!!\n Confira o número do telefone!!");
-                alert.show();//Fim do if.
+
+                util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!!\n Confira o número do telefone!!");
 
             } else {
                 Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
                 Matcher m = p.matcher(emailTF.getText());
                 if (!(m.find() && m.group().equals(emailTF.getText()))) {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            emailTF.requestFocus();
-                        }
+                    Platform.runLater(() -> {
+                        emailTF.requestFocus();
                     });
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-                    alert.setContentText("ATENÇÃO!!\nConfira o email!!");
-                    alert.show();//Fim do if.
+                    util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!!\nConfira o email!!");
                 } else {
 
                     //Confere se está tudo ok com o banco de dados
@@ -1166,10 +1085,12 @@ public class FuncionarioMetodo extends Application {
 
                         tabelaFuncionarioTV.getItems().clear();
 
-                        util.alertAtualizacao("Funcionário " + nomeTF.getText());//Fim do if.
-
+                        util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "Os dados do Funcionário foram atualizados com sucesso!!"
+                        );
                     } else {
-                        util.alertNaoAtualizado("Funcionário " + nomeTF.getText());
+                        util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÂO!!\nOs dados do Funcionário " + nomeTF.getText() + " "
+                                + "\nNÃO foram atualizados!"
+                        );
                     }
                 }
             }
@@ -1326,11 +1247,14 @@ public class FuncionarioMetodo extends Application {
             );
             tabelaFuncionarioTV.getItems().clear();
             //exibe mensagem de cadastrado com sucesso.
-            util.alertExcluido("Funcionário " + nomeTF.getText());//Fim do if.
+            util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "O Funcionário foi excluído com sucesso!!"
+            );
             //Inicio run que encapsula o requestFocus().
             Platform.runLater(novoCadastro::requestFocus);//fim do run.
         } else {
-            util.alertNaoExcluído("Funcionário " + nomeTF.getText());
+            util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!"
+                    + "\nO Funcionário NÃO pode ser excluído!"
+            );
         }
     }
 
@@ -1353,10 +1277,7 @@ public class FuncionarioMetodo extends Application {
             } catch (IOException ex) {
                 Logger.getLogger(FuncionarioMetodo.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-//            fotoFuncionario.setImage(new Image("file:///" + imagem.getAbsolutePath()));
             fotoFuncionario.setImage(new Image("file:///" + FA.getFotoFuncionario()));
-
         }
     }
 
@@ -1683,18 +1604,18 @@ public class FuncionarioMetodo extends Application {
             } catch (IOException ex) {
                 Logger.getLogger(FuncionarioMetodo.class.getName()).log(Level.SEVERE, null, ex);
             }
-
             fotoUsuario.setImage(new Image("file:../src/" + FA.getFotoFuncionario()));
-//            fotoUsuario.setImage(new Image("file:///" + FA.getFotoFuncionario()));
-
-            System.out.println("" + FA.getFotoFuncionario());
         }
     }
 
     public void gerarRelatorio() {
-        Connection conn = null;
-        Utilitario util = new Utilitario(conn);
+        Connection conn1 = null;
+        Utilitario util1 = new Utilitario(conn1);
         String relatorio = "../src/relatorios/Funcionario.jasper";
-        util.relatorio(relatorio);
+        util1.relatorio(relatorio);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
     }
 }

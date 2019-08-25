@@ -1,0 +1,32 @@
+/* 
+    Created on : 24/08/2019, 15:38:30
+    Author     : douglas borges egidio
+*/
+
+.check-box {
+    -fx-font-size: 10px;
+    -fx-padding: 10 0 0 5;
+    -fx-font-weight: 900;
+    -fx-font-family: 'System' , 'Arial', 'sans-serif';
+    -fx-text-fill:#00303F;
+    -fx-border-color: white;
+}
+
+.check-box:focused > .box {
+    /* background color for selected checkbox */
+    -fx-background-color:  #b3d9ff;
+}
+
+.check-box > .box {
+    /* background color of unselected checkbox */
+    -fx-background-color: white;
+/*    -fx-background-insets: 0;
+  -fx-background-radius: 0;*/
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark {
+    /* modify mark color */
+    -fx-background-color: #DCAE1D;
+}
+

@@ -18,93 +18,91 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="736.0" prefWidth="1280.0" styleClass="AnchorPane" stylesheets="@../css/corFundo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="funcionarios.FuncionarioControllerFXML">
+<AnchorPane prefHeight="736.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="funcionarios.FuncionarioControllerFXML">
    <children>
-      <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+      <FlowPane alignment="CENTER" layoutY="-1.0" minHeight="444.0" prefHeight="736.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="756.0" stylesheets="@../css/label_tituloPagina.css" text="CADASTRO DE FUNCIONÁRIO" />
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </FlowPane>
-      <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="40.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU" />
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets right="15.0" />
-         </padding>
-      </FlowPane>
-      <FlowPane alignment="CENTER" layoutX="181.0" layoutY="935.0" prefHeight="30.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
-         </children>
-      </FlowPane>
-      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="448.0" stylesheets="@../css/hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
-            <Label fx:id="horasLB" stylesheets="@../css/hora_Data.css" text="Label" />
-         </children>
-      </FlowPane>
-      <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
-      <FlowPane layoutY="141.0" minHeight="444.0" prefHeight="444.0" prefWidth="1280.0" stylesheets="@../css/flowPane.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
-         <children>
-            <FlowPane alignment="CENTER" prefHeight="400.0" prefWidth="1280.0">
+            <FlowPane alignment="CENTER" prefHeight="734.0" prefWidth="1266.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <Pane maxHeight="-Infinity" prefHeight="457.0" prefWidth="150.0">
+                  <Pane maxHeight="-Infinity" prefHeight="457.0" prefWidth="160.0">
                      <children>
-                        <ImageView fx:id="fotoFuncionarioIV" fitHeight="100.0" fitWidth="100.0" layoutX="22.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fx:id="fotoFuncionarioIV" fitHeight="100.0" fitWidth="100.0" layoutX="30.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                            <image>
                               <Image url="@../imagens/usuario.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="buscarImagemBT" disable="true" layoutX="15.0" layoutY="156.0" mnemonicParsing="false" onKeyPressed="#buscarImagemTeclado" onMouseClicked="#buscarImagemMouse" prefHeight="25.0" prefWidth="113.0" stylesheets="@../css/button.css" text="FOTO" />
-                        <Button fx:id="salvarBT" disable="true" layoutX="15.0" layoutY="221.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="SALVAR" />
-                        <Button fx:id="atualizarBT" disable="true" layoutX="15.0" layoutY="287.0" mnemonicParsing="false" onKeyPressed="#atualizarBTTeclado" onMouseClicked="#atualizarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="ATUALIZAR" />
-                        <Button fx:id="excluirBT" disable="true" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="EXCLUIR" />
-                        <Button fx:id="novoCadastroBT" layoutX="-5.0" layoutY="2.0" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/button.css" text="NOVO CADASTRO" />
+                        <Button fx:id="buscarImagemBT" disable="true" layoutY="156.0" mnemonicParsing="false" onKeyPressed="#buscarImagemTeclado" onMouseClicked="#buscarImagemMouse" prefHeight="25.0" prefWidth="160.0" stylesheets="@../css/button.css" text="FOTO" />
+                        <Button fx:id="salvarBT" disable="true" layoutY="221.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="160.0" stylesheets="@../css/button.css" text="SALVAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/teste.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="atualizarBT" disable="true" layoutY="287.0" mnemonicParsing="false" onKeyPressed="#atualizarBTTeclado" onMouseClicked="#atualizarBTMouse" prefHeight="40.0" prefWidth="160.0" stylesheets="@../css/button.css" text="ATUALIZAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/atualiza.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="excluirBT" disable="true" layoutY="350.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="160.0" stylesheets="@../css/button.css" text="EXCLUIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/excluir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="novoCadastroBT" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="160.0" stylesheets="@../css/button.css" text="NOVO CADASTRO">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/adicionar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </Pane>
-                  <TabPane prefHeight="456.0" prefWidth="615.0" stylesheets="@../css/flowPane.css" tabClosingPolicy="UNAVAILABLE">
+                  <Label prefWidth="10.0" />
+                  <TabPane prefHeight="456.0" prefWidth="615.0" stylesheets="@../css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="DOCUMENTOS">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="364.0" prefWidth="593.0">
                                  <children>
-                                    <VBox layoutX="18.0" layoutY="194.0" prefHeight="202.0" prefWidth="500.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <VBox layoutX="18.0" layoutY="194.0" prefHeight="202.0" prefWidth="600.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                                        <children>
                                           <Pane layoutX="10.0" layoutY="166.0" prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label prefHeight="25.0" text="NOME" />
-                                                <TextField fx:id="nomeTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="323.0" />
-                                                <Label layoutX="330.0" prefHeight="25.0" text="CPF" />
-                                                <TextField fx:id="cpfTF" layoutX="330.0" layoutY="25.0" onKeyPressed="#cpfTFTeclado" onMouseClicked="#cpfTFMouse" prefHeight="25.0" prefWidth="170.0" />
+                                                <Label prefHeight="25.0" stylesheets="@../css/label_formulario.css" text="NOME" />
+                                                <TextField fx:id="nomeTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="394.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="410.0" prefHeight="25.0" stylesheets="@../css/label_formulario.css" text="CPF" />
+                                                <TextField fx:id="cpfTF" layoutX="410.0" layoutY="25.0" onKeyPressed="#cpfTFTeclado" onMouseClicked="#cpfTFMouse" prefHeight="25.0" prefWidth="190.0" stylesheets="@../css/textField.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="440.0">
                                              <children>
-                                                <Label text="RG" />
-                                                <TextField fx:id="rgTF" layoutY="25.0" prefHeight="25.0" prefWidth="132.0" />
-                                                <Label layoutX="139.0" layoutY="1.0" text="ORGÃO EMISSOR" />
-                                                <ComboBox fx:id="orgaoEmissorRGCB" layoutX="139.0" layoutY="25.0" prefHeight="25.0" prefWidth="114.0" />
-                                                <Label layoutX="259.0" layoutY="1.0" text="ESTADO" />
-                                                <ComboBox fx:id="estadoOrgaoRGEmissorCB" layoutX="259.0" layoutY="25.0" prefHeight="25.0" prefWidth="65.0" />
-                                                <Label layoutX="330.0" layoutY="1.0" text="DATA EMISSÃO" />
-                                                <DatePicker fx:id="dataEmissaoRGDP" layoutX="330.0" layoutY="25.0" prefWidth="170.0" showWeekNumbers="true" />
+                                                <Label prefWidth="160.0" stylesheets="@../css/label_formulario.css" text="RG" />
+                                                <TextField fx:id="rgTF" layoutY="25.0" prefHeight="25.0" prefWidth="160.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="171.0" prefHeight="27.0" prefWidth="138.0" stylesheets="@../css/label_formulario.css" text="ORGÃO EMISSOR" />
+                                                <ComboBox fx:id="orgaoEmissorRGCB" layoutX="171.0" layoutY="25.0" prefHeight="25.0" prefWidth="138.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="320.0" layoutY="1.0" prefHeight="27.0" prefWidth="70.0" stylesheets="@../css/label_formulario.css" text="ESTADO" />
+                                                <ComboBox fx:id="estadoOrgaoRGEmissorCB" layoutX="318.0" layoutY="25.0" prefHeight="25.0" prefWidth="79.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="410.0" layoutY="1.0" stylesheets="@../css/label_formulario.css" text="DATA EMISSÃO" />
+                                                <DatePicker fx:id="dataEmissaoRGDP" layoutX="410.0" layoutY="25.0" prefWidth="190.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
                                              </children>
                                           </Pane>
                                           <Pane layoutX="10.0" layoutY="139.0" prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label text="HABILITAÇÃO" />
-                                                <TextField fx:id="habilitacaoTF" layoutY="25.0" onKeyPressed="#habilitacaoTFTeclado" prefHeight="25.0" prefWidth="132.0" />
-                                                <Label layoutX="139.0" text="CATEGORIA" />
-                                                <ComboBox fx:id="categoriaHabilitacaoCB" layoutX="139.0" layoutY="25.0" prefHeight="25.0" prefWidth="186.0" />
-                                                <Label layoutX="332.0" text="DATA 1ª HABILITAÇÃO" />
-                                                <DatePicker fx:id="data1HabilitacaoDP" layoutX="330.0" layoutY="25.0" prefWidth="170.0" />
+                                                <Label prefWidth="160.0" stylesheets="@../css/label_formulario.css" text="HABILITAÇÃO" />
+                                                <TextField fx:id="habilitacaoTF" layoutY="25.0" onKeyPressed="#habilitacaoTFTeclado" prefHeight="25.0" prefWidth="160.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="175.0" prefHeight="27.0" prefWidth="107.0" stylesheets="@../css/label_formulario.css" text="CATEGORIA" />
+                                                <ComboBox fx:id="categoriaHabilitacaoCB" layoutX="172.0" layoutY="25.0" prefHeight="25.0" prefWidth="225.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="410.0" layoutY="-2.0" stylesheets="@../css/label_formulario.css" text="DATA 1ª HABILITAÇÃO" />
+                                                <DatePicker fx:id="data1HabilitacaoDP" layoutX="410.0" layoutY="25.0" prefWidth="190.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -121,18 +119,18 @@
                                        <children>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label prefHeight="25.0" prefWidth="150.0" text="DATA NASCIMENTO" />
-                                                <DatePicker fx:id="dataNascimentoDP" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" />
-                                                <Label layoutX="160.0" prefWidth="180.0" text="MUNICIPIO DE NASCIMENTO" />
-                                                <TextField fx:id="municipioNascimentoTF" layoutX="160.0" layoutY="25.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="180.0" />
-                                                <Label layoutX="345.0" prefWidth="155.0" text="ESTADO DE NASCIMENTO" />
-                                                <ComboBox fx:id="estadoNascimentoCB" layoutX="345.0" layoutY="24.0" prefHeight="25.0" prefWidth="155.0" />
+                                                <Label prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/label_formulario.css" text="DATA NASCIMENTO" />
+                                                <DatePicker fx:id="dataNascimentoDP" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
+                                                <Label layoutX="160.0" prefWidth="180.0" stylesheets="@../css/label_formulario.css" text="MUNICIPIO DE NASCIMENTO" />
+                                                <TextField fx:id="municipioNascimentoTF" layoutX="160.0" layoutY="25.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="180.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="345.0" prefWidth="155.0" stylesheets="@../css/label_formulario.css" text="ESTADO DE NASCIMENTO" />
+                                                <ComboBox fx:id="estadoNascimentoCB" layoutX="345.0" layoutY="24.0" prefHeight="25.0" prefWidth="155.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
-                                          <Label prefHeight="27.0" prefWidth="104.0" text="NOME DA MÃE" />
-                                          <TextField fx:id="nomeMaeTF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="500.0" />
-                                          <Label prefHeight="27.0" prefWidth="100.0" text="NOME DO PAI" />
-                                          <TextField fx:id="nomePaiTF" maxWidth="-Infinity" prefHeight="25.0" prefWidth="504.0" />
+                                          <Label prefHeight="27.0" prefWidth="104.0" stylesheets="@../css/label_formulario.css" text="NOME DA MÃE" />
+                                          <TextField fx:id="nomeMaeTF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="500.0" stylesheets="@../css/textField.css" />
+                                          <Label prefHeight="27.0" prefWidth="100.0" stylesheets="@../css/label_formulario.css" text="NOME DO PAI" />
+                                          <TextField fx:id="nomePaiTF" maxWidth="-Infinity" prefHeight="25.0" prefWidth="504.0" stylesheets="@../css/textField.css" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -147,38 +145,38 @@
                                        <children>
                                           <Pane layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label text="LOGRADOURO" />
-                                                <TextField fx:id="logradouroEnderecoTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="390.0" />
-                                                <Label layoutX="400.0" text="NUMERO" />
-                                                <TextField fx:id="numeroEnderecoTF" layoutX="400.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="LOGRADOURO" />
+                                                <TextField fx:id="logradouroEnderecoTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="390.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="400.0" stylesheets="@../css/label_formulario.css" text="NUMERO" />
+                                                <TextField fx:id="numeroEnderecoTF" layoutX="400.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" stylesheets="@../css/textField.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label text="BAIRRO" />
-                                                <TextField fx:id="bairroEnderecoTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="320.0" />
-                                                <Label layoutX="330.0" layoutY="1.0" text="CEP" />
-                                                <TextField fx:id="cepEnderecoTF" layoutX="330.0" layoutY="24.0" maxWidth="-Infinity" onKeyPressed="#cepEnderecoTFTeclado" onMouseClicked="#cepEnderecoTFMouse" prefHeight="25.0" prefWidth="170.0" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="BAIRRO" />
+                                                <TextField fx:id="bairroEnderecoTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="320.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="330.0" layoutY="1.0" stylesheets="@../css/label_formulario.css" text="CEP" />
+                                                <TextField fx:id="cepEnderecoTF" layoutX="330.0" layoutY="24.0" maxWidth="-Infinity" onKeyPressed="#cepEnderecoTFTeclado" onMouseClicked="#cepEnderecoTFMouse" prefHeight="25.0" prefWidth="170.0" stylesheets="@../css/textField.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutY="1.0" text="CIDADE" />
-                                                <TextField fx:id="cidadeEnderecoTF" layoutY="25.0" maxWidth="-Infinity" prefWidth="318.0" />
-                                                <Label layoutX="330.0" layoutY="1.0" text="ESTADO" />
-                                                <ComboBox fx:id="estadoEnderecoCB" layoutX="330.0" layoutY="25.0" prefWidth="170.0" />
+                                                <Label layoutY="1.0" stylesheets="@../css/label_formulario.css" text="CIDADE" />
+                                                <TextField fx:id="cidadeEnderecoTF" layoutY="25.0" maxWidth="-Infinity" prefWidth="318.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="330.0" layoutY="1.0" stylesheets="@../css/label_formulario.css" text="ESTADO" />
+                                                <ComboBox fx:id="estadoEnderecoCB" layoutX="330.0" layoutY="25.0" prefWidth="170.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
-                                          <Label text="E-MAIL" />
-                                          <TextField fx:id="emailTF" maxWidth="-Infinity" prefHeight="25.0" prefWidth="500.0" />
+                                          <Label stylesheets="@../css/label_formulario.css" text="E-MAIL" />
+                                          <TextField fx:id="emailTF" maxWidth="-Infinity" prefHeight="25.0" prefWidth="500.0" stylesheets="@../css/textField.css" />
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label text="TELEFONE" />
-                                                <TextField fx:id="telefoneTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" />
-                                                <Label layoutX="170.0" prefHeight="27.0" prefWidth="141.0" text="TELEFONE CONTATO" />
-                                                <TextField fx:id="telefoneContatoTF" layoutX="170.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" />
-                                                <Label layoutX="340.0" text="WHATSAPP" />
-                                                <TextField fx:id="whatsAppTF" layoutX="340.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="TELEFONE" />
+                                                <TextField fx:id="telefoneTF" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="170.0" prefHeight="27.0" prefWidth="141.0" stylesheets="@../css/label_formulario.css" text="TELEFONE CONTATO" />
+                                                <TextField fx:id="telefoneContatoTF" layoutX="170.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" stylesheets="@../css/textField.css" />
+                                                <Label layoutX="340.0" stylesheets="@../css/label_formulario.css" text="WHATSAPP" />
+                                                <TextField fx:id="whatsAppTF" layoutX="340.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="160.0" stylesheets="@../css/textField.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -189,48 +187,48 @@
                         </Tab>
                         <Tab text="PROFISSIONAL">
                           <content>
-                            <AnchorPane prefHeight="412.0" prefWidth="593.0">
+                            <AnchorPane prefHeight="390.0" prefWidth="615.0">
                                  <children>
-                                    <VBox prefHeight="379.0" prefWidth="500.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                    <VBox prefHeight="363.0" prefWidth="598.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                                        <children>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="420.0" prefWidth="80.0" text="MATRÍCULA" />
-                                                <TextField fx:id="matriculaTF" layoutX="420.0" layoutY="25.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="80.0" />
-                                                <Label text="CARGO" />
-                                                <ComboBox fx:id="cargoCB" layoutX="4.0" layoutY="25.0" prefHeight="25.0" prefWidth="220.0" />
-                                                <Label layoutX="225.0" prefWidth="190.0" text="VÍNCULO EMPREGATÍCIO" />
-                                                <ComboBox fx:id="vinculoEmpregaticioCB" layoutX="225.0" layoutY="25.0" prefHeight="25.0" prefWidth="190.0" />
+                                                <Label layoutX="481.0" prefHeight="27.0" prefWidth="100.0" stylesheets="@../css/label_formulario.css" text="MATRÍCULA" />
+                                                <TextField fx:id="matriculaTF" layoutX="481.0" layoutY="24.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="119.0" stylesheets="@../css/textField.css" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="CARGO" />
+                                                <ComboBox fx:id="cargoCB" layoutY="25.0" prefHeight="25.0" prefWidth="240.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="254.0" layoutY="-1.0" prefHeight="27.0" prefWidth="225.0" stylesheets="@../css/label_formulario.css" text="VÍNCULO EMPREGATÍCIO" />
+                                                <ComboBox fx:id="vinculoEmpregaticioCB" layoutX="257.0" layoutY="24.0" prefHeight="25.0" prefWidth="212.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="255.0" text="AREA DE TRABALHO" />
-                                                <ComboBox fx:id="areaTrabalhoCB" layoutX="255.0" layoutY="25.0" prefHeight="25.0" prefWidth="245.0" />
-                                                <Label text="EQUIPE" />
-                                                <ComboBox fx:id="equipeCB" layoutY="25.0" prefHeight="25.0" prefWidth="245.0" />
+                                                <Label layoutX="255.0" stylesheets="@../css/label_formulario.css" text="AREA DE TRABALHO" />
+                                                <ComboBox fx:id="areaTrabalhoCB" layoutX="255.0" layoutY="25.0" prefHeight="25.0" prefWidth="343.0" stylesheets="@../css/comboBox.css" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="EQUIPE" />
+                                                <ComboBox fx:id="equipeCB" layoutY="25.0" prefHeight="25.0" prefWidth="240.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
-                                          <Label prefHeight="27.0" prefWidth="196.0" text="SITUAÇÃO FUNCIONAL" />
-                                          <ComboBox fx:id="situacaoFuncionalCB" prefWidth="500.0" />
+                                          <Label prefHeight="27.0" prefWidth="196.0" stylesheets="@../css/label_formulario.css" text="SITUAÇÃO FUNCIONAL" />
+                                          <ComboBox fx:id="situacaoFuncionalCB" prefHeight="25.0" prefWidth="600.0" stylesheets="@../css/comboBox.css" />
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="255.0" text="DATA DEMISSÃO" />
-                                                <DatePicker fx:id="dataDemissaoDP" layoutX="255.0" layoutY="25.0" prefWidth="245.0" />
-                                                <Label text="DATA ADMISSÃO" />
-                                                <DatePicker fx:id="dataAdmissaoDP" layoutY="25.0" prefWidth="245.0" />
+                                                <Label layoutX="304.0" prefHeight="27.0" prefWidth="138.0" stylesheets="@../css/label_formulario.css" text="DATA DEMISSÃO" />
+                                                <DatePicker fx:id="dataDemissaoDP" layoutX="304.0" layoutY="24.0" prefHeight="25.0" prefWidth="290.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="DATA ADMISSÃO" />
+                                                <DatePicker fx:id="dataAdmissaoDP" layoutY="25.0" prefHeight="25.0" prefWidth="280.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="255.0" text="FORMA DE EGRESSO" />
-                                                <ComboBox fx:id="formaEgressoCB" layoutX="255.0" layoutY="25.0" prefHeight="25.0" prefWidth="245.0" />
-                                                <Label text="FORMA DE INGRESSO" />
-                                                <ComboBox fx:id="formaIngressoCB" layoutY="25.0" prefHeight="25.0" prefWidth="245.0" />
+                                                <Label layoutX="304.0" prefHeight="27.0" prefWidth="169.0" stylesheets="@../css/label_formulario.css" text="FORMA DE EGRESSO" />
+                                                <ComboBox fx:id="formaEgressoCB" layoutX="303.0" layoutY="25.0" prefHeight="25.0" prefWidth="290.0" stylesheets="@../css/comboBox.css" />
+                                                <Label stylesheets="@../css/label_formulario.css" text="FORMA DE INGRESSO" />
+                                                <ComboBox fx:id="formaIngressoCB" layoutY="25.0" prefHeight="25.0" prefWidth="280.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
-                                          <Label text="OBSERVAÇÕES" />
-                                          <TextArea fx:id="observacaoTA" prefHeight="75.0" prefWidth="500.0" promptText="Escreva aqui" wrapText="true" />
+                                          <Label stylesheets="@../css/label_formulario.css" text="OBSERVAÇÕES" />
+                                          <TextArea fx:id="observacaoTA" prefHeight="75.0" prefWidth="500.0" promptText="Escreva aqui" stylesheets="@../css/AreaTextField.css" wrapText="true" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -239,24 +237,82 @@
                         </Tab>
                     </tabs>
                   </TabPane>
-                  <Pane prefHeight="400.0" prefWidth="400.0">
+                  <Label prefWidth="30.0" />
+                  <Pane prefHeight="457.0" prefWidth="421.0">
                      <children>
-                        <TableView fx:id="tabelaFuncionarioTV" fixedCellSize="0.0" layoutY="61.0" onKeyPressed="#tabelaFuncionarioTVTeclado" onMouseClicked="#tabelaFuncionarioTVMouse" prefHeight="349.0" prefWidth="400.0">
+                        <TableView fx:id="tabelaFuncionarioTV" fixedCellSize="0.0" layoutY="47.0" onKeyPressed="#tabelaFuncionarioTVTeclado" onMouseClicked="#tabelaFuncionarioTVMouse" prefHeight="363.0" prefWidth="421.0" stylesheets="@../css/tabela.css">
                           <columns>
-                            <TableColumn fx:id="colunaNomeTC" prefWidth="200.0" text="NOME" />
-                              <TableColumn fx:id="colunaEquipeTC" prefWidth="196.0" text="EQUIPE" />
+                            <TableColumn fx:id="colunaNomeTC" prefWidth="283.0" text="NOME" />
+                              <TableColumn fx:id="colunaEquipeTC" prefWidth="134.0" text="EQUIPE" />
                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
                         </TableView>
-                        <TextField fx:id="buscarFuncionarioTF" layoutY="18.0" onKeyPressed="#buscarFuncionarioTFTeclado" prefHeight="25.0" prefWidth="270.0" promptText="Buscar  Funcionário - Clique aqui!" />
-                        <Button fx:id="listarTodosBT" layoutX="266.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#listarTodosBTTeclado" onMouseClicked="#listarTodosBTMouse" prefHeight="32.0" prefWidth="134.0" stylesheets="@../css/button.css" text="LISTAR TODOS" />
-                        <Button fx:id="imprimirBT" disable="true" layoutX="287.0" layoutY="418.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="32.0" prefWidth="113.0" stylesheets="@../css/button.css" text="IMPRIMIR" />
+                        <TextField fx:id="buscarFuncionarioTF" onKeyPressed="#buscarFuncionarioTFTeclado" prefHeight="40.0" prefWidth="270.0" promptText="Buscar  Funcionário - Clique aqui!" stylesheets="@../css/textField.css" />
+                        <Button fx:id="listarTodosBT" layoutX="280.0" mnemonicParsing="false" onKeyPressed="#listarTodosBTTeclado" onMouseClicked="#listarTodosBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="LISTAR TODOS">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/RelatorioListar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="imprimirBT" disable="true" layoutX="280.0" layoutY="418.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="IMPRIMIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/imprimir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </Pane>
                </children>
             </FlowPane>
          </children></FlowPane>
+      <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/iconeSistemaCZ100x100.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="1044.0" stylesheets="@../css/label_tituloPagina.css" text="CADASTRO DE FUNCIONÁRIO" />
+            <ImageView fitHeight="70.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/dimTech.png" />
+               </image></ImageView>
+         </children>
+      </FlowPane>
+      <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="50.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/Fechar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="15.0" />
+         </padding>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="181.0" layoutY="935.0" prefHeight="30.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="315.0" stylesheets="@../css/Label_Hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" stylesheets="@../css/Label_Hora_Data.css" text="Label" />
+         </children>
+      </FlowPane>
+      <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
    </children>
 </AnchorPane>
