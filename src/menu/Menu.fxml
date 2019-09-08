@@ -220,11 +220,11 @@
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="447.0" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs.">
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="1080.0" text="Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs.">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font></Label>
-            <Label fx:id="horasLB" text="Label">
+            <Label fx:id="horasLB" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="120.0" text="Label">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font></Label>

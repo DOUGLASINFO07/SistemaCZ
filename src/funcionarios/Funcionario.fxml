@@ -240,7 +240,7 @@
                   <Label prefWidth="30.0" />
                   <Pane prefHeight="457.0" prefWidth="421.0">
                      <children>
-                        <TableView fx:id="tabelaFuncionarioTV" fixedCellSize="0.0" layoutY="47.0" onKeyPressed="#tabelaFuncionarioTVTeclado" onMouseClicked="#tabelaFuncionarioTVMouse" prefHeight="363.0" prefWidth="421.0" stylesheets="@../css/tabela.css">
+                        <TableView fx:id="tabelaFuncionarioTV" fixedCellSize="0.0" layoutY="40.0" onKeyPressed="#tabelaFuncionarioTVTeclado" onMouseClicked="#tabelaFuncionarioTVMouse" prefHeight="356.0" prefWidth="421.0" stylesheets="@../css/tabela.css">
                           <columns>
                             <TableColumn fx:id="colunaNomeTC" prefWidth="283.0" text="NOME" />
                               <TableColumn fx:id="colunaEquipeTC" prefWidth="134.0" text="EQUIPE" />
@@ -255,7 +255,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button fx:id="imprimirBT" disable="true" layoutX="280.0" layoutY="418.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="IMPRIMIR">
+                        <Button fx:id="imprimirBT" disable="true" layoutX="280.0" layoutY="402.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="IMPRIMIR">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -309,8 +309,8 @@
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="315.0" stylesheets="@../css/Label_Hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
-            <Label fx:id="horasLB" stylesheets="@../css/Label_Hora_Data.css" text="Label" />
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="1112.0" stylesheets="@../css/Label_Hora_Data.css" text="Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="127.0" stylesheets="@../css/Label_Hora_Data.css" text="Label" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />

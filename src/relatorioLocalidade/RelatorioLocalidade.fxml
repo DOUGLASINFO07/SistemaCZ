@@ -7,24 +7,40 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="736.0" prefWidth="1280.0" styleClass="AnchorPane" stylesheets="@../css/corFundo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="relatorioLocalidade.RelatorioLocalidadeControllerFXML">
+<AnchorPane prefHeight="736.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="relatorioLocalidade.RelatorioLocalidadeControllerFXML">
    <children>
       <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="756.0" stylesheets="@../css/label_tituloPagina.css" text="CONTROLE DE ZOONOSES - RELATÓRIOS DE LOCALIDADES" />
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/iconeSistemaCZ100x100.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="918.0" stylesheets="@../css/label_tituloPagina.css" text="CONTROLE DE ZOONOSES - RELATÓRIO DE LOCALIDADES" />
+            <ImageView fitHeight="60.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/dimTech.png" />
+               </image></ImageView>
          </children>
       </FlowPane>
       <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="40.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU" />
+            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/Fechar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <opaqueInsets>
             <Insets />
@@ -40,35 +56,49 @@
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="448.0" stylesheets="@../css/hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
-            <Label fx:id="horasLB" stylesheets="@../css/hora_Data.css" text="Label" />
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="971.0" stylesheets="@../css/Label_Hora_Data.css" text="Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="137.0" stylesheets="@../css/Label_Hora_Data.css" text="12:00:00 hrs" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
-      <FlowPane layoutY="100.0" minHeight="444.0" prefHeight="502.0" prefWidth="1280.0" stylesheets="@../css/flowPane.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <FlowPane alignment="CENTER" layoutX="42.0" layoutY="100.0" minHeight="444.0" prefHeight="471.0" prefWidth="1208.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <FlowPane alignment="CENTER" prefHeight="492.0" prefWidth="1280.0">
+            <FlowPane alignment="CENTER" prefHeight="474.0" prefWidth="1208.0">
                <children>
-                  <Pane prefHeight="522.0" prefWidth="1179.0">
+                  <Pane prefHeight="446.0" prefWidth="1157.0">
                      <children>
                         <Pane layoutX="20.0" layoutY="10.0" prefHeight="50.0" prefWidth="283.0">
                            <children>
-                              <ComboBox fx:id="pesquisarPorCB" layoutX="4.0" layoutY="8.0" onAction="#pesquisarPorCBMouse" onKeyPressed="#pesquisarPorCBTeclado" prefHeight="25.0" prefWidth="258.0" />
+                              <ComboBox fx:id="pesquisarPorCB" layoutX="4.0" layoutY="8.0" onAction="#pesquisarPorCBMouse" onKeyPressed="#pesquisarPorCBTeclado" prefHeight="35.0" prefWidth="258.0" stylesheets="@../css/comboBox.css" />
                            </children>
                         </Pane>
                         <Pane fx:id="paneCampoPesquisaCB" layoutX="284.0" layoutY="10.0" prefHeight="50.0" prefWidth="518.0" visible="false">
                            <children>
-                              <ComboBox fx:id="campoPesquisaCB" layoutX="4.0" layoutY="8.0" onKeyPressed="#campoPesquisaCBTeclado" onMouseClicked="#campoPesquisaCBMouse" prefHeight="25.0" prefWidth="505.0" />
+                              <ComboBox fx:id="campoPesquisaCB" layoutX="4.0" layoutY="8.0" onKeyPressed="#campoPesquisaCBTeclado" onMouseClicked="#campoPesquisaCBMouse" prefHeight="35.0" prefWidth="505.0" stylesheets="@../css/comboBox.css" />
                            </children>
                         </Pane>
                         <Pane fx:id="paneCampoPesquisaTF" layoutX="294.0" layoutY="10.0" prefHeight="50.0" prefWidth="518.0" visible="false">
                            <children>
-                              <TextField fx:id="campoPesquisaTF" layoutX="4.0" layoutY="8.0" onKeyPressed="#campoPesquisaTFTeclado" onMouseClicked="#campoPesquisaTFMouse" prefHeight="25.0" prefWidth="490.0" />
+                              <TextField fx:id="campoPesquisaTF" layoutX="4.0" layoutY="8.0" onKeyPressed="#campoPesquisaTFTeclado" onMouseClicked="#campoPesquisaTFMouse" prefHeight="35.0" prefWidth="490.0" stylesheets="@../css/textField.css" />
                            </children>
                         </Pane>
-                        <Button fx:id="pesquisarBT" disable="true" layoutX="812.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#pesquisarBTTeclado" onMouseClicked="#pesquisarBTMouse" prefHeight="30.0" prefWidth="151.0" stylesheets="@../css/button.css" text="PESQUISAR" />
-                        <Button fx:id="imprimirBT" disable="true" layoutX="976.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="30.0" prefWidth="151.0" stylesheets="@../css/button.css" text="IMPRIMIR" />
-                        <TableView fx:id="relatorioPesquisaTV" layoutX="27.0" layoutY="60.0" onKeyPressed="#relatorioPesquisaTVTeclado" onMouseClicked="#relatorioPesquisaTVMouse" prefHeight="449.0" prefWidth="1101.0">
+                        <Button fx:id="pesquisarBT" disable="true" layoutX="812.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#pesquisarBTTeclado" onMouseClicked="#pesquisarBTMouse" prefHeight="30.0" prefWidth="151.0" stylesheets="@../css/button.css" text="PESQUISAR">
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/Buscar1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="imprimirBT" disable="true" layoutX="976.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="30.0" prefWidth="151.0" stylesheets="@../css/button.css" text="IMPRIMIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/imprimir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <TableView fx:id="relatorioPesquisaTV" layoutX="27.0" layoutY="60.0" onKeyPressed="#relatorioPesquisaTVTeclado" onMouseClicked="#relatorioPesquisaTVMouse" prefHeight="359.0" prefWidth="1102.0" stylesheets="@../css/tabela.css">
                           <columns>
                             <TableColumn fx:id="codigoCT" text="CÓDIGO RG" />
                             <TableColumn fx:id="localidadeCT" prefWidth="269.0" text="LOCALIDADE" />

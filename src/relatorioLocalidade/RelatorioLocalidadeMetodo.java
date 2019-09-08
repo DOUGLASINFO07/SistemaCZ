@@ -33,6 +33,7 @@ import util.Utilitario;
 
 /**
  * @author douglas borges egidio
+ * @DouglasInfo07.
  * @since 03/03/2019
  */
 public class RelatorioLocalidadeMetodo extends Application {
@@ -57,48 +58,14 @@ public class RelatorioLocalidadeMetodo extends Application {
         return RLA.getPesquisarPor();
     }
 
-    //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
-    private static Stage stage;
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/relatorioLocalidade/RelatorioLocalidade.fxml"));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-        Scene scene = new Scene(root);
-        stage.setTitle("Relatório de Localidades");
-        stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
-        setStage(stage);
+       
     }
-    //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
-
-    //MÉTODO FECHAR USUARIO.
-    public void fecharRelatorioLocalidade() {
-        getStage().close();
-    }//FIM DO MÉTODO FECHAR USUARIO.
-
-    //MÉTODO QUE ABRE A TELA MENU.
-    public void abrirMenu() {
-        try {
-            menuMetodos.start(new Stage());
-            fecharRelatorioLocalidade();
-        } catch (Exception ex) {
-            Logger.getLogger(RelatorioLocalidadeMetodo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
 
     public void limparFormulario(
             Button voltarMenuBT,
@@ -364,8 +331,6 @@ public class RelatorioLocalidadeMetodo extends Application {
             String tituloPesquisa
     ) {
         Conexao conn1 = new Conexao();
-
-        System.out.println("\n" + nome + "\n" + pesquisarPor + "\n" + tituloPesquisa);
 
         HashMap<String, Object> filtro = new HashMap<>();
         filtro.put("pesquisarPor", pesquisarPor);

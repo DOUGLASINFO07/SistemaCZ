@@ -26,14 +26,14 @@
          <children>
             <Pane prefHeight="198.0" prefWidth="275.0">
                <children>
-                  <Label layoutX="62.0" layoutY="-1.0" text="NOME DE USUÁRIO" />
+                  <Label layoutX="62.0" layoutY="-1.0" stylesheets="@../css/label_formulario.css" text="NOME DE USUÁRIO" />
                   <TextField fx:id="usuarioTF" layoutX="62.0" layoutY="27.0" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/textField.css" />
                   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagens/login.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="70.0" layoutY="65.0" text="SENHA" />
+                  <Label layoutX="63.0" layoutY="65.0" stylesheets="@../css/label_formulario.css" text="SENHA" />
                   <PasswordField fx:id="senhaTF" layoutX="62.0" layoutY="92.0" onKeyPressed="#senhaTFTeclado" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/textField.css" />
                   <Button fx:id="acessarBT" layoutX="15.0" layoutY="139.0" mnemonicParsing="false" onKeyPressed="#acessarBTteclado" onMouseClicked="#acessarBTMouse" prefHeight="34.0" prefWidth="246.0" stylesheets="@../css/button.css" text="ACESSAR">
                      <graphic>
@@ -109,7 +109,8 @@
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="351.0" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="dataLabel" prefHeight="20.0" prefWidth="435.0" stylesheets="@../css/Label_Hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horaLabel" alignment="CENTER_RIGHT" layoutX="335.0" layoutY="17.0" prefHeight="20.0" prefWidth="90.0" stylesheets="@../css/Label_Hora_Data.css" text="12:36:00 hrs." />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0" />

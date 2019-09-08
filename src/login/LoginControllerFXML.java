@@ -1,6 +1,8 @@
 package login;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -9,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -16,13 +19,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import util.CarregarPagina;
 import util.Notificacao;
+import util.Relogio;
 
 public class LoginControllerFXML implements Initializable {
 
     @FXML
     private TextField usuarioTF;
+    
+    @FXML
+    private Label dataLabel;
+    
+    @FXML
+    private Label horaLabel;
 
     @FXML
     private PasswordField senhaTF;
@@ -39,13 +50,16 @@ public class LoginControllerFXML implements Initializable {
         dao.buscarDadosLogin(usuarioTF.getText(), senhaTF.getText(), LA);
 
         if (LA.getContagem() > 0) {
+            
             cp.carregarPagina("/menu/Menu.fxml");
+            
         } else {
-
+            
             Notificacao notificacao = new Notificacao("ERRO AO LOGAR",
                     "   Não foi possível realizar o login!!\n"
                     + "   Confira o Usuario e senha!",
                     "imagens/iconeSistemaCZ.png");
+            
             notificacao.start();
 
             usuarioTF.selectAll();
@@ -87,6 +101,7 @@ public class LoginControllerFXML implements Initializable {
 
     @FXML
     void sairBTMouse(MouseEvent event) {
+        
         Image img = new Image("imagens/iconeSistemaCZ100x100.png");
 
         javafx.scene.control.Alert alert4 = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
@@ -117,6 +132,7 @@ public class LoginControllerFXML implements Initializable {
         } else {
             //Fecha a JANELA DO ALERT.
         }
+        
     }
 
     @FXML
@@ -188,5 +204,16 @@ public class LoginControllerFXML implements Initializable {
         usuarioTF.setText("douglas");
         senhaTF.setText("123");
         Platform.runLater(usuarioTF::requestFocus);
+        
+        Relogio relogio1 = new Relogio(horaLabel);
+        SimpleDateFormat sdf1 = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+        Date date1 = new Date();
+        dataLabel.setTextFill(Color.GRAY);
+        dataLabel.setText("Hoje é " + sdf1.format(date1) + " - Seja Bem Vindo!");
+        try {
+            relogio1.relogio();
+        } catch (Exception ex) {
+            System.out.println("" + ex);
+        }
     }
 }

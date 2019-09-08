@@ -21,15 +21,19 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import util.CarregarPagina;
+import util.Notificacao;
 import util.Relogio;
+import util.Utilitario;
 
 public class RelatorioLocalidadeControllerFXML implements Initializable {
 
     RelatorioLocalidadeMetodo RLM = new RelatorioLocalidadeMetodo();
-
-    @FXML
-    private Button voltarMenuBT;
-
+    
+    CarregarPagina cp = new CarregarPagina();
+    
+    Utilitario util = new Utilitario();
+    
     @FXML
     private Label dataLB;
 
@@ -186,10 +190,18 @@ public class RelatorioLocalidadeControllerFXML implements Initializable {
                 paneCampoPesquisaTF
         );
         if (relatorioPesquisaTV.getItems().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("CONTROLE DE FINANÇAS\nRELATORIO DE LOCALIDADES");
-            alert.setContentText("NENHUM DADO FOI ENCONTRADO!");
-            alert.show();
+            
+//            util.alertSimples("RELATORIO DE LOCALIDADES", "Nenuhm dado foi encontrado");
+            
+            Notificacao notificacao = new Notificacao("RELATORIO DE LOCALIDADES",
+                    "NENHUMA LOCALIDADE ENCONTRADA!!", "/imagens/iconeSistemaCZ100x100.png");
+            notificacao.start();
+            
+            
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setHeaderText("CONTROLE DE FINANÇAS\nRELATORIO DE LOCALIDADES");
+//            alert.setContentText("NENHUM DADO FOI ENCONTRADO!");
+//            alert.show();
         }
     }
 
@@ -213,10 +225,9 @@ public class RelatorioLocalidadeControllerFXML implements Initializable {
                     paneCampoPesquisaTF
             );
             if (relatorioPesquisaTV.getItems().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("CONTROLE DE FINANÇAS\nRELATORIO DE LOCALIDADES");
-                alert.setContentText("NENHUM DADO FOI ENCONTRADO!");
-                alert.show();
+                Notificacao notificacao = new Notificacao("RELATORIO DE LOCALIDADES",
+                    "NENHUMA LOCALIDADE ENCONTRADA!!", "/imagens/iconeSistemaCZ100x100.png");
+            notificacao.start();
             }
         }
     }
@@ -281,13 +292,13 @@ public class RelatorioLocalidadeControllerFXML implements Initializable {
 
     @FXML
     void voltarMenuBTMouse(MouseEvent event) {
-        RLM.abrirMenu();
+        cp.carregarPagina("/menu/Menu.fxml");
     }
 
     @FXML
     void voltarMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            RLM.abrirMenu();
+             cp.carregarPagina("/menu/Menu.fxml");
         }
     }
 
