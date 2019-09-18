@@ -29,7 +29,7 @@ public class LocalidadeDAO {
 
     public boolean salvar(LocalidadeAtributos LA) {
 
-        String sql = "INSERT INTO localidade VALUES (null,?,?,?,?,?,?,?,null)";
+        String sql = "INSERT INTO localidade VALUES (null,?,?,?,?,?,?,?)";
         try {
 
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {

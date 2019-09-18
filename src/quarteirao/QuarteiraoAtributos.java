@@ -1,11 +1,13 @@
 package quarteirao;
 
+import java.util.Objects;
+
 /**
- *
  * @author douglas borges egidio
+ * @author DouglasInfo07
  * @17/12/2018.
- *
  */
+
 public class QuarteiraoAtributos {
 
     private String localidade;
@@ -241,5 +243,107 @@ public class QuarteiraoAtributos {
     public void setRatos(String ratos) {
         this.ratos = ratos;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.localidade);
+        hash = 59 * hash + Objects.hashCode(this.rg);
+        hash = 59 * hash + Objects.hashCode(this.macroArea);
+        hash = 59 * hash + Objects.hashCode(this.microArea);
+        hash = 59 * hash + Objects.hashCode(this.supervisor);
+        hash = 59 * hash + Objects.hashCode(this.ace);
+        hash = 59 * hash + Objects.hashCode(this.observacao);
+        hash = 59 * hash + this.quarteirao;
+        hash = 59 * hash + this.residencia;
+        hash = 59 * hash + this.comercio;
+        hash = 59 * hash + this.terrenoBaldio;
+        hash = 59 * hash + this.pontoEstrategico;
+        hash = 59 * hash + this.outros;
+        hash = 59 * hash + this.habitantes;
+        hash = 59 * hash + this.caes;
+        hash = 59 * hash + this.gatos;
+        hash = 59 * hash + Objects.hashCode(this.ratos);
+        hash = 59 * hash + this.totalQuarteirao;
+        hash = 59 * hash + this.totalImoveis;
+        hash = 59 * hash + this.totalImoveisLocalidade;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final QuarteiraoAtributos other = (QuarteiraoAtributos) obj;
+        if (this.quarteirao != other.quarteirao) {
+            return false;
+        }
+        if (this.residencia != other.residencia) {
+            return false;
+        }
+        if (this.comercio != other.comercio) {
+            return false;
+        }
+        if (this.terrenoBaldio != other.terrenoBaldio) {
+            return false;
+        }
+        if (this.pontoEstrategico != other.pontoEstrategico) {
+            return false;
+        }
+        if (this.outros != other.outros) {
+            return false;
+        }
+        if (this.habitantes != other.habitantes) {
+            return false;
+        }
+        if (this.caes != other.caes) {
+            return false;
+        }
+        if (this.gatos != other.gatos) {
+            return false;
+        }
+        if (this.totalQuarteirao != other.totalQuarteirao) {
+            return false;
+        }
+        if (this.totalImoveis != other.totalImoveis) {
+            return false;
+        }
+        if (this.totalImoveisLocalidade != other.totalImoveisLocalidade) {
+            return false;
+        }
+        if (!Objects.equals(this.localidade, other.localidade)) {
+            return false;
+        }
+        if (!Objects.equals(this.rg, other.rg)) {
+            return false;
+        }
+        if (!Objects.equals(this.macroArea, other.macroArea)) {
+            return false;
+        }
+        if (!Objects.equals(this.microArea, other.microArea)) {
+            return false;
+        }
+        if (!Objects.equals(this.supervisor, other.supervisor)) {
+            return false;
+        }
+        if (!Objects.equals(this.ace, other.ace)) {
+            return false;
+        }
+        if (!Objects.equals(this.observacao, other.observacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.ratos, other.ratos)) {
+            return false;
+        }
+        return true;
+    }
+
 
 }

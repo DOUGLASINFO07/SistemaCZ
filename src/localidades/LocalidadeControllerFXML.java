@@ -20,6 +20,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import util.CarregarPagina;
+import util.Categoria;
 import util.Relogio;
 import util.Utilitario;
 
@@ -28,6 +30,8 @@ public class LocalidadeControllerFXML implements Initializable {
     LocalidadeMetodo LM = new LocalidadeMetodo();
 
     LocalidadeAtributos LA = new LocalidadeAtributos();
+    
+    CarregarPagina cp = new CarregarPagina();
 
     Utilitario util = new Utilitario();
 
@@ -62,7 +66,7 @@ public class LocalidadeControllerFXML implements Initializable {
     private TextField siglaTF;
 
     @FXML
-    private ComboBox<LocalidadeMetodo> categoriaCB;
+    private ComboBox<Categoria> categoriaCB;
 
     @FXML
     private CheckBox zonaUrbanaRB;
@@ -240,15 +244,17 @@ public class LocalidadeControllerFXML implements Initializable {
 
     @FXML
     void voltarMenuBTMouse(MouseEvent event) {
-        LM.abrirMenu();
-        System.gc();
+        cp.carregarPagina("/menu/Menu.fxml");
+//        LM.abrirMenu();
+//        System.gc();
     }
 
     @FXML
     void voltarMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            LM.abrirMenu();
-             System.gc();
+            cp.carregarPagina("/menu/Menu.fxml");
+//            LM.abrirMenu();
+//             System.gc();
         }
     }
 
@@ -341,6 +347,8 @@ public class LocalidadeControllerFXML implements Initializable {
         LM.preencherComboBoxCategoria(categoriaCB);
 
         Platform.runLater(novoCadastroBT::requestFocus);//fim do run.
+        
+        System.gc();
 
     }
 
@@ -394,6 +402,8 @@ public class LocalidadeControllerFXML implements Initializable {
     }
 
     public void salvar() {
+        
+        
         LM.salvarLocalidade(
                 novoCadastroBT,
                 voltarMenuBT,

@@ -10,7 +10,6 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -26,7 +25,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import util.CarregarPagina;
+import util.Notificacao;
 import util.Relogio;
+import util.SituacaoFuncional;
 import util.Utilitario;
 import util.ValidarCPF;
 
@@ -146,7 +147,7 @@ public class FuncionarioControllerFXML implements Initializable {
     private ComboBox equipeCB;
 
     @FXML
-    private ComboBox situacaoFuncionalCB;
+    private ComboBox<SituacaoFuncional> situacaoFuncionalCB;
 
     @FXML
     private DatePicker dataDemissaoDP;
@@ -408,11 +409,20 @@ public class FuncionarioControllerFXML implements Initializable {
             if (validarCPF.isCPF(CPF.replace(".", "").replace("-", "")) == true) {
 
             } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("CONTROLE DE ZOONOSES\nCADASTRO DE FUNCIONÁRIO");
-                alert.setContentText("ATENÇÃO!!\n CPF INVÁLIDO!!\n"
-                        + "O NÚMERO DO CPF NÃO EXISTE!!");
-                alert.show();//Fim do if.
+
+                Notificacao notificacao = new Notificacao("ERRO NO CPF",
+                        "ATENÇÃO!!\n CPF INVÁLIDO!!\n"
+                        + "O NÚMERO DO CPF NÃO EXISTE!!"
+                        + "   Confira o CPF Informado!",
+                        "imagens/iconeSistemaCZ.png");
+
+                notificacao.start();
+
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setHeaderText("CONTROLE DE ZOONOSES\nCADASTRO DE FUNCIONÁRIO");
+//                alert.setContentText("ATENÇÃO!!\n CPF INVÁLIDO!!\n"
+//                        + "O NÚMERO DO CPF NÃO EXISTE!!");
+//                alert.show();//Fim do if.
                 cpfTF.setText("");
                 Platform.runLater(cpfTF::requestFocus);//fim do run.
             }
@@ -507,6 +517,8 @@ public class FuncionarioControllerFXML implements Initializable {
         FA.setFotoFuncionario("/imagens/usuario.png");
 
         Platform.runLater(novoCadastroBT::requestFocus);//fim do run.
+
+        System.gc();
 
     }
 
@@ -665,7 +677,8 @@ public class FuncionarioControllerFXML implements Initializable {
                 observacaoTA,
                 tabelaFuncionarioTV,
                 buscarFuncionarioTF,
-                listarTodosBT
+                listarTodosBT,
+                FA
         );
         Platform.runLater(novoCadastroBT::requestFocus);//fim do run.
     }

@@ -14,14 +14,14 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -31,13 +31,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import jeanderson.br.util.MaskFormatter;
 import menu.MenuMetodos;
+import util.SituacaoFuncional;
 import util.Utilitario;
 
 /**
  * @author douglas borges egidio
- * @author DIMTech
+ * @author DouglasInfo07
  * @since 24/08/2019
  */
 public class FuncionarioMetodo extends Application {
@@ -49,8 +51,6 @@ public class FuncionarioMetodo extends Application {
     MenuMetodos menuMetodos = new MenuMetodos();
 
     FuncionarioAtributos FA = new FuncionarioAtributos();
-
-    private static Scene mainScene;
 
     public FuncionarioMetodo() {
     }
@@ -69,17 +69,6 @@ public class FuncionarioMetodo extends Application {
         MaskFormatter formatter = new MaskFormatter(telefone);
         formatter.setMask(MaskFormatter.TEL_9DIG);
     }//FIM DO MÉTODO FORMATAR TELEFONE.
-
-    //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
-    private static Stage stage;
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    public static Scene getMainScene() {
-        return mainScene;
-    }
 
     public void limparFormulario(
             Button novoCadastro,
@@ -499,7 +488,8 @@ public class FuncionarioMetodo extends Application {
             TextArea observacaoTA,
             TableView tabelaFuncionarioTV,
             TextField buscarFuncionarioTF,
-            Button listarTodosBT
+            Button listarTodosBT,
+            FuncionarioAtributos FA
     ) {
 
         FA.setNome(nomeTF.getText());
@@ -566,6 +556,10 @@ public class FuncionarioMetodo extends Application {
         FA.setFormaEgresso(formaEgressoCB.getSelectionModel().getSelectedItem().toString());
         FA.setObservacao(observacaoTA.getText());
 
+        FA.setFotoFuncionario(fotoFuncionarioIV.getImage().toString());
+
+        System.out.println(FA.getFotoFuncionario());
+
         if (nomeTF.getText().equals("")
                 || cpfTF.getText().equals("")
                 || rgTF.getText().equals("")
@@ -598,20 +592,14 @@ public class FuncionarioMetodo extends Application {
                     + "\nConfira o formulário!"
                     + "\nTodos os campos devem ser preenchidos!");
 
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    nomeTF.requestFocus();
-                }
+            Platform.runLater(() -> {
+                nomeTF.requestFocus();
             });
         } else {
             if (telefoneTF.getText().length() < 15) {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        telefoneTF.requestFocus();
-                        telefoneTF.positionCaret(telefoneTF.getText().length());
-                    }
+                Platform.runLater(() -> {
+                    telefoneTF.requestFocus();
+                    telefoneTF.positionCaret(telefoneTF.getText().length());
                 });
 
                 util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!!\n Confira o número do telefone!!");
@@ -620,11 +608,8 @@ public class FuncionarioMetodo extends Application {
                 Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
                 Matcher m = p.matcher(emailTF.getText());
                 if (!(m.find() && m.group().equals(emailTF.getText()))) {
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            emailTF.requestFocus();
-                        }
+                    Platform.runLater(() -> {
+                        emailTF.requestFocus();
                     });
                     util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "ATENÇÃO!!\n Confira o E-mail!!");
                 } else {
@@ -767,11 +752,8 @@ public class FuncionarioMetodo extends Application {
                         //exibe mensagem de cadastrado com sucesso.
                         util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "Cadastro realizado com sucesso!!");
 
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(novoCadastro::requestFocus);
-                            }
+                        Platform.runLater(() -> {
+                            Platform.runLater(novoCadastro::requestFocus);
                         });
                         salvarBT.setDisable(true);
                         buscarImagemBT.setDisable(true);
@@ -1502,31 +1484,34 @@ public class FuncionarioMetodo extends Application {
         area.setItems(observableListArea);
     }
 
-    public void preencherComboBoxSituacaoFuncional(ComboBox<FuncionarioMetodo> situacao) {
+    public void preencherComboBoxSituacaoFuncional(ComboBox<SituacaoFuncional> situacaoFuncional) {
 
-        List<FuncionarioMetodo> situacaoCB = new ArrayList<>();
+        ObservableList<SituacaoFuncional> observableListSituacaoFuncional;
 
-        ObservableList<FuncionarioMetodo> observableListSituacao;
+        //cria lista de dados para ser exibido no comboBox.
+        List<SituacaoFuncional> listSituacaoFuncional = new ArrayList<>();
+        listSituacaoFuncional.add(new SituacaoFuncional("Regular"));
+        listSituacaoFuncional.add(new SituacaoFuncional("Afastado pelo INSS"));
+        listSituacaoFuncional.add(new SituacaoFuncional("Licença - LIP"));
+        listSituacaoFuncional.add(new SituacaoFuncional("Desviado de Função"));
+        listSituacaoFuncional.add(new SituacaoFuncional("Readaptado"));
+        listSituacaoFuncional.add(new SituacaoFuncional("Outras licenças"));
+        listSituacaoFuncional.add(new SituacaoFuncional("Inativo"));
 
-        FuncionarioMetodo situacao1 = new FuncionarioMetodo(1, "Regular");
-        FuncionarioMetodo situacao2 = new FuncionarioMetodo(2, "Afastado pelo INSS");
-        FuncionarioMetodo situacao3 = new FuncionarioMetodo(3, "Licença - LIP");
-        FuncionarioMetodo situacao4 = new FuncionarioMetodo(4, "Desviado de Função");
-        FuncionarioMetodo situacao5 = new FuncionarioMetodo(5, "Readaptado");
-        FuncionarioMetodo situacao6 = new FuncionarioMetodo(6, "Outras licenças");
-        FuncionarioMetodo situacao7 = new FuncionarioMetodo(7, "Inativo");
+        // Pega os dados da lista e cria uma lista no formato para o combobox
+        observableListSituacaoFuncional = FXCollections.observableArrayList(listSituacaoFuncional);
 
-        situacaoCB.add(situacao1);
-        situacaoCB.add(situacao2);
-        situacaoCB.add(situacao3);
-        situacaoCB.add(situacao4);
-        situacaoCB.add(situacao5);
-        situacaoCB.add(situacao6);
-        situacaoCB.add(situacao7);
-
-        observableListSituacao = FXCollections.observableArrayList(situacaoCB);
-
-        situacao.setItems(observableListSituacao);
+        //Insere os dados no comboBox
+        situacaoFuncional.setItems(observableListSituacaoFuncional);
+        Callback<ListView<SituacaoFuncional>, ListCell<SituacaoFuncional>> factory = lv -> new ListCell<SituacaoFuncional>() {
+            @Override
+            protected void updateItem(SituacaoFuncional item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getSituacaoFuncional());
+            }
+        };
+        situacaoFuncional.setCellFactory(factory);
+        situacaoFuncional.setButtonCell(factory.call(null));
     }
 
     public void preencherComboBoxFormaIngresso(ComboBox<FuncionarioMetodo> ingresso) {

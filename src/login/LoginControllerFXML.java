@@ -28,10 +28,10 @@ public class LoginControllerFXML implements Initializable {
 
     @FXML
     private TextField usuarioTF;
-    
+
     @FXML
     private Label dataLabel;
-    
+
     @FXML
     private Label horaLabel;
 
@@ -50,16 +50,16 @@ public class LoginControllerFXML implements Initializable {
         dao.buscarDadosLogin(usuarioTF.getText(), senhaTF.getText(), LA);
 
         if (LA.getContagem() > 0) {
-            
+
             cp.carregarPagina("/menu/Menu.fxml");
-            
+
         } else {
-            
+
             Notificacao notificacao = new Notificacao("ERRO AO LOGAR",
                     "   Não foi possível realizar o login!!\n"
                     + "   Confira o Usuario e senha!",
                     "imagens/iconeSistemaCZ.png");
-            
+
             notificacao.start();
 
             usuarioTF.selectAll();
@@ -101,7 +101,7 @@ public class LoginControllerFXML implements Initializable {
 
     @FXML
     void sairBTMouse(MouseEvent event) {
-        
+
         Image img = new Image("imagens/iconeSistemaCZ100x100.png");
 
         javafx.scene.control.Alert alert4 = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
@@ -132,7 +132,7 @@ public class LoginControllerFXML implements Initializable {
         } else {
             //Fecha a JANELA DO ALERT.
         }
-        
+
     }
 
     @FXML
@@ -145,8 +145,8 @@ public class LoginControllerFXML implements Initializable {
             alert4.setContentText("Deseja realmente sair do sistemaCZ?");
             alert4.setGraphic(new ImageView(img));
             alert4.setHeaderText("SISTEMA DE GERENCIAMENTO E CONTROLE DE ZOONOSES");
-           alert4.setResizable(true);
-        alert4.getDialogPane().setPrefSize(480, 270);
+            alert4.setResizable(true);
+            alert4.getDialogPane().setPrefSize(480, 270);
 
             DialogPane dialogPane = alert4.getDialogPane();
             dialogPane.getStylesheets().add(
@@ -204,7 +204,7 @@ public class LoginControllerFXML implements Initializable {
         usuarioTF.setText("douglas");
         senhaTF.setText("123");
         Platform.runLater(usuarioTF::requestFocus);
-        
+
         Relogio relogio1 = new Relogio(horaLabel);
         SimpleDateFormat sdf1 = new SimpleDateFormat("EEEE, dd MMMM yyyy");
         Date date1 = new Date();
@@ -215,5 +215,8 @@ public class LoginControllerFXML implements Initializable {
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
+
+        System.gc();
+
     }
 }

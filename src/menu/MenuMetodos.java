@@ -25,109 +25,109 @@ import servicoTratamentoFocal.ServicoTratamentoFocalMetodos;
 /**
  * @author douglas borges egidio
  */
-public class MenuMetodos extends Application {
+public class MenuMetodos {
 
     private static Scene mainScene;
 
-    //INICIO DO CONJUNTO DE MÉTODOS PARA ABRIR TELA MENU.
-    private static Stage stage;
-
-    public Stage getStage() {
-        return stage;
-    }//Fim do método
-
-    public void setStage(Stage stage) {
-        MenuMetodos.stage = stage;
-    }//Fim do método setStage().
-
-    public static void main(String[] args) {
-        launch(args);
-    }//Fim do método main.
-
-    @Override
-    public void start(Stage stage) throws IOException {
-////       Parent root = null;
-////        try {
-////            root = FXMLLoader.load(getClass().getResource("/menu/Menu.fxml"));
-////            stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-////            Scene scene = new Scene(root);
-////            stage.setTitle("Sistema Gerenciamento de Controle de Zoonoses");
-////            stage.setFullScreen(true);
-////            stage.setScene(scene);
-////            stage.show();
-////            setStage(stage);
-////        } //Fim do métod start().
-////        catch (IOException ex) {
-////            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
-////        }
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/menu/Menu.fxml"));
-//        AnchorPane newAnchorPane = loader.load();
+//    //INICIO DO CONJUNTO DE MÉTODOS PARA ABRIR TELA MENU.
+//    private static Stage stage;
 //
-//        mainScene = new Scene(newAnchorPane);
-//        stage.setTitle("Sistema Gerenciamento de Controle de Zoonoses - Tela de Login");
-//        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-//        stage.setScene(mainScene);
-//        stage.setFullScreen(true);
-//        stage.show();
-    }
+//    public Stage getStage() {
+//        return stage;
+//    }//Fim do método
+//
+//    public void setStage(Stage stage) {
+//        MenuMetodos.stage = stage;
+//    }//Fim do método setStage().
+//
+//    public static void main(String[] args) {
+//        launch(args);
+//    }//Fim do método main.
+
+//    @Override
+//    public void start(Stage stage) throws IOException {
+//////       Parent root = null;
+//////        try {
+//////            root = FXMLLoader.load(getClass().getResource("/menu/Menu.fxml"));
+//////            stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
+//////            Scene scene = new Scene(root);
+//////            stage.setTitle("Sistema Gerenciamento de Controle de Zoonoses");
+//////            stage.setFullScreen(true);
+//////            stage.setScene(scene);
+//////            stage.show();
+//////            setStage(stage);
+//////        } //Fim do métod start().
+//////        catch (IOException ex) {
+//////            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
+//////        }
+////        FXMLLoader loader = new FXMLLoader(getClass().getResource("/menu/Menu.fxml"));
+////        AnchorPane newAnchorPane = loader.load();
+////
+////        mainScene = new Scene(newAnchorPane);
+////        stage.setTitle("Sistema Gerenciamento de Controle de Zoonoses - Tela de Login");
+////        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
+////        stage.setScene(mainScene);
+////        stage.setFullScreen(true);
+////        stage.show();
+//    }
     //FIM DO CONJUNTO DE MÉTODO PARA ABRIR TELA MENU.
 
-    //MÉTODO QUE FECHA A TELA MENU.
-    public void fecharMenu() {
-        getStage().close();
-    }//FIM DO MÉTODO.
+//    //MÉTODO QUE FECHA A TELA MENU.
+//    public void fecharMenu() {
+//        getStage().close();
+//    }//FIM DO MÉTODO.
 
     //MÉTODO QUE ABRE A TELA USUÁRIO.
-    public void abrirFuncionario() throws Exception {
+//    public void abrirFuncionario() throws Exception {
+//
+////        FuncionarioMetodo FM = new FuncionarioMetodo();
+////        try {
+////           FM.start(new Stage());
+////            fecharMenu();
+////        } catch (IOException ex) {
+////            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
+////        }
+//    }//FIM DO MÉTODO.
 
-//        FuncionarioMetodo FM = new FuncionarioMetodo();
+//    //MÉTODO QUE ABRE A TELA USUÁRIO.
+//    public void abrirLocalidade() {
+//        LocalidadeMetodo LM = new LocalidadeMetodo();
 //        try {
-//           FM.start(new Stage());
+//            LM.start(new Stage());
 //            fecharMenu();
-//        } catch (IOException ex) {
+//        } catch (Exception ex) {
 //            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-    }//FIM DO MÉTODO.
+//    }//FIM DO MÉTODO.
 
-    //MÉTODO QUE ABRE A TELA USUÁRIO.
-    public void abrirLocalidade() {
-        LocalidadeMetodo LM = new LocalidadeMetodo();
-        try {
-            LM.start(new Stage());
-            fecharMenu();
-        } catch (Exception ex) {
-            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
+//    //MÉTODO QUE ABRE A TELA USUÁRIO.
+//    public void abrirQuarteirao() {
+//        QuarteiraoMetodos QM = new QuarteiraoMetodos();
+//        try {
+////            QM.start(new Stage());
+////            fecharMenu();
+//        } catch (Exception ex) {
+//            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }//FIM DO MÉTODO.
 
-    //MÉTODO QUE ABRE A TELA USUÁRIO.
-    public void abrirQuarteirao() {
-        QuarteiraoMetodos QM = new QuarteiraoMetodos();
-        try {
-            QM.start(new Stage());
-            fecharMenu();
-        } catch (Exception ex) {
-            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
-
-    //MÉTODO QUE ABRE A TELA USUÁRIO.
-    public void abrirAtividades() {
-        AtividadesMetodos AM = new AtividadesMetodos();
-        try {
-            AM.start(new Stage());
-            fecharMenu();
-        } catch (Exception ex) {
-            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
+//    //MÉTODO QUE ABRE A TELA USUÁRIO.
+//    public void abrirAtividades() {
+//        AtividadesMetodos AM = new AtividadesMetodos();
+//        try {
+////            AM.start(new Stage());
+////            fecharMenu();
+//        } catch (Exception ex) {
+//            Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }//FIM DO MÉTODO.
 
     //MÉTODO QUE ABRE A TELA USUÁRIO.
     public void abrirLancamentoTratamentoFocal() {
         ServicoTratamentoFocalMetodos STF = new ServicoTratamentoFocalMetodos();
         try {
             STF.start(new Stage());
-            fecharMenu();
+//            fecharMenu();
         } catch (Exception ex) {
             Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -137,7 +137,7 @@ public class MenuMetodos extends Application {
         DenunciasMetodos DM = new DenunciasMetodos();
         try {
             DM.start(new Stage());
-            fecharMenu();
+//            fecharMenu();
         } catch (Exception ex) {
             Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -147,7 +147,7 @@ public class MenuMetodos extends Application {
         RelatorioFuncionarioMetodo RFM = new RelatorioFuncionarioMetodo();
         try {
             RFM.start(new Stage());
-            fecharMenu();
+//            fecharMenu();
         } catch (Exception ex) {
             Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -157,7 +157,7 @@ public class MenuMetodos extends Application {
         RelatorioLocalidadeMetodo RLM = new RelatorioLocalidadeMetodo();
         try {
             RLM.start(new Stage());
-            fecharMenu();
+//            fecharMenu();
         } catch (Exception ex) {
             Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -167,7 +167,7 @@ public class MenuMetodos extends Application {
         RelatorioQuarteiraoMetodo RQM = new RelatorioQuarteiraoMetodo();
         try {
             RQM.start(new Stage());
-            fecharMenu();
+//            fecharMenu();
         } catch (Exception ex) {
             Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -177,7 +177,7 @@ public class MenuMetodos extends Application {
         RelatorioAtividadesMetodo RAM = new RelatorioAtividadesMetodo();
         try {
             RAM.start(new Stage());
-            fecharMenu();
+//            fecharMenu();
         } catch (Exception ex) {
             Logger.getLogger(MenuMetodos.class.getName()).log(Level.SEVERE, null, ex);
         }

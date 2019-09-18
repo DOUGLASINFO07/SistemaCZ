@@ -84,20 +84,20 @@ public class ServicoTratamentoFocalMetodos extends Application {
     }
     //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
 
-    //MÉTODO FECHAR USUARIO.
-    public void fecharServicoTratamentoFocal() {
-        getStage().close();
-    }//FIM DO MÉTODO FECHAR USUARIO.
-
-    //MÉTODO QUE ABRE A TELA MENU.
-    public void abrirMenu() {
-        try {
-            menuMetodos.start(new Stage());
-            fecharServicoTratamentoFocal();
-        } catch (Exception ex) {
-            Logger.getLogger(ServicoTratamentoFocalMetodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
+//    //MÉTODO FECHAR USUARIO.
+//    public void fecharServicoTratamentoFocal() {
+//        getStage().close();
+//    }//FIM DO MÉTODO FECHAR USUARIO.
+//
+//    //MÉTODO QUE ABRE A TELA MENU.
+//    public void abrirMenu() {
+//        try {
+//            menuMetodos.start(new Stage());
+//            fecharServicoTratamentoFocal();
+//        } catch (Exception ex) {
+//            Logger.getLogger(ServicoTratamentoFocalMetodos.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }//FIM DO MÉTODO.
 
     public void limparFormulario(
             Button novoCadastro,

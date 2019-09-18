@@ -193,38 +193,38 @@
                                        <children>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="481.0" prefHeight="27.0" prefWidth="100.0" stylesheets="@../css/label_formulario.css" text="MATRÍCULA" />
-                                                <TextField fx:id="matriculaTF" layoutX="481.0" layoutY="24.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="119.0" stylesheets="@../css/textField.css" />
                                                 <Label stylesheets="@../css/label_formulario.css" text="CARGO" />
                                                 <ComboBox fx:id="cargoCB" layoutY="25.0" prefHeight="25.0" prefWidth="240.0" stylesheets="@../css/comboBox.css" />
                                                 <Label layoutX="254.0" layoutY="-1.0" prefHeight="27.0" prefWidth="225.0" stylesheets="@../css/label_formulario.css" text="VÍNCULO EMPREGATÍCIO" />
                                                 <ComboBox fx:id="vinculoEmpregaticioCB" layoutX="257.0" layoutY="24.0" prefHeight="25.0" prefWidth="212.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="481.0" prefHeight="27.0" prefWidth="100.0" stylesheets="@../css/label_formulario.css" text="MATRÍCULA" />
+                                                <TextField fx:id="matriculaTF" layoutX="481.0" layoutY="24.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="119.0" stylesheets="@../css/textField.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="255.0" stylesheets="@../css/label_formulario.css" text="AREA DE TRABALHO" />
-                                                <ComboBox fx:id="areaTrabalhoCB" layoutX="255.0" layoutY="25.0" prefHeight="25.0" prefWidth="343.0" stylesheets="@../css/comboBox.css" />
                                                 <Label stylesheets="@../css/label_formulario.css" text="EQUIPE" />
                                                 <ComboBox fx:id="equipeCB" layoutY="25.0" prefHeight="25.0" prefWidth="240.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="255.0" stylesheets="@../css/label_formulario.css" text="AREA DE TRABALHO" />
+                                                <ComboBox fx:id="areaTrabalhoCB" layoutX="255.0" layoutY="25.0" prefHeight="25.0" prefWidth="343.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
                                           <Label prefHeight="27.0" prefWidth="196.0" stylesheets="@../css/label_formulario.css" text="SITUAÇÃO FUNCIONAL" />
                                           <ComboBox fx:id="situacaoFuncionalCB" prefHeight="25.0" prefWidth="600.0" stylesheets="@../css/comboBox.css" />
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="304.0" prefHeight="27.0" prefWidth="138.0" stylesheets="@../css/label_formulario.css" text="DATA DEMISSÃO" />
-                                                <DatePicker fx:id="dataDemissaoDP" layoutX="304.0" layoutY="24.0" prefHeight="25.0" prefWidth="290.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
                                                 <Label stylesheets="@../css/label_formulario.css" text="DATA ADMISSÃO" />
                                                 <DatePicker fx:id="dataAdmissaoDP" layoutY="25.0" prefHeight="25.0" prefWidth="280.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
+                                                <Label layoutX="304.0" prefHeight="27.0" prefWidth="138.0" stylesheets="@../css/label_formulario.css" text="DATA DEMISSÃO" />
+                                                <DatePicker fx:id="dataDemissaoDP" layoutX="304.0" layoutY="24.0" prefHeight="25.0" prefWidth="290.0" showWeekNumbers="true" stylesheets="@../css/datePicker.css" />
                                              </children>
                                           </Pane>
                                           <Pane prefHeight="50.0" prefWidth="500.0">
                                              <children>
-                                                <Label layoutX="304.0" prefHeight="27.0" prefWidth="169.0" stylesheets="@../css/label_formulario.css" text="FORMA DE EGRESSO" />
-                                                <ComboBox fx:id="formaEgressoCB" layoutX="303.0" layoutY="25.0" prefHeight="25.0" prefWidth="290.0" stylesheets="@../css/comboBox.css" />
                                                 <Label stylesheets="@../css/label_formulario.css" text="FORMA DE INGRESSO" />
                                                 <ComboBox fx:id="formaIngressoCB" layoutY="25.0" prefHeight="25.0" prefWidth="280.0" stylesheets="@../css/comboBox.css" />
+                                                <Label layoutX="304.0" prefHeight="27.0" prefWidth="169.0" stylesheets="@../css/label_formulario.css" text="FORMA DE EGRESSO" />
+                                                <ComboBox fx:id="formaEgressoCB" layoutX="303.0" layoutY="25.0" prefHeight="25.0" prefWidth="290.0" stylesheets="@../css/comboBox.css" />
                                              </children>
                                           </Pane>
                                           <Label stylesheets="@../css/label_formulario.css" text="OBSERVAÇÕES" />
@@ -240,7 +240,7 @@
                   <Label prefWidth="30.0" />
                   <Pane prefHeight="457.0" prefWidth="421.0">
                      <children>
-                        <TableView fx:id="tabelaFuncionarioTV" fixedCellSize="0.0" layoutY="40.0" onKeyPressed="#tabelaFuncionarioTVTeclado" onMouseClicked="#tabelaFuncionarioTVMouse" prefHeight="356.0" prefWidth="421.0" stylesheets="@../css/tabela.css">
+                        <TableView fx:id="tabelaFuncionarioTV" fixedCellSize="0.0" layoutY="53.0" onKeyPressed="#tabelaFuncionarioTVTeclado" onMouseClicked="#tabelaFuncionarioTVMouse" prefHeight="356.0" prefWidth="421.0" stylesheets="@../css/tabela.css">
                           <columns>
                             <TableColumn fx:id="colunaNomeTC" prefWidth="283.0" text="NOME" />
                               <TableColumn fx:id="colunaEquipeTC" prefWidth="134.0" text="EQUIPE" />
@@ -255,7 +255,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button fx:id="imprimirBT" disable="true" layoutX="280.0" layoutY="402.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="IMPRIMIR">
+                        <Button fx:id="imprimirBT" disable="true" layoutX="280.0" layoutY="415.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="IMPRIMIR">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -290,7 +290,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../imagens/Fechar.png" />
+                        <Image url="@../imagens/voltar(1).png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -304,7 +304,7 @@
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="181.0" layoutY="935.0" prefHeight="30.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
+            <Label prefHeight="20.0" prefWidth="417.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - dimtech.com.br - DouglasInfo07" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

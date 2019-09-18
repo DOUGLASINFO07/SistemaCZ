@@ -100,7 +100,7 @@ public class RelatorioFuncionarioMetodo extends Application {
     //MÉTODO QUE ABRE A TELA MENU.
     public void abrirMenu() {
         try {
-            menuMetodos.start(new Stage());
+//            menuMetodos.start(new Stage());
             fecharRelatorioFuncionario();
         } catch (Exception ex) {
             Logger.getLogger(RelatorioFuncionarioMetodo.class.getName()).log(Level.SEVERE, null, ex);

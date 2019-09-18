@@ -382,13 +382,13 @@ public class ServicoTratamentoFocalControllerFXML implements Initializable {
 
     @FXML
     void voltarMenuBTMouse(MouseEvent event) {
-        STFM.abrirMenu();
+//        STFM.abrirMenu();
     }
 
     @FXML
     void voltarMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            STFM.abrirMenu();
+//            STFM.abrirMenu();
         }
     }
 

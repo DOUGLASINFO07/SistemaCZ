@@ -9,23 +9,42 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="736.0" prefWidth="1280.0" styleClass="AnchorPane" stylesheets="@../css/corFundo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quarteirao.QuarteiraoControllerFXML">
+<AnchorPane prefHeight="736.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quarteirao.QuarteiraoControllerFXML">
    <children>
       <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="756.0" stylesheets="@../css/label_tituloPagina.css" text="CADASTRO DE QUARTEIRÃO" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/iconeSistemaCZ100x100.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="884.0" stylesheets="@../css/label_tituloPagina.css" text="CADASTRO DE QUARTEIRÃO" />
+            <ImageView fitHeight="60.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/dimTech.png" />
+               </image>
+            </ImageView>
          </children>
       </FlowPane>
       <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="40.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="50.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU" />
+            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="40.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/voltar(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <opaqueInsets>
             <Insets />
@@ -39,78 +58,205 @@
             <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
          </children>
       </FlowPane>
-      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="448.0" stylesheets="@../css/hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
-            <Label fx:id="horasLB" stylesheets="@../css/hora_Data.css" text="Label" />
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="976.0" stylesheets="@../css/Label_Hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="93.0" stylesheets="@../css/Label_Hora_Data.css" text="Label" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
-      <FlowPane layoutY="100.0" minHeight="444.0" prefHeight="494.0" prefWidth="1280.0" stylesheets="@../css/flowPane.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <FlowPane alignment="CENTER" layoutY="100.0" minHeight="444.0" prefHeight="494.0" prefWidth="1280.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <FlowPane alignment="CENTER" prefHeight="417.0" prefWidth="1280.0">
+            <FlowPane alignment="CENTER" prefHeight="400.0" prefWidth="1280.0">
                <children>
-                  <Pane maxHeight="-Infinity" prefHeight="478.0" prefWidth="150.0">
+                  <Pane maxHeight="-Infinity" prefHeight="471.0" prefWidth="183.0">
                      <children>
-                        <Button fx:id="salvarBT" disable="true" layoutX="15.0" layoutY="292.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="SALVAR" />
-                        <Button fx:id="atualizarBT" disable="true" layoutX="15.0" layoutY="358.0" mnemonicParsing="false" onKeyPressed="#atualizarBTTeclado" onMouseClicked="#atualizarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="ATUALIZAR" />
-                        <Button fx:id="excluirBT" disable="true" layoutX="15.0" layoutY="421.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="EXCLUIR" />
-                        <Button fx:id="novoCadastroBT" layoutX="-5.0" layoutY="2.0" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/button.css" text="NOVO CADASTRO" />
+                        <Button fx:id="salvarBT" disable="true" layoutY="301.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="180.0" stylesheets="@../css/button.css" text="SALVAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/teste.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="atualizarBT" disable="true" layoutY="367.0" mnemonicParsing="false" onKeyPressed="#atualizarBTTeclado" onMouseClicked="#atualizarBTMouse" prefHeight="40.0" prefWidth="180.0" stylesheets="@../css/button.css" text="ATUALIZAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/atualiza.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="excluirBT" disable="true" layoutY="430.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="180.0" stylesheets="@../css/button.css" text="EXCLUIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/excluir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="novoCadastroBT" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="180.0" stylesheets="@../css/button.css" text="NOVO CADASTRO">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/adicionar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </Pane>
-                  <Pane prefHeight="497.0" prefWidth="544.0">
+                  <Pane prefHeight="463.0" prefWidth="495.0">
                      <children>
                         <VBox prefHeight="321.0" prefWidth="280.0">
                            <children>
-                              <Label text="LOCALIDADE" />
-                              <ComboBox fx:id="localidadeCB" prefHeight="25.0" prefWidth="280.0" promptText="Selecione" />
-                              <Label text="RECONHECIMENTO GEOGRÁFICO" />
-                              <ComboBox fx:id="rgCB" prefHeight="25.0" prefWidth="280.0" promptText="Selecione" />
-                              <Label text="MACRO ÁREA" />
-                              <ComboBox fx:id="macroAreaCB" onKeyPressed="#macroAreaCBTeclado" onMouseClicked="#macroAreaCBMouse" prefHeight="25.0" prefWidth="150.0" />
-                              <Label text="MICRO ÁREA" />
-                              <ComboBox fx:id="microAreaCB" prefWidth="150.0" />
-                              <Label text="SUPERVISOR" />
-                              <ComboBox fx:id="supervisorCB" prefWidth="280.0" />
-                              <Label text="AGENTE COMBATE ENDEMIAS" />
-                              <ComboBox fx:id="aceCB" prefWidth="280.0" />
+                              <Label stylesheets="@../css/label_formulario.css" text="LOCALIDADE">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="localidadeCB" prefHeight="25.0" prefWidth="280.0" promptText="Selecione" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="RECONHECIMENTO GEOGRÁFICO">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="rgCB" prefHeight="25.0" prefWidth="280.0" promptText="Selecione" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="MACRO ÁREA">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="macroAreaCB" onKeyPressed="#macroAreaCBTeclado" onMouseClicked="#macroAreaCBMouse" prefHeight="25.0" prefWidth="150.0" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="MICRO ÁREA">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="microAreaCB" prefWidth="150.0" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="SUPERVISOR">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="supervisorCB" prefWidth="280.0" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="AGENTE COMBATE ENDEMIAS">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="aceCB" prefWidth="280.0" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
                            </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </VBox>
-                        <Pane layoutX="-2.0" layoutY="314.0" prefHeight="161.0" prefWidth="280.0">
+                        <Pane layoutX="-2.0" layoutY="314.0" prefHeight="161.0" prefWidth="280.0" stylesheets="@../css/comboBox.css">
                            <children>
-                              <Label text="OBSERVAÇÕES" />
-                              <TextArea fx:id="observacaoTA" layoutX="7.0" layoutY="35.0" onKeyPressed="#observacaoTATeclado" prefHeight="122.0" prefWidth="270.0" />
+                              <Label layoutX="14.0" layoutY="30.0" stylesheets="@../css/label_formulario.css" text="OBSERVAÇÕES" />
+                              <TextArea fx:id="observacaoTA" layoutX="10.0" layoutY="57.0" onKeyPressed="#observacaoTATeclado" prefHeight="100.0" prefWidth="270.0" stylesheets="@../css/AreaTextField.css" wrapText="true" />
                            </children>
                         </Pane>
-                        <VBox layoutX="300.0" prefHeight="475.0" prefWidth="230.0">
+                        <VBox layoutX="300.0" prefHeight="459.0" prefWidth="195.0">
                            <children>
-                              <Label text="NÚMERO DO QUARTEIRÃO" />
-                              <TextField fx:id="quarteiraoTF" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" />
-                              <Label text="RESIDENCIAS" />
-                              <TextField fx:id="residenciasTF" maxWidth="-Infinity" prefWidth="70.0" />
-                              <Label text="COMÉRCIOS" />
-                              <TextField fx:id="comerciosTF" maxWidth="-Infinity" prefWidth="70.0" />
-                              <Label text="TERRENO BALDIO" />
-                              <TextField fx:id="terrenoBaldioTF" maxWidth="-Infinity" prefWidth="70.0" />
-                              <Label text="PONTOS ESTRATÉGICOS" />
-                              <TextField fx:id="pontosEstrategicosTF" maxWidth="-Infinity" prefWidth="70.0" />
-                              <Label text="OUTROS" />
-                              <TextField fx:id="outrosTF" maxWidth="-Infinity" prefWidth="70.0" />
-                              <Label text="HABIT." />
-                              <TextField fx:id="habitantesTF" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" />
+                              <Label stylesheets="@../css/label_formulario.css" text="NÚMERO DO QUARTEIRÃO">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="quarteiraoTF" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
+                              <Label stylesheets="@../css/label_formulario.css" text="RESIDENCIAS">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="residenciasTF" maxWidth="-Infinity" prefWidth="70.0" stylesheets="@../css/textField.css" />
+                              <Label stylesheets="@../css/label_formulario.css" text="COMÉRCIOS">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="comerciosTF" maxWidth="-Infinity" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
+                              <Label stylesheets="@../css/label_formulario.css" text="TERRENO BALDIO">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="terrenoBaldioTF" maxWidth="-Infinity" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
+                              <Label stylesheets="@../css/label_formulario.css" text="PONTOS ESTRATÉGICOS">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="pontosEstrategicosTF" maxWidth="-Infinity" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
+                              <Label stylesheets="@../css/label_formulario.css" text="OUTROS">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="outrosTF" maxWidth="-Infinity" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
+                              <Label stylesheets="@../css/label_formulario.css" text="HABIT.">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="habitantesTF" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
                               <Pane prefHeight="50.0" prefWidth="230.0">
                                  <children>
-                                    <Label text="CÃES" />
-                                    <TextField fx:id="caesTF" layoutY="25.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" />
-                                    <Label layoutX="81.0" prefHeight="27.0" prefWidth="58.0" text="GATOS" />
-                                    <TextField fx:id="gatosTF" layoutX="81.0" layoutY="25.0" prefHeight="25.0" prefWidth="70.0" />
+                                    <Label stylesheets="@../css/label_formulario.css" text="CÃES">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></Label>
+                                    <TextField fx:id="caesTF" layoutY="25.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></TextField>
+                                    <Label layoutX="81.0" prefHeight="27.0" prefWidth="58.0" stylesheets="@../css/label_formulario.css" text="GATOS">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></Label>
+                                    <TextField fx:id="gatosTF" layoutX="81.0" layoutY="25.0" prefHeight="25.0" prefWidth="70.0" stylesheets="@../css/textField.css">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></TextField>
                                  </children>
                               </Pane>
                               <Pane maxWidth="-Infinity" prefHeight="59.0" prefWidth="230.0">
                                  <children>
-                                    <Label contentDisplay="CENTER" layoutY="7.0" prefHeight="30.0" prefWidth="60.0" text="RATOS?" />
-                                    <CheckBox fx:id="ratosSimCB" contentDisplay="CENTER" layoutX="59.0" layoutY="11.0" mnemonicParsing="false" onKeyPressed="#ratosSimCBTeclado" onMouseClicked="#ratosSimCBMouse" prefHeight="30.0" prefWidth="54.0" selected="true" text="SIM" />
-                                    <CheckBox fx:id="ratosNaoCB" contentDisplay="CENTER" layoutX="128.0" layoutY="13.0" mnemonicParsing="false" onKeyPressed="#ratosNaoCBTeclado" onMouseClicked="#ratosNaoCBMouse" text="NÃO" />
+                                    <Label contentDisplay="CENTER" layoutY="7.0" prefHeight="30.0" prefWidth="60.0" stylesheets="@../css/label_formulario.css" text="RATOS?">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></Label>
+                                    <CheckBox fx:id="ratosSimCB" contentDisplay="CENTER" layoutX="59.0" layoutY="11.0" mnemonicParsing="false" onKeyPressed="#ratosSimCBTeclado" onMouseClicked="#ratosSimCBMouse" prefHeight="30.0" prefWidth="54.0" selected="true" stylesheets="@../css/CheckBox.css" text="SIM">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></CheckBox>
+                                    <CheckBox fx:id="ratosNaoCB" contentDisplay="CENTER" layoutX="128.0" layoutY="13.0" mnemonicParsing="false" onKeyPressed="#ratosNaoCBTeclado" onMouseClicked="#ratosNaoCBMouse" stylesheets="@../css/CheckBox.css" text="NÃO">
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding></CheckBox>
                                  </children>
                               </Pane>
                            </children>
@@ -119,22 +265,42 @@
                   </Pane>
                   <Pane prefHeight="450.0" prefWidth="400.0">
                      <children>
-                        <ComboBox fx:id="buscarBairroCB" layoutX="-1.0" layoutY="19.0" onKeyPressed="#buscarBairroCBTeclado" onMouseClicked="#buscarBairroCBMouse" prefHeight="25.0" prefWidth="305.0" promptText="Selecione uma Localidade" stylesheets="@../css/campo_buscar.css" />
-                        <ComboBox fx:id="buscarDataRGCB" disable="true" layoutY="47.0" prefHeight="25.0" prefWidth="305.0" promptText="Selecione uma Data de RG" stylesheets="@../css/campo_buscar.css" />
-                        <TableView fx:id="tabelaQuarteiraoTV" fixedCellSize="0.0" layoutY="80.0" onKeyPressed="#tabelaQuarteiraoTVTeclado" onMouseClicked="#tabelaQuarteiraoTVMouse" prefHeight="328.0" prefWidth="400.0">
+                        <ComboBox fx:id="buscarBairroCB" layoutX="-1.0" layoutY="5.0" onKeyPressed="#buscarBairroCBTeclado" onMouseClicked="#buscarBairroCBMouse" prefHeight="25.0" prefWidth="260.0" promptText="Selecione uma Localidade" stylesheets="@../css/comboBox.css">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></ComboBox>
+                        <ComboBox fx:id="buscarDataRGCB" disable="true" layoutY="41.0" prefHeight="25.0" prefWidth="260.0" promptText="Selecione uma Data de RG" stylesheets="@../css/comboBox.css">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></ComboBox>
+                        <TableView fx:id="tabelaQuarteiraoTV" fixedCellSize="0.0" layoutY="77.0" onKeyPressed="#tabelaQuarteiraoTVTeclado" onMouseClicked="#tabelaQuarteiraoTVMouse" prefHeight="307.0" prefWidth="400.0" stylesheets="@../css/tabela.css">
                           <columns>
                               <TableColumn fx:id="colunaNumeroQuarteiraoTC" prefWidth="195.0" text="Nº QUARTEIRÃO" />
                             <TableColumn fx:id="colunaTotalTC" prefWidth="201.0" text="TOTAL IMÓVEIS NO QUART." />
                           </columns>
                         </TableView>
-                        <Button fx:id="listarTodosBT" layoutX="311.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#listarTodosBTTeclado" onMouseClicked="#listarTodosBTMouse" prefHeight="60.0" prefWidth="89.0" stylesheets="@../css/button.css" text="LISTAR" />
-                        <Button fx:id="imprimirBT" disable="true" layoutX="287.0" layoutY="445.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="32.0" prefWidth="113.0" stylesheets="@../css/button.css" text="IMPRIMIR" />
-                        <Pane layoutY="408.0" prefHeight="32.0" prefWidth="400.0">
+                        <Button fx:id="listarTodosBT" layoutX="269.0" layoutY="5.0" mnemonicParsing="false" onKeyPressed="#listarTodosBTTeclado" onMouseClicked="#listarTodosBTMouse" prefHeight="65.0" prefWidth="130.0" stylesheets="@../css/button.css" text="LISTAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/RelatorioListar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="imprimirBT" disable="true" layoutX="249.0" layoutY="431.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/button.css" text="IMPRIMIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/imprimir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Pane layoutY="388.0" prefHeight="32.0" prefWidth="400.0">
                            <children>
-                              <Label text="TOTAL DE QUART." />
-                              <TextField fx:id="totalImoveisTF" layoutX="322.0" prefHeight="25.0" prefWidth="78.0" />
-                              <Label layoutX="200.0" text="TOTAL DE IMÓVEIS" />
-                              <TextField fx:id="totalQuarteiraoTF" layoutX="120.0" prefHeight="25.0" prefWidth="58.0" />
+                              <Label layoutX="4.0" stylesheets="@../css/label_formulario.css" text="TOTAL DE QUART." />
+                              <TextField fx:id="totalImoveisTF" layoutX="322.0" layoutY="4.0" prefHeight="25.0" prefWidth="78.0" stylesheets="@../css/textField.css" />
+                              <Label layoutX="204.0" stylesheets="@../css/label_formulario.css" text="TOTAL DE IMÓVEIS" />
+                              <TextField fx:id="totalQuarteiraoTF" layoutX="120.0" layoutY="4.0" prefHeight="25.0" prefWidth="58.0" stylesheets="@../css/textField.css" />
                            </children>
                         </Pane>
                      </children>

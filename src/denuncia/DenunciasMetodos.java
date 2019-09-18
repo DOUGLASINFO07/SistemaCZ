@@ -92,7 +92,7 @@ public class DenunciasMetodos extends Application {
     //MÉTODO QUE ABRE A TELA MENU.
     public void abrirMenu() {
         try {
-            menuMetodos.start(new Stage());
+//            menuMetodos.start(new Stage());
             fecharDenuncia();
         } catch (Exception ex) {
             Logger.getLogger(DenunciasMetodos.class.getName()).log(Level.SEVERE, null, ex);

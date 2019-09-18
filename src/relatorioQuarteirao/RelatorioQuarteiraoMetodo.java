@@ -92,7 +92,7 @@ public class RelatorioQuarteiraoMetodo extends Application {
     //MÉTODO QUE ABRE A TELA MENU.
     public void abrirMenu() {
         try {
-            menuMetodos.start(new Stage());
+//            menuMetodos.start(new Stage());
             fecharRelatorioQuarteirao();
         } catch (Exception ex) {
             Logger.getLogger(RelatorioQuarteiraoMetodo.class.getName()).log(Level.SEVERE, null, ex);

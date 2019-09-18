@@ -1,16 +1,15 @@
 package localidades;
 
-import funcionarios.*;
+import java.util.Objects;
 
 /**
- *
  * @author douglas borges egidio
+ * @author DouglasInfo07
  * @17/12/2018.
- *
  */
+
 public class LocalidadeAtributos {
  
-
     private String codigo;
     private String nome;
     private String sigla;
@@ -101,6 +100,52 @@ public class LocalidadeAtributos {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.codigo);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.sigla);
+        hash = 97 * hash + Objects.hashCode(this.categoria);
+        hash = 97 * hash + Objects.hashCode(this.zona);
+        hash = 97 * hash + Objects.hashCode(this.tipo);
+        hash = 97 * hash + Objects.hashCode(this.observacao);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LocalidadeAtributos other = (LocalidadeAtributos) obj;
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.sigla, other.sigla)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        if (!Objects.equals(this.zona, other.zona)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        return Objects.equals(this.observacao, other.observacao);
     }
 
 }

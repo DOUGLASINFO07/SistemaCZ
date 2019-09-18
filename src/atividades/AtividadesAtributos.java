@@ -1,11 +1,11 @@
 package atividades;
 
+import java.util.Objects;
+
 /**
- *
  * @author douglas borges egidio
  * @author DouglasInfo07
  * @17/12/2018.
- *
  */
 
 public class AtividadesAtributos {
@@ -38,7 +38,7 @@ public class AtividadesAtributos {
 
     @Override
     public String toString() {
-        return getAtividade();
+        return atividade;
     }
 
     public AtividadesAtributos() {
@@ -99,6 +99,55 @@ public class AtividadesAtributos {
 
     public void setNomeAtividade(String nomeAtividade) {
         this.nomeAtividade = nomeAtividade;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(this.atividade);
+        hash = 17 * hash + Objects.hashCode(this.dataInicio);
+        hash = 17 * hash + Objects.hashCode(this.datatermino);
+        hash = 17 * hash + Objects.hashCode(this.ciclo);
+        hash = 17 * hash + Objects.hashCode(this.observacao);
+        hash = 17 * hash + this.atividadesContadas;
+        hash = 17 * hash + Objects.hashCode(this.nomeAtividade);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AtividadesAtributos other = (AtividadesAtributos) obj;
+        if (this.atividadesContadas != other.atividadesContadas) {
+            return false;
+        }
+        if (!Objects.equals(this.atividade, other.atividade)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataInicio, other.dataInicio)) {
+            return false;
+        }
+        if (!Objects.equals(this.datatermino, other.datatermino)) {
+            return false;
+        }
+        if (!Objects.equals(this.ciclo, other.ciclo)) {
+            return false;
+        }
+        if (!Objects.equals(this.observacao, other.observacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeAtividade, other.nomeAtividade)) {
+            return false;
+        }
+        return true;
     }
     
     

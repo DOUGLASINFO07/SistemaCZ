@@ -1,6 +1,6 @@
 .combo-box-base{
     -fx-border-radius: 7px;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 7px;
     -fx-font-size: 15px;
     -fx-padding: 0px;
     -fx-font-weight: 600;
@@ -14,10 +14,10 @@
     -fx-background-radius: 10px;
     -fx-font-size: 16px;
     -fx-padding: 0 0 0 10;
-    -fx-font-weight: 800;
+    -fx-font-weight: 700;
     -fx-font-family: 'System' , 'Arial', 'sans-serif';
     -fx-background-color: gray , white , white;
-    -fx-background-insets: 0 2 -2 2, 0 0 0 0, 0 2 0 2;
+    -fx-background-insets: 0 2 0 2, 0 0 0 0, 0 2 0 2;
     -fx-text-fill:#00303F;
 }
 

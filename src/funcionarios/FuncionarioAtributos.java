@@ -1,11 +1,13 @@
 package funcionarios;
 
+import java.util.Objects;
+
 /**
- *
  * @author douglas borges egidio
+ * @author DouglasInfo07
  * @17/12/2018.
- *
  */
+
 public class FuncionarioAtributos {
 
     private String nome;
@@ -44,7 +46,6 @@ public class FuncionarioAtributos {
     private String formaEgresso;
     private String observacao;
     private String fotoFuncionario;
-//    private String buscarFuncionario;
 
     public FuncionarioAtributos(
             String nome,
@@ -83,7 +84,6 @@ public class FuncionarioAtributos {
             String formaEgresso,
             String observacao,
             String fotoFuncionario
-//            String buscarFuncionario
     ) {
         this.nome = nome;
         this.cpf = cpf;
@@ -121,17 +121,13 @@ public class FuncionarioAtributos {
         this.formaEgresso = formaEgresso;
         this.observacao = observacao;
         this.fotoFuncionario = fotoFuncionario;
-//        this.buscarFuncionario = buscarFuncionario;
     }
 
     @Override
     public String toString() {
-     return getNome();
-//        return "FuncionarioAtributos{" + "nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", orgaoEmissorRG=" + orgaoEmissorRG + ", estadoOrgaoEmissorRG=" + estadoOrgaoEmissorRG + ", dataEmissaoRG=" + dataEmissaoRG + ", habilitacao=" + habilitacao + ", categoriaHabilitacao=" + categoriaHabilitacao + ", data1Habilitacao=" + data1Habilitacao + ", dataNascimento=" + dataNascimento + ", municipioNascimento=" + municipioNascimento + ", estadoNascimento=" + estadoNascimento + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", logradouroEndereco=" + logradouroEndereco + ", numeroEndereco=" + numeroEndereco + ", bairroEndereco=" + bairroEndereco + ", cepEndereco=" + cepEndereco + ", cidadeEndereco=" + cidadeEndereco + ", estadoEndereco=" + estadoEndereco + ", email=" + email + ", telefone=" + telefone + ", telefoneContato=" + telefoneContato + ", whtasApp=" + whtasApp + ", cargo=" + cargo + ", vinculoEmpregaticio=" + vinculoEmpregaticio + ", matricula=" + matricula + ", equipe=" + equipe + ", areaTrabalho=" + areaTrabalho + ", situacaoFuncional=" + situacaoFuncional + ", dataAdmissao=" + dataAdmissao + ", dataDemissao=" + dataDemissao + ", formaIngresso=" + formaIngresso + ", formaEgresso=" + formaEgresso + ", observacao=" + observacao + ", fotoFuncionario=" + fotoFuncionario + '}';
+        return nome;
     }
     
-    
-
     public FuncionarioAtributos() {
 
     }
@@ -423,15 +419,167 @@ public class FuncionarioAtributos {
     public void setFotoFuncionario(String fotoFuncionario) {
         this.fotoFuncionario = fotoFuncionario;
     }
-//
-//    public String getBuscarFuncionario() {
-//        return buscarFuncionario;
-//    }
-//
-//    public void setBuscarFuncionario(String buscarFuncionario) {
-//        this.buscarFuncionario = buscarFuncionario;
-//    }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.nome);
+        hash = 83 * hash + Objects.hashCode(this.cpf);
+        hash = 83 * hash + Objects.hashCode(this.rg);
+        hash = 83 * hash + Objects.hashCode(this.orgaoEmissorRG);
+        hash = 83 * hash + Objects.hashCode(this.estadoOrgaoEmissorRG);
+        hash = 83 * hash + Objects.hashCode(this.dataEmissaoRG);
+        hash = 83 * hash + Objects.hashCode(this.habilitacao);
+        hash = 83 * hash + Objects.hashCode(this.categoriaHabilitacao);
+        hash = 83 * hash + Objects.hashCode(this.data1Habilitacao);
+        hash = 83 * hash + Objects.hashCode(this.dataNascimento);
+        hash = 83 * hash + Objects.hashCode(this.municipioNascimento);
+        hash = 83 * hash + Objects.hashCode(this.estadoNascimento);
+        hash = 83 * hash + Objects.hashCode(this.nomeMae);
+        hash = 83 * hash + Objects.hashCode(this.nomePai);
+        hash = 83 * hash + Objects.hashCode(this.logradouroEndereco);
+        hash = 83 * hash + Objects.hashCode(this.numeroEndereco);
+        hash = 83 * hash + Objects.hashCode(this.bairroEndereco);
+        hash = 83 * hash + Objects.hashCode(this.cepEndereco);
+        hash = 83 * hash + Objects.hashCode(this.cidadeEndereco);
+        hash = 83 * hash + Objects.hashCode(this.estadoEndereco);
+        hash = 83 * hash + Objects.hashCode(this.email);
+        hash = 83 * hash + Objects.hashCode(this.telefone);
+        hash = 83 * hash + Objects.hashCode(this.telefoneContato);
+        hash = 83 * hash + Objects.hashCode(this.whtasApp);
+        hash = 83 * hash + Objects.hashCode(this.cargo);
+        hash = 83 * hash + Objects.hashCode(this.vinculoEmpregaticio);
+        hash = 83 * hash + Objects.hashCode(this.matricula);
+        hash = 83 * hash + Objects.hashCode(this.equipe);
+        hash = 83 * hash + Objects.hashCode(this.areaTrabalho);
+        hash = 83 * hash + Objects.hashCode(this.situacaoFuncional);
+        hash = 83 * hash + Objects.hashCode(this.dataAdmissao);
+        hash = 83 * hash + Objects.hashCode(this.dataDemissao);
+        hash = 83 * hash + Objects.hashCode(this.formaIngresso);
+        hash = 83 * hash + Objects.hashCode(this.formaEgresso);
+        hash = 83 * hash + Objects.hashCode(this.observacao);
+        hash = 83 * hash + Objects.hashCode(this.fotoFuncionario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final FuncionarioAtributos other = (FuncionarioAtributos) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.rg, other.rg)) {
+            return false;
+        }
+        if (!Objects.equals(this.orgaoEmissorRG, other.orgaoEmissorRG)) {
+            return false;
+        }
+        if (!Objects.equals(this.estadoOrgaoEmissorRG, other.estadoOrgaoEmissorRG)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataEmissaoRG, other.dataEmissaoRG)) {
+            return false;
+        }
+        if (!Objects.equals(this.habilitacao, other.habilitacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoriaHabilitacao, other.categoriaHabilitacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.data1Habilitacao, other.data1Habilitacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataNascimento, other.dataNascimento)) {
+            return false;
+        }
+        if (!Objects.equals(this.municipioNascimento, other.municipioNascimento)) {
+            return false;
+        }
+        if (!Objects.equals(this.estadoNascimento, other.estadoNascimento)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeMae, other.nomeMae)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomePai, other.nomePai)) {
+            return false;
+        }
+        if (!Objects.equals(this.logradouroEndereco, other.logradouroEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.numeroEndereco, other.numeroEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.bairroEndereco, other.bairroEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.cepEndereco, other.cepEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.cidadeEndereco, other.cidadeEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.estadoEndereco, other.estadoEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefone, other.telefone)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefoneContato, other.telefoneContato)) {
+            return false;
+        }
+        if (!Objects.equals(this.whtasApp, other.whtasApp)) {
+            return false;
+        }
+        if (!Objects.equals(this.cargo, other.cargo)) {
+            return false;
+        }
+        if (!Objects.equals(this.vinculoEmpregaticio, other.vinculoEmpregaticio)) {
+            return false;
+        }
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
+        if (!Objects.equals(this.equipe, other.equipe)) {
+            return false;
+        }
+        if (!Objects.equals(this.areaTrabalho, other.areaTrabalho)) {
+            return false;
+        }
+        if (!Objects.equals(this.situacaoFuncional, other.situacaoFuncional)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataAdmissao, other.dataAdmissao)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataDemissao, other.dataDemissao)) {
+            return false;
+        }
+        if (!Objects.equals(this.formaIngresso, other.formaIngresso)) {
+            return false;
+        }
+        if (!Objects.equals(this.formaEgresso, other.formaEgresso)) {
+            return false;
+        }
+        if (!Objects.equals(this.observacao, other.observacao)) {
+            return false;
+        }
+        return Objects.equals(this.fotoFuncionario, other.fotoFuncionario);
+    }
 
 }

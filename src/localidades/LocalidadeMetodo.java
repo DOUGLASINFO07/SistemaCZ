@@ -1,11 +1,5 @@
 package localidades;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.CopyOption;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,24 +15,26 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import jeanderson.br.util.MaskFormatter;
 import menu.MenuMetodos;
+import util.Categoria;
 import util.Utilitario;
 
 /**
  *
  * @author dougl
  */
-public class LocalidadeMetodo extends Application {
+public class LocalidadeMetodo{
 
     Connection conn;
 
@@ -66,47 +62,47 @@ public class LocalidadeMetodo extends Application {
         formatter.setMask(MaskFormatter.TEL_9DIG);
     }//FIM DO MÉTODO FORMATAR TELEFONE.
 
-    //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
-    private static Stage stage;
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-////    public static void main(String[] args) {
-////        launch(args);
-////    }
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/localidades/Localidade.fxml"));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-        Scene scene = new Scene(root);
-        stage.setTitle("Cadastro de Localidades");
-        stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
-        setStage(stage);
-    }
-    //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
-
-    //MÉTODO FECHAR USUARIO.
-    public void fecharLocalidade() {
-        getStage().close();
-    }//FIM DO MÉTODO FECHAR USUARIO.
-
-    //MÉTODO QUE ABRE A TELA MENU.
-    public void abrirMenu() {
-        try {
-            menuMetodos.start(new Stage());
-            fecharLocalidade();
-        } catch (Exception ex) {
-            Logger.getLogger(LocalidadeMetodo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
+//    //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
+//    private static Stage stage;
+//
+//    public Stage getStage() {
+//        return stage;
+//    }
+//
+//    public void setStage(Stage stage) {
+//        this.stage = stage;
+//    }
+//
+//////    public static void main(String[] args) {
+//////        launch(args);
+//////    }
+//    @Override
+//    public void start(Stage stage) throws Exception {
+//        Parent root = FXMLLoader.load(getClass().getResource("/localidades/Localidade.fxml"));
+//        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
+//        Scene scene = new Scene(root);
+//        stage.setTitle("Cadastro de Localidades");
+//        stage.setFullScreen(true);
+//        stage.setScene(scene);
+//        stage.show();
+//        setStage(stage);
+//    }
+//    //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
+//
+//    //MÉTODO FECHAR USUARIO.
+//    public void fecharLocalidade() {
+//        getStage().close();
+//    }//FIM DO MÉTODO FECHAR USUARIO.
+//
+//    //MÉTODO QUE ABRE A TELA MENU.
+//    public void abrirMenu() {
+//        try {
+////            menuMetodos.start(new Stage());
+//            fecharLocalidade();
+//        } catch (Exception ex) {
+//            Logger.getLogger(LocalidadeMetodo.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }//FIM DO MÉTODO.
 
     public void limparFormulario(
             Button novoCadastro,
@@ -238,7 +234,7 @@ public class LocalidadeMetodo extends Application {
         String nome = tabelaLocalidadeTV.getSelectionModel().getSelectedItem().toString();
         LocalidadeDAO dao = new LocalidadeDAO();
         dao.buscarDadosLocalidade(nome, LA);
-        codigoTF.setText(LA.getCodigo());
+        codigoTF.setText(String.valueOf(LA.getCodigo()));
         nomeTF.setText(LA.getNome());
         siglaTF.setText(LA.getSigla());
         categoriaCB.setValue(LA.getCategoria());
@@ -309,8 +305,9 @@ public class LocalidadeMetodo extends Application {
                 && !tipoOutrosRB.isSelected()
                 || observacaoTA.equals("")) {
 
-            util.alertConfiraFormulario();
+            util.alertSimples("CADASTRO DE LOCALIDADES", "ATENÇÃO!!\n Confira o formulário!\nTodos os campos devem ser preenchidos!");
 
+//            util.alertConfiraFormulario();
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -318,6 +315,7 @@ public class LocalidadeMetodo extends Application {
                 }
             });
         } else {
+
             //Confere se está tudo ok com o banco de dados
             LocalidadeDAO localidadeDAO = new LocalidadeDAO();
             LocalidadeAtributos localidadeAtributo = new LocalidadeAtributos(
@@ -370,7 +368,17 @@ public class LocalidadeMetodo extends Application {
                         listarTodosBT
                 );
                 //exibe mensagem de cadastrado com sucesso.
-                util.alertCadastrado("Localidade " + nomeTF.getText());//Fim do if.
+
+//                 public void alertCadastrado(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " cadastrado com sucesso!!");
+//        mensagem.show();
+//    }
+                util.alertSimples("CADASTRO DE LOCALIDADES", "Localidade cadastrada com sucesso!!");
+
+//                util.alertCadastrado("Localidade " + nomeTF.getText());//Fim do if.
 
                 Platform.runLater(new Runnable() {
                     @Override
@@ -380,7 +388,8 @@ public class LocalidadeMetodo extends Application {
                 });
                 salvarBT.setDisable(true);
             } else {
-                util.alertNaoCadastrado("Localidade " + nomeTF.getText());
+                util.alertSimples("CADASTRO DE LOCALIDADES", "Localidade não foi cadastrada com sucesso!!");
+//                util.alertNaoCadastrado("Localidade " + nomeTF.getText());
             }
         }
     }
@@ -433,8 +442,9 @@ public class LocalidadeMetodo extends Application {
                 && !tipoOutrosRB.isSelected()
                 || observacaoTA.equals("")) {
 
-            util.alertConfiraFormulario();
+            util.alertSimples("CADASTRO DE LOCALIDADES", "ATENÇÃO!!\n Confira o formulário!\nTodos os campos devem ser preenchidos!");
 
+//            util.alertConfiraFormulario();
         } else {
 
             //Confere se está tudo ok com o banco de dados
@@ -490,11 +500,15 @@ public class LocalidadeMetodo extends Application {
                 );
 
                 tabelaLocalidadeTV.getItems().clear();
+                
+                 util.alertSimples("CADASTRO DE LOCALIDADES", "Localidade atualizada com sucesso!!");
 
-                util.alertAtualizacao("Localidade " + nomeTF.getText());//Fim do if.
+//                util.alertAtualizacao("Localidade " + nomeTF.getText());//Fim do if.
 
             } else {
-                util.alertNaoAtualizado("Localidade " + nomeTF.getText());
+                
+                util.alertSimples("CADASTRO DE LOCALIDADES", "Localidade não foi atualizada!!");
+//                util.alertNaoAtualizado("Localidade " + nomeTF.getText());
             }
         }
     }
@@ -522,7 +536,7 @@ public class LocalidadeMetodo extends Application {
         LocalidadeDAO localidadeDAO = new LocalidadeDAO();
         LA.setCodigo(codigoTF.getText());
 
-        if (localidadeDAO.excluir(LA.getCodigo(), LA)) {
+        if (localidadeDAO.excluir(String.valueOf(LA.getCodigo()), LA)) {
 
 //            File img = new File("../src/" + LA.getFotoLocalidade());
 //            img.delete();
@@ -567,35 +581,43 @@ public class LocalidadeMetodo extends Application {
             );
             tabelaLocalidadeTV.getItems().clear();
             //exibe mensagem de cadastrado com sucesso.
-            util.alertExcluido("Localidade " + nomeTF.getText());//Fim do if.
+            util.alertSimples("CADASTRO DE LOCALIDADES", "Localidade excluída com sucesso!!");
+//            util.alertExcluido("Localidade " + nomeTF.getText());//Fim do if.
             //Inicio run que encapsula o requestFocus().
             Platform.runLater(novoCadastro::requestFocus);//fim do run.
         } else {
-            util.alertNaoExcluído("Localidade " + nomeTF.getText());
+            util.alertSimples("CADASTRO DE LOCALIDADES", "Localidade não foi excluída!!");
+//            util.alertNaoExcluído("Localidade " + nomeTF.getText());
         }
     }
 
-    public void preencherComboBoxCategoria(ComboBox<LocalidadeMetodo> categoria) {
+    public void preencherComboBoxCategoria(ComboBox<Categoria> categoria) {
 
-        List<LocalidadeMetodo> categoriaCB = new ArrayList<>();
+        ObservableList<Categoria> observableListCategoria;
 
-        ObservableList<LocalidadeMetodo> observableListCategoria;
+        //cria lista de dados para ser exibido no comboBox.
+        List<Categoria> listCategoria = new ArrayList<>();
+        listCategoria.add(new Categoria("Bairro"));
+        listCategoria.add(new Categoria("Condominio"));
+        listCategoria.add(new Categoria("Povoado"));
+        listCategoria.add(new Categoria("Vila"));
+        listCategoria.add(new Categoria("Outros"));
 
-        LocalidadeMetodo categoria1 = new LocalidadeMetodo(1, "Bairro");
-        LocalidadeMetodo categoria2 = new LocalidadeMetodo(2, "Condominio");
-        LocalidadeMetodo categoria3 = new LocalidadeMetodo(3, "Povoado");
-        LocalidadeMetodo categoria4 = new LocalidadeMetodo(4, "Vila");
-        LocalidadeMetodo categoria5 = new LocalidadeMetodo(5, "Outros");
+        // Pega os dados da lista e cria uma lista no formato para o combobox
+        observableListCategoria = FXCollections.observableArrayList(listCategoria);
 
-        categoriaCB.add(categoria1);
-        categoriaCB.add(categoria2);
-        categoriaCB.add(categoria3);
-        categoriaCB.add(categoria4);
-        categoriaCB.add(categoria5);
-
-        observableListCategoria = FXCollections.observableArrayList(categoriaCB);
-
+        //Insere os dados no comboBox
         categoria.setItems(observableListCategoria);
+        Callback<ListView<Categoria>, ListCell<Categoria>> factory = lv -> new ListCell<Categoria>() {
+            @Override
+            protected void updateItem(Categoria item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getBairro());
+            }
+        };
+        categoria.setCellFactory(factory);
+        categoria.setButtonCell(factory.call(null));
+
     }
 
     public void gerarRelatorio() {

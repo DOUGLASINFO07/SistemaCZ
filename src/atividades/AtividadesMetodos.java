@@ -6,13 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -23,8 +19,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 import menu.MenuMetodos;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -33,13 +27,15 @@ import net.sf.jasperreports.view.JasperViewer;
 import util.Conexao;
 import util.Utilitario;
 
-public class AtividadesMetodos extends Application{
+public class AtividadesMetodos{
 
     Connection conn;
 
     MenuMetodos menuMetodos = new MenuMetodos();
 
     AtividadesAtributos AA = new AtividadesAtributos();
+    
+    Utilitario util = new Utilitario();
 
     public AtividadesMetodos() {
     }
@@ -52,49 +48,6 @@ public class AtividadesMetodos extends Application{
     public String toString() {
         return AA.getAtividade();
     }
-
-    //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
-    private static Stage stage;
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/atividades/Atividades.fxml"));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-        Scene scene = new Scene(root);
-        stage.setTitle("Cadastro de Ciclo de Atividades");
-        stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
-        setStage(stage);
-    }
-    //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
-
-    //MÉTODO FECHAR USUARIO.
-    public void fecharAtividades() {
-        getStage().close();
-    }//FIM DO MÉTODO FECHAR USUARIO.
-
-    //MÉTODO QUE ABRE A TELA MENU.
-    public void abrirMenu() {
-        try {
-            menuMetodos.start(new Stage());
-            fecharAtividades();
-        } catch (Exception ex) {
-            Logger.getLogger(AtividadesMetodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
 
     public void limparFormulario(
             Button novoCadastroBT,
@@ -141,7 +94,6 @@ public class AtividadesMetodos extends Application{
             Button listarTodosBT,
             Button imprimirBT
     ) {
-//        buscarAtividadesCB.setValue("Selecione uma Atividades");
         tabelaAtividadesTV.getItems().clear();
         imprimirBT.setDisable(true);
     }
@@ -209,8 +161,6 @@ public class AtividadesMetodos extends Application{
         tabelaAtividadesTV.setItems(atualizaTabela(
                 buscarAtividades.getSelectionModel().getSelectedItem().toString()
         ));
-        System.out.println(buscarAtividades.getSelectionModel().getSelectedItem().toString());
-
     }
 
     public ObservableList<AtividadesAtributos> atualizaTabela(String buscarAtividades) {
@@ -218,7 +168,6 @@ public class AtividadesMetodos extends Application{
         return FXCollections.observableArrayList(dao.listaAtividades(
                 buscarAtividades
         ));
-
     }
 
     public void verificaAtividades(
@@ -354,8 +303,6 @@ public class AtividadesMetodos extends Application{
             Button listarTodosBT,
             Button imprimirBT
     ) {
-        Utilitario util = new Utilitario();
-
         AA.setAtividade(atividadesCB.getSelectionModel().getSelectedItem().toString());
 
         if (dataInicioDP.getEditor().getText().equals("")) {
@@ -428,12 +375,16 @@ public class AtividadesMetodos extends Application{
                 || dataInicioDP.equals("")
                 || dataTerminoDP.equals("")
                 || cicloCB.getValue().equals("Selecione")) {
+            
+            util.alertSimples("CADASTRO DE ATIVIDADES", "ATENÇÃO!"
+                    + "\nConfira o formulário!"
+                    + "\nTodos os campos devem ser preenchidos!");
 
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE ATIVIDADES");
-            alert.setHeaderText(null);
-            alert.setContentText("CONFIRA O FORMULÁRIO!!!\n A ATIVIDADE " + AA.getNomeAtividade() + ", NÃO FOI SALVA!!");
-            alert.showAndWait();
+//            Alert alert = new Alert(AlertType.INFORMATION);
+//            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE ATIVIDADES");
+//            alert.setHeaderText(null);
+//            alert.setContentText("CONFIRA O FORMULÁRIO!!!\n A ATIVIDADE " + AA.getNomeAtividade() + ", NÃO FOI SALVA!!");
+//            alert.showAndWait();
 
             Platform.runLater(atividadesCB::requestFocus);
 

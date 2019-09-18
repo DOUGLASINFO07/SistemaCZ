@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.Alert;
 import util.Utilitario;
 
 /**
- *
- * @author dougl
+ * @author douglas borges egidio
+ * @author DouglasInfo07 15/09/2019
  */
 public class FuncionarioDAO {
 
@@ -78,9 +77,7 @@ public class FuncionarioDAO {
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText(""+ex);
-            alert.show();
+            util.alertSimples("CADASTRO DE FUNCIONÁRIOS", "" + ex);
             return false;
         }
     }
@@ -176,12 +173,11 @@ public class FuncionarioDAO {
     public boolean excluir(
             String matricula,
             FuncionarioAtributos FA
-            ) {
+    ) {
         String sql = "DELETE FROM funcionario "
-                + "WHERE matricula = '"+ matricula +"' ";
+                + "WHERE matricula = '" + matricula + "' ";
         try {
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-//                stmt.setString(1, FA.getMatricula());
                 stmt.execute();
             }
             conn.close();
@@ -260,7 +256,6 @@ public class FuncionarioDAO {
                 FA.setFormaEgresso(rs.getString("formaEgresso"));
                 FA.setObservacao(rs.getString("observacao"));
                 FA.setFotoFuncionario(rs.getString("fotoFuncionario"));
-//                stmt.execute();
             }
             rs.close();
             stmt.close();
@@ -268,7 +263,7 @@ public class FuncionarioDAO {
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//FIM DO MÉTODO.
 
     //INICIO DO MÉTODO QUE CRIA UMA LISTA COM OS DADOS PUXADOS DA TABELA.

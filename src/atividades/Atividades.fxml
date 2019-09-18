@@ -9,23 +9,42 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="730.0" prefWidth="1280.0" styleClass="AnchorPane" stylesheets="@../css/corFundo.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atividades.AtividadesControllerFXML">
+<AnchorPane prefHeight="730.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="atividades.AtividadesControllerFXML">
    <children>
       <FlowPane alignment="CENTER" layoutX="75.0" layoutY="47.0" prefHeight="60.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="756.0" stylesheets="@../css/label_tituloPagina.css" text="CADASTRO DE CICLO DE ATIVIDADES" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/iconeSistemaCZ100x100.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="779.0" stylesheets="@../css/label_tituloPagina.css" text="CADASTRO DE CICLO DE ATIVIDADES" />
+            <ImageView fitHeight="60.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/dimTech.png" />
+               </image>
+            </ImageView>
          </children>
       </FlowPane>
       <FlowPane layoutX="245.0" layoutY="243.0" prefHeight="20.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <FlowPane layoutX="171.0" layoutY="925.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaPrimaria.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="40.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <FlowPane alignment="CENTER" layoutX="160.0" layoutY="634.0" prefHeight="50.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/button.css" text="VOLTAR MENU" />
+            <Button fx:id="voltarMenuBT" mnemonicParsing="false" onKeyPressed="#voltarMenuBTTeclado" onMouseClicked="#voltarMenuBTMouse" prefHeight="40.0" prefWidth="160.0" stylesheets="@../css/button.css" text="VOLTAR MENU">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagens/voltar(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <opaqueInsets>
             <Insets />
@@ -36,62 +55,130 @@
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="181.0" layoutY="935.0" prefHeight="30.0" prefWidth="1280.0" styleClass="flowPane" stylesheets="@../css/faixaMediana.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label prefHeight="20.0" prefWidth="542.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - DIMTECH.COM.BR - Douglas Borges Egidio" />
+            <Label prefHeight="20.0" prefWidth="549.0" text="DIMTECH - GROUP GOGAINCORP - BRASIL - dimtech.com.br - DouglasInfo07 - Douglas Borges Egidio" />
          </children>
       </FlowPane>
-      <FlowPane alignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="173.0" layoutY="839.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="448.0" stylesheets="@../css/hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
-            <Label fx:id="horasLB" stylesheets="@../css/hora_Data.css" text="Label" />
+            <Label fx:id="dataLB" prefHeight="20.0" prefWidth="860.0" stylesheets="@../css/Label_Hora_Data.css" text=" Hoje é Domingo, 13 de Dezembro de 2018, agora são 12:36 hrs." />
+            <Label fx:id="horasLB" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="130.0" stylesheets="@../css/Label_Hora_Data.css" text="Label" />
          </children>
       </FlowPane>
       <FlowPane alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="20.0" prefWidth="200.0" styleClass="flowPane" stylesheets="@../css/faixaSecundaria.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
-      <FlowPane layoutY="100.0" minHeight="391.0" prefHeight="464.0" prefWidth="1280.0" stylesheets="@../css/flowPane.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <FlowPane alignment="CENTER" layoutY="100.0" minHeight="391.0" prefHeight="464.0" prefWidth="1280.0" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <FlowPane alignment="CENTER" prefHeight="390.0" prefWidth="1280.0">
+            <FlowPane alignment="CENTER" prefHeight="448.0" prefWidth="988.0">
                <children>
-                  <Pane maxHeight="-Infinity" prefHeight="423.0" prefWidth="150.0">
+                  <Pane maxHeight="-Infinity" prefHeight="433.0" prefWidth="194.0">
                      <children>
-                        <Button fx:id="salvarBT" disable="true" layoutX="15.0" layoutY="328.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="SALVAR" />
-                        <Button fx:id="excluirBT" disable="true" layoutX="15.0" layoutY="383.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="EXCLUIR" />
-                        <Button fx:id="novoCadastroBT" layoutX="15.0" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="120.0" stylesheets="@../css/button.css" text="NOVO " />
+                        <Button fx:id="salvarBT" disable="true" layoutX="15.0" layoutY="336.0" mnemonicParsing="false" onKeyPressed="#salvarBTTeclado" onMouseClicked="#salvarBTMouse" prefHeight="40.0" prefWidth="170.0" stylesheets="@../css/button.css" text="SALVAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/teste.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="excluirBT" disable="true" layoutX="15.0" layoutY="391.0" mnemonicParsing="false" onKeyPressed="#excluirBTTeclado" onMouseClicked="#excluirBTMouse" prefHeight="40.0" prefWidth="170.0" stylesheets="@../css/button.css" text="EXCLUIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/excluir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="novoCadastroBT" layoutX="15.0" mnemonicParsing="false" onKeyPressed="#novoCadastroBTteclado" onMouseClicked="#novoCadastroBTMouse" prefHeight="40.0" prefWidth="170.0" stylesheets="@../css/button.css" text="NOVO ATIVIDADE">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/adicionar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </Pane>
                   <Pane prefHeight="448.0" prefWidth="355.0">
                      <children>
                         <VBox prefHeight="273.0" prefWidth="342.0">
                            <children>
-                              <Label text="TIPO DE ATIVIDADE" />
-                              <ComboBox fx:id="atividadeCB" prefHeight="25.0" prefWidth="369.0" promptText="Selecione" />
-                              <Label text="DATA DE INICIO DA ATIVIDADE" />
-                              <DatePicker fx:id="dataInicioDP" prefHeight="25.0" prefWidth="150.0" />
-                              <Label text="DATA PREVISTA DO TÉRMINO" />
-                              <DatePicker fx:id="dataTerminoDP" prefHeight="25.0" prefWidth="150.0" />
-                              <Label text="CICLO" />
-                              <ComboBox fx:id="cicloCB" prefHeight="25.0" prefWidth="150.0" />
-                              <Label text="NOME DO CICLO DE ATIVIDADE" />
-                              <TextField fx:id="nomeAtividadeTF" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="204.0" />
+                              <Label stylesheets="@../css/label_formulario.css" text="TIPO DE ATIVIDADE">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="atividadeCB" prefHeight="25.0" prefWidth="369.0" promptText="Selecione" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="DATA DE INICIO DA ATIVIDADE">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <DatePicker fx:id="dataInicioDP" prefHeight="25.0" prefWidth="205.0" stylesheets="@../css/datePicker.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></DatePicker>
+                              <Label stylesheets="@../css/label_formulario.css" text="DATA PREVISTA DO TÉRMINO">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <DatePicker fx:id="dataTerminoDP" prefHeight="25.0" prefWidth="205.0" stylesheets="@../css/datePicker.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></DatePicker>
+                              <Label stylesheets="@../css/label_formulario.css" text="CICLO">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <ComboBox fx:id="cicloCB" prefHeight="25.0" prefWidth="205.0" stylesheets="@../css/comboBox.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></ComboBox>
+                              <Label stylesheets="@../css/label_formulario.css" text="NOME DO CICLO DE ATIVIDADE">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></Label>
+                              <TextField fx:id="nomeAtividadeTF" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="205.0" stylesheets="@../css/textField.css">
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding></TextField>
                            </children>
                         </VBox>
                         <Pane layoutY="261.0" prefHeight="183.0" prefWidth="342.0">
                            <children>
-                              <Label text="OBSERVAÇÕES" />
-                              <TextArea fx:id="observacaoTA" layoutX="7.0" layoutY="35.0" onKeyPressed="#observacaoTATeclado" prefHeight="144.0" prefWidth="330.0" />
+                              <Label layoutY="24.0" stylesheets="@../css/label_formulario.css" text="OBSERVAÇÕES" />
+                              <TextArea fx:id="observacaoTA" layoutY="57.0" onKeyPressed="#observacaoTATeclado" prefHeight="122.0" prefWidth="330.0" stylesheets="@../css/AreaTextField.css" wrapText="true" />
                            </children>
                         </Pane>
                      </children>
                   </Pane>
-                  <Pane prefHeight="347.0" prefWidth="400.0">
+                  <Pane prefHeight="448.0" prefWidth="439.0">
                      <children>
-                        <ComboBox fx:id="buscarAtividadeCB" layoutX="-1.0" layoutY="19.0" prefHeight="25.0" prefWidth="305.0" promptText="Selecione uma Atividade" stylesheets="@../css/campo_buscar.css" />
-                        <TableView fx:id="tabelaAtividadeTV" fixedCellSize="0.0" layoutY="48.0" onKeyPressed="#tabelaAtividadeTVTeclado" onMouseClicked="#tabelaAtividadeTVMouse" prefHeight="360.0" prefWidth="400.0">
+                        <ComboBox fx:id="buscarAtividadeCB" layoutX="-1.0" layoutY="11.0" prefHeight="40.0" prefWidth="301.0" promptText="Selecione uma Atividade" stylesheets="@../css/comboBox.css">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></ComboBox>
+                        <TableView fx:id="tabelaAtividadeTV" fixedCellSize="0.0" layoutY="57.0" onKeyPressed="#tabelaAtividadeTVTeclado" onMouseClicked="#tabelaAtividadeTVMouse" prefHeight="331.0" prefWidth="439.0" stylesheets="@../css/tabela.css">
                           <columns>
-                              <TableColumn fx:id="colunaAtividadeTC" prefWidth="195.0" text="NOME ATIVIDADE" />
-                            <TableColumn fx:id="colunaCicloTC" prefWidth="201.0" text="CICLO DA ATIVIDADE" />
+                              <TableColumn fx:id="colunaAtividadeTC" prefWidth="299.0" text="NOME ATIVIDADE" />
+                            <TableColumn fx:id="colunaCicloTC" prefWidth="138.0" text="CICLO DA ATIVIDADE" />
                           </columns>
                         </TableView>
-                        <Button fx:id="listarTodosBT" layoutX="311.0" layoutY="15.0" mnemonicParsing="false" onKeyPressed="#listarTodosBTTeclado" onMouseClicked="#listarTodosBTMouse" prefHeight="25.0" prefWidth="89.0" stylesheets="@../css/button.css" text="LISTAR" />
-                        <Button fx:id="imprimirBT" disable="true" layoutX="287.0" layoutY="412.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="32.0" prefWidth="113.0" stylesheets="@../css/button.css" text="IMPRIMIR" />
+                        <Button fx:id="listarTodosBT" layoutX="300.0" layoutY="10.0" mnemonicParsing="false" onKeyPressed="#listarTodosBTTeclado" onMouseClicked="#listarTodosBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="LISTAR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/RelatorioListar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="imprimirBT" disable="true" layoutX="300.0" layoutY="395.0" mnemonicParsing="false" onKeyPressed="#imprimirBTTeclado" onMouseClicked="#imprimirBTMouse" prefHeight="40.0" prefWidth="140.0" stylesheets="@../css/button.css" text="IMPRIMIR">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagens/imprimir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </Pane>
                </children>

@@ -9,23 +9,24 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import util.CarregarPagina;
 import util.Relogio;
 import util.Utilitario;
 
@@ -38,6 +39,8 @@ public class QuarteiraoControllerFXML implements Initializable {
     QuarteiraoDAO dao = new QuarteiraoDAO();
 
     Utilitario util = new Utilitario();
+    
+    CarregarPagina cp = new CarregarPagina();
 
     @FXML
     private Button voltarMenuBT;
@@ -143,7 +146,6 @@ public class QuarteiraoControllerFXML implements Initializable {
 
     @FXML
     void buscarBairroCBMouse(MouseEvent event) {
-//        QuarteiraoDAO dao = new QuarteiraoDAO();
         buscarDataRGCB.setDisable(false);
         dao.listaRG(buscarDataRGCB);
         QM.limparFormulario(
@@ -209,7 +211,6 @@ public class QuarteiraoControllerFXML implements Initializable {
 
     @FXML
     void buscarBairroCBTeclado(KeyEvent event) {
-//        QuarteiraoDAO dao = new QuarteiraoDAO();
         if (event.getCode() == KeyCode.ENTER) {
             buscarDataRGCB.setDisable(false);
             dao.listaRG(buscarDataRGCB);
@@ -383,12 +384,11 @@ public class QuarteiraoControllerFXML implements Initializable {
                 QA
         );
         if (QA.getTotalQuarteirao() > 0) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-            alert.setHeaderText(null);
-            alert.setContentText("O QUARTEIRÃO " + quarteiraoTF.getText() + " JÁ FOI LANÇADO!!");
-            alert.showAndWait();
+            
+             util.alertSimples("CADASTRO DE QUARTEIRÃO", "ATENÇÃO!!!"
+                    + "\nO Quarteirão " + quarteiraoTF.getText() + " já foi lançado!!");
             Platform.runLater(quarteiraoTF::requestFocus);//fim do run.
+            
         } else {
             salvar();
             Platform.runLater(quarteiraoTF::requestFocus);//fim do run.
@@ -405,12 +405,9 @@ public class QuarteiraoControllerFXML implements Initializable {
                     QA
             );
             if (QA.getTotalQuarteirao() > 0) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-                alert.setHeaderText(null);
-                alert.setContentText("O QUARTEIRÃO " + quarteiraoTF.getText() + " JÁ FOI LANÇADO!!");
-                alert.showAndWait();
-                Platform.runLater(quarteiraoTF::requestFocus);//fim do run.
+                util.alertSimples("CADASTRO DE QUARTEIRÃO", "ATENÇÃO!!!"
+                    + "\nO Quarteirão " + quarteiraoTF.getText() + " já foi lançado!!");
+            Platform.runLater(quarteiraoTF::requestFocus);//fim do run.
             } else {
                 salvar();
                 Platform.runLater(quarteiraoTF::requestFocus);//fim do run.
@@ -431,28 +428,23 @@ public class QuarteiraoControllerFXML implements Initializable {
         if (event.getCode() == KeyCode.ENTER) {
             pegarDados();
         }
-        tabelaQuarteiraoTV.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                pegarDados();
-                localidadeCB.setDisable(true);
-                rgCB.setDisable(true);
-                quarteiraoTF.setEditable(false);
-            }
+        tabelaQuarteiraoTV.setOnKeyReleased((KeyEvent event1) -> {
+            pegarDados();
+            localidadeCB.setDisable(true);
+            rgCB.setDisable(true);
+            quarteiraoTF.setEditable(false);
         });
     }
 
     @FXML
     void voltarMenuBTMouse(MouseEvent event) {
-        QM.abrirMenu();
-//        QM.fecharQuarteirao();
+        cp.carregarPagina("/menu/Menu.fxml");
     }
 
     @FXML
     void voltarMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            QM.abrirMenu();
-//            QM.fecharQuarteirao();
+            cp.carregarPagina("/menu/Menu.fxml");
         }
     }
 
@@ -496,23 +488,20 @@ public class QuarteiraoControllerFXML implements Initializable {
 
     @FXML
     void macroAreaCBTeclado(KeyEvent event) {
-        macroAreaCB.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                QM.iniciarTabelaFormulario(
-                        colunaTotalTC,
-                        colunaNumeroQuarteiraoTC,
-                        tabelaQuarteiraoTV,
-                        localidadeCB,
-                        rgCB
-                );
-                QM.somaTabelaFormulario(
-                        localidadeCB,
-                        rgCB,
-                        totalQuarteiraoTF,
-                        totalImoveisTF
-                );
-            }
+        macroAreaCB.setOnKeyReleased((KeyEvent event1) -> {
+            QM.iniciarTabelaFormulario(
+                    colunaTotalTC,
+                    colunaNumeroQuarteiraoTC,
+                    tabelaQuarteiraoTV,
+                    localidadeCB,
+                    rgCB
+            );
+            QM.somaTabelaFormulario(
+                    localidadeCB,
+                    rgCB,
+                    totalQuarteiraoTF,
+                    totalImoveisTF
+            );
         });
     }
 
@@ -536,7 +525,6 @@ public class QuarteiraoControllerFXML implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-//        QuarteiraoDAO dao = new QuarteiraoDAO();
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd MMMM yyyy");
         Date date = new Date();
         dataLB.setTextFill(Color.GRAY);
@@ -588,20 +576,37 @@ public class QuarteiraoControllerFXML implements Initializable {
     }
 
     public void atualizar() {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("ATUALIZAÇÃO DE QUARTEIRÃO");
-        alert.setHeaderText("ATENÇÃO!!");
-        alert.setContentText("CONFIRMAR ATUALIZAÇÃO?");
+        
+        Image img = new Image("imagens/iconeSistemaCZ100x100.png");
 
-        ButtonType buttonTypeOne = new ButtonType("Sim");
-        ButtonType buttonTypeTwo = new ButtonType("Não");
-        ButtonType buttonTypeCancel = new ButtonType("Cancela", ButtonData.CANCEL_CLOSE);
+        javafx.scene.control.Alert alert4 = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
+        alert4.setTitle("SISTEMACZ - ATUALIZAÇÃO DE QUARTEIRÃO\"");
+        alert4.setContentText("Confirmar Atualização?");
+        alert4.setGraphic(new ImageView(img));
+        alert4.setHeaderText("SISTEMA DE GERENCIAMENTO E CONTROLE DE ZOONOSES");
+        alert4.setResizable(true);
+        alert4.getDialogPane().setPrefSize(480, 270);
 
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonTypeOne) {
+        DialogPane dialogPane = alert4.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/css/Alerts.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-Pane");
 
-            QM.atualizarQuarteirao(
+        ButtonType buttonTypeSim = new ButtonType("Sim");
+        ButtonType buttonTypeNao = new ButtonType("Não");
+        ButtonType buttonTypeCancela = new ButtonType("Cancela", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert4.getButtonTypes()
+                .setAll(
+                        buttonTypeSim,
+                        buttonTypeNao,
+                        buttonTypeCancela
+                );
+
+        Optional<ButtonType> resultado = alert4.showAndWait();
+        if (resultado.get() ==  buttonTypeSim) {
+            
+             QM.atualizarQuarteirao(
                     novoCadastroBT,
                     voltarMenuBT,
                     salvarBT,
@@ -633,29 +638,43 @@ public class QuarteiraoControllerFXML implements Initializable {
                     listarTodosBT
             );
             Platform.runLater(novoCadastroBT::requestFocus);//fim do run.
-        } else if (result.get() == buttonTypeTwo) {
-
-        } else {
-
+        } else if (resultado.get() ==  buttonTypeNao) {
+        } else if (resultado.get() ==  buttonTypeCancela) {
         }
 
     }
 
     public void excluir() {
+        
+        Image img = new Image("imagens/iconeSistemaCZ100x100.png");
 
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("EXCLUSÃO DE QUARTEIRÃO");
-        alert.setHeaderText("ATENÇÃO!!");
-        alert.setContentText("CONFIRMAR EXCLUSÃO?");
+        javafx.scene.control.Alert alert4 = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
+        alert4.setTitle("SISTEMACZ - EXCLUSÃO DE QUARTEIRÃO\"");
+        alert4.setContentText("Confirmar Exclusão?");
+        alert4.setGraphic(new ImageView(img));
+        alert4.setHeaderText("SISTEMA DE GERENCIAMENTO E CONTROLE DE ZOONOSES");
+        alert4.setResizable(true);
+        alert4.getDialogPane().setPrefSize(480, 270);
 
-        ButtonType buttonTypeOne = new ButtonType("Sim");
-        ButtonType buttonTypeTwo = new ButtonType("Não");
-        ButtonType buttonTypeCancel = new ButtonType("Cancela", ButtonData.CANCEL_CLOSE);
+        DialogPane dialogPane = alert4.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/css/Alerts.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-Pane");
 
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonTypeOne) {
+        ButtonType buttonTypeSim = new ButtonType("Sim");
+        ButtonType buttonTypeNao = new ButtonType("Não");
+        ButtonType buttonTypeCancela = new ButtonType("Cancela", ButtonBar.ButtonData.CANCEL_CLOSE);
 
+        alert4.getButtonTypes()
+                .setAll(
+                        buttonTypeSim,
+                        buttonTypeNao,
+                        buttonTypeCancela
+                );
+
+        Optional<ButtonType> resultado = alert4.showAndWait();
+        if (resultado.get() ==  buttonTypeSim) {
+            
             QM.excluirQuarteirao(
                     novoCadastroBT,
                     voltarMenuBT,
@@ -689,12 +708,10 @@ public class QuarteiraoControllerFXML implements Initializable {
             );
 
             Platform.runLater(novoCadastroBT::requestFocus);//fim do run.
-        } else if (result.get() == buttonTypeTwo) {
 
-        } else {
-
+        } else if (resultado.get() ==  buttonTypeNao) {
+        } else if (resultado.get() ==  buttonTypeCancela) {
         }
-
     }
 
     public void pegarDados() {
@@ -870,7 +887,6 @@ public class QuarteiraoControllerFXML implements Initializable {
 
         salvarBT.setDisable(false);
 
-//        if (!rg.getEditor().getText().isEmpty()) {
             QM.iniciarTabelaFormulario(
                     colunaTotalTC,
                     colunaNumeroQuarteiraoTC,
@@ -884,7 +900,6 @@ public class QuarteiraoControllerFXML implements Initializable {
                     totalQuarteiraoTF,
                     totalImoveisTF
             );
-//        }
 
     }
 

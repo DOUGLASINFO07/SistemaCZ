@@ -13,9 +13,11 @@ import javafx.scene.control.Alert;
 import util.Utilitario;
 
 /**
- *
- * @author dougl
+ * @author douglas borges egidio.
+ * @author DouglasInfo07.
+ * @since 15/09/2019.
  */
+
 public class AtividadesDAO {
 
     private final Connection conn;
@@ -94,11 +96,9 @@ public class AtividadesDAO {
                 AA.setCiclo(rs.getString("ciclo"));
                 AA.setObservacao(rs.getString("observacao"));
                 AA.setNomeAtividade(rs.getString("nomeAtividade"));
-//                stmt.execute();
             }
             rs.close();
             stmt.close();
-//            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(AtividadesDAO.class.getName()).log(Level.SEVERE, null, ex);
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -109,7 +109,7 @@ public class AtividadesDAO {
 
     //INICIO DO MÉTODO QUE CRIA UMA LISTA COM OS DADOS PUXADOS DA TABELA.
     public List<AtividadesAtributos> listaAtividades(String atividades) {
-        
+
         List<AtividadesAtributos> AtividadesLista = new ArrayList<>();
         String sqlListar = "SELECT * FROM atividades "
                 + "WHERE atividades = '" + atividades + "' "
@@ -125,7 +125,6 @@ public class AtividadesDAO {
             }
             stmt.close();
             rs.close();
-//            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(AtividadesDAO.class.getName()).log(Level.SEVERE, null, ex);
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -139,8 +138,8 @@ public class AtividadesDAO {
 
     public void verificarAtividades(String atividades, String nomeAtividade, AtividadesAtributos AA) {
 
-        System.out.println(""+atividades);
-        System.out.println(""+nomeAtividade);
+        System.out.println("" + atividades);
+        System.out.println("" + nomeAtividade);
         String sqlListar = "SELECT COUNT(atividades) AS somaAtividades "
                 + "FROM atividades WHERE atividades LIKE '" + atividades + "' "
                 + "AND nomeAtividade LIKE '" + nomeAtividade + "' ";
@@ -150,7 +149,6 @@ public class AtividadesDAO {
             while (rs.next()) {
                 AA.setAtividadesContadas(rs.getInt("somaAtividades"));
             }
-//            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(AtividadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

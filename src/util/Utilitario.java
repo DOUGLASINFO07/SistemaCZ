@@ -166,63 +166,63 @@ public class Utilitario {
         return dataConvertida;
     }
 
-    public void alertCadastrado(String objetoDoCadastro) {
-        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + objetoDoCadastro + " cadastrado com sucesso!!");
-        mensagem.show();
-    }
-
-    public void alertAtualizacao(String objetoDoCadastro) {
-        Alert mensagem = new Alert(Alert.AlertType.ERROR);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + objetoDoCadastro + " atualizado com sucesso!!");
-        mensagem.show();
-    }
-
-    public void alertExcluido(String objetoDoCadastro) {
-        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + objetoDoCadastro + " excluído com sucesso!!");
-        mensagem.show();
-
-    }
-
-    public void alertNaoCadastrado(String objetoDoCadastro) {
-        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + objetoDoCadastro + " não foi cadastrado!!");
-        mensagem.show();
-    }
-
-    public void alertNaoAtualizado(String objetoDoCadastro) {
-        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + objetoDoCadastro + " não foi atualizado!!");
-        mensagem.show();
-    }
-
-    public void alertNaoExcluído(String objetoDoCadastro) {
-        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + objetoDoCadastro + " não foi excluído!!");
-        mensagem.show();
-    }
-
-    public void alertConfiraFormulario() {
-        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
-        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
-        mensagem.setContentText("ATENÇÃO!!\n"
-                + "Confira o formulário!!\n"
-                + "Todos os campos devem serem preenchidos!!");
-        mensagem.show();
-    }
+//    public void alertCadastrado(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " cadastrado com sucesso!!");
+//        mensagem.show();
+//    }
+//
+//    public void alertAtualizacao(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.ERROR);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " atualizado com sucesso!!");
+//        mensagem.show();
+//    }
+//
+//    public void alertExcluido(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " excluído com sucesso!!");
+//        mensagem.show();
+//
+//    }
+//
+//    public void alertNaoCadastrado(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " não foi cadastrado!!");
+//        mensagem.show();
+//    }
+//
+//    public void alertNaoAtualizado(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " não foi atualizado!!");
+//        mensagem.show();
+//    }
+//
+//    public void alertNaoExcluído(String objetoDoCadastro) {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + objetoDoCadastro + " não foi excluído!!");
+//        mensagem.show();
+//    }
+//
+//    public void alertConfiraFormulario() {
+//        Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
+//        mensagem.setHeaderText("CONTROLE DE FINANÇAS\nCADASTRO DE USUÁRIO");
+//        mensagem.setContentText("ATENÇÃO!!\n"
+//                + "Confira o formulário!!\n"
+//                + "Todos os campos devem serem preenchidos!!");
+//        mensagem.show();
+//    }
 
 //    public static void somenteNumeros(final TextField textField) {
 //        textField.lengthProperty().addListener(new ChangeListener<Number>() {

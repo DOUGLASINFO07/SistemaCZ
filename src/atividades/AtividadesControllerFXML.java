@@ -25,6 +25,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import util.CarregarPagina;
 import util.Relogio;
 
 public class AtividadesControllerFXML implements Initializable {
@@ -34,6 +35,8 @@ public class AtividadesControllerFXML implements Initializable {
     AtividadesMetodos AM = new AtividadesMetodos();
 
     AtividadesDAO dao = new AtividadesDAO();
+    
+    CarregarPagina cp = new CarregarPagina();
 
     @FXML
     private Button voltarMenuBT;
@@ -256,15 +259,13 @@ public class AtividadesControllerFXML implements Initializable {
 
     @FXML
     void voltarMenuBTMouse(MouseEvent event) {
-        AM.abrirMenu();
-//        AM.fecharAtividades();
+        cp.carregarPagina("/menu/Menu.fxml");
     }
 
     @FXML
     void voltarMenuBTTeclado(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            AM.abrirMenu();
-//            AM.fecharAtividades();
+            cp.carregarPagina("/menu/Menu.fxml");
         }
     }
 

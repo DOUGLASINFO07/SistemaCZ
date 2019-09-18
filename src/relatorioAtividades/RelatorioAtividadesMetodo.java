@@ -93,7 +93,7 @@ public class RelatorioAtividadesMetodo extends Application {
     //MÉTODO QUE ABRE A TELA MENU.
     public void abrirMenu() {
         try {
-            menuMetodos.start(new Stage());
+//            menuMetodos.start(new Stage());
             fecharRelatorioAtividades();
         } catch (Exception ex) {
             Logger.getLogger(RelatorioAtividadesMetodo.class.getName()).log(Level.SEVERE, null, ex);

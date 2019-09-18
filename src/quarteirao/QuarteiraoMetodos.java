@@ -1,46 +1,39 @@
 package quarteirao;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 import menu.MenuMetodos;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import util.CarregarPagina;
 import util.Conexao;
 import util.Utilitario;
 
-public class QuarteiraoMetodos extends Application {
-
-    Connection conn;
+public class QuarteiraoMetodos {
 
     MenuMetodos menuMetodos = new MenuMetodos();
 
     QuarteiraoAtributos QA = new QuarteiraoAtributos();
+
+    CarregarPagina cp = new CarregarPagina();
+    
+    Utilitario util = new Utilitario();
 
     public QuarteiraoMetodos() {
     }
@@ -53,49 +46,6 @@ public class QuarteiraoMetodos extends Application {
     public String toString() {
         return QA.getLocalidade();
     }
-
-    //CONJUNTO DE MÉTODOS PARA ABRIR A TELA CADASTRO DE USUÁRIO.
-    private static Stage stage;
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-//
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/quarteirao/Quarteirao.fxml"));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagens/iconeSistemaCZ.png")));
-        Scene scene = new Scene(root);
-        stage.setTitle("Cadastro de Quarteirao");
-        stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
-        setStage(stage);
-    }
-    //FIM DO CONJUNTO DE MÉTODOS PARA ABRIR A TELA DE CADASTRO DE USUÁRIO.
-
-    //MÉTODO FECHAR USUARIO.
-    public void fecharQuarteirao() {
-        getStage().close();
-    }//FIM DO MÉTODO FECHAR USUARIO.
-
-    //MÉTODO QUE ABRE A TELA MENU.
-    public void abrirMenu() {
-        try {
-            menuMetodos.start(new Stage());
-            fecharQuarteirao();
-        } catch (Exception ex) {
-            Logger.getLogger(QuarteiraoMetodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//FIM DO MÉTODO.
 
     public void limparFormulario(
             Button novoCadastro,
@@ -459,8 +409,6 @@ public class QuarteiraoMetodos extends Application {
             TableView tabelaQuarteiraoTV,
             Button listarTodosBT
     ) {
-        Utilitario util = new Utilitario();
-
         QA.setLocalidade(localidade.getSelectionModel().getSelectedItem().toString());
         QA.setRg(rgCB.getSelectionModel().getSelectedItem().toString());
         QA.setMacroArea(macroArea.getSelectionModel().getSelectedItem().toString());
@@ -494,18 +442,11 @@ public class QuarteiraoMetodos extends Application {
                 || !ratosSim.isSelected()
                 && !ratosNao.isSelected()) {
 
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-            alert.setHeaderText(null);
-            alert.setContentText("CONFIRA O FORMULÁRIO!!!\n O QUARTEIRÃO " + QA.getQuarteirao()
-                    + " DA LOCALIDADE " + QA.getLocalidade() + ", NÃO FOI SALVO!!");
-            alert.showAndWait();
+            util.alertSimples("CADASTRO DE QUARTEIRÃO", "CONFIRA O FORMULÁRIO!!!"
+                    + "\n Todos os campos devem ser preenchidos!!");
 
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    quarteirao.requestFocus();
-                }
+            Platform.runLater(() -> {
+                localidade.requestFocus();
             });
         } else {
             //Confere se está tudo ok com o banco de dados
@@ -538,22 +479,14 @@ public class QuarteiraoMetodos extends Application {
                     && terrenoBaldio.getText().equals("0")
                     && pontoEstrategico.getText().equals("0")
                     && outros.getText().equals("0")) {
-
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-                alert.setHeaderText(null);
-                alert.setContentText("O TOTAL DE IMÓVEIS NÃO PODE SER ZERO!!\nCONFIRA O FORMULÁRIO");
-                alert.showAndWait();
+                util.alertSimples("CADASTRO DE QUARTEIRÃO", "CONFIRA O FORMULÁRIO!!!"
+                        + "\n O Total de Imóveis não pode ser 0!!");
 
             } else {
                 if (quarteiraoDAO.salvar(quarteiraoAtributo)) {
-                    //exibe mensagem de cadastrado com sucesso.
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-                    alert.setHeaderText(null);
-                    alert.setContentText("QUARTEIRÃO " + QA.getQuarteirao()
-                            + " DA LOCALIDADE " + QA.getLocalidade() + ", FOI CADASTRADO COM SUCESSO!!");
-                    alert.showAndWait();
+
+                    util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                            + " da localidade " + QA.getLocalidade() + ",\nfoi cadastrado com sucesso!!");
 
                     quarteirao.setText("0");
                     observacao.setText("");
@@ -569,12 +502,10 @@ public class QuarteiraoMetodos extends Application {
                     ratosNao.setSelected(false);
 
                 } else {
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-                    alert.setHeaderText(null);
-                    alert.setContentText("QUARTEIRÃO " + QA.getQuarteirao()
-                            + " DA LOCALIDADE " + QA.getLocalidade() + ", NÃO FOI CADASTRADO!!");
-                    alert.showAndWait();
+
+                    util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                            + " da localidade " + QA.getLocalidade() + ", não foi cadastrado!!");
+
                 }
             }
         }
@@ -611,8 +542,6 @@ public class QuarteiraoMetodos extends Application {
             TextField totalImoveis,
             Button listarTodosBT
     ) {
-        Utilitario util = new Utilitario();
-
         QA.setLocalidade(localidade.getSelectionModel().getSelectedItem().toString());
         QA.setRg(rgCB.getSelectionModel().getSelectedItem().toString());
         QA.setMacroArea(macroArea.getSelectionModel().getSelectedItem().toString());
@@ -646,12 +575,8 @@ public class QuarteiraoMetodos extends Application {
                 || !ratosSim.isSelected()
                 && !ratosNao.isSelected()) {
 
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-            alert.setHeaderText(null);
-            alert.setContentText("CONFIRA O FORMULÁRIO!!!\n O QUARTEIRÃO " + QA.getQuarteirao()
-                    + " DA LOCALIDADE " + QA.getLocalidade() + ", NÃO FOI ATUALIZADO!!");
-            alert.showAndWait();
+            util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                    + " da localidade " + QA.getLocalidade() + ",\nnão foi Atualizado!!");
 
         } else {
 
@@ -742,22 +667,16 @@ public class QuarteiraoMetodos extends Application {
                 );
                 tabelaQuarteiraoTV.getItems().clear();
 
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-                alert.setHeaderText(null);
-                alert.setContentText("QUARTEIRÃO " + QA.getQuarteirao()
-                        + " DA LOCALIDADE " + QA.getLocalidade() + ", FOI ATUALIZADO COM SUCESSO!!");
-                alert.showAndWait();
+                util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                        + " da localidade " + QA.getLocalidade() + ",\n foi Atualizado com sucesso!!");
 
                 totalQuarteirao.setText("0");
                 totalImoveis.setText("0");
             } else {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-                alert.setHeaderText(null);
-                alert.setContentText("QUARTEIRÃO " + QA.getQuarteirao()
-                        + " DA LOCALIDADE " + QA.getLocalidade() + ", NÃO FOI CADASTRADO!!");
-                alert.showAndWait();
+
+                util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                        + " da localidade " + QA.getLocalidade() + ",\nnão foi Atualizado!!");
+
             }
         }
     }
@@ -835,7 +754,7 @@ public class QuarteiraoMetodos extends Application {
             );
 
             bloquearCamposFormulario(
-                     novoCadastro,
+                    novoCadastro,
                     voltarMenuBT,
                     salvarBT,
                     atualizarBT,
@@ -866,12 +785,9 @@ public class QuarteiraoMetodos extends Application {
 
             tabelaQuarteiraoTV.getItems().clear();
             //exibe mensagem de cadastrado com sucesso.
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-            alert.setHeaderText(null);
-            alert.setContentText("QUARTEIRÃO " + QA.getQuarteirao()
-                    + " DA LOCALIDADE " + QA.getLocalidade() + ", FOI EXCLUÍDO COM SUCESSO!!");
-            alert.showAndWait();
+
+            util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                    + " da localidade " + QA.getLocalidade() + ",\n foi Excluído com sucesso!!");
 
             totalQuarteirao.setText("0");
             totalImoveis.setText("0");
@@ -879,12 +795,10 @@ public class QuarteiraoMetodos extends Application {
             Platform.runLater(novoCadastro::requestFocus);//fim do run.
 
         } else {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("CONTROLE DE ZOONOSES - CADASTRO DE QUARTEIRÕES");
-            alert.setHeaderText(null);
-            alert.setContentText("QUARTEIRÃO " + QA.getQuarteirao()
-                    + " DA LOCALIDADE " + QA.getLocalidade() + ", NÃO FOI EXCLUÍDO!!");
-            alert.showAndWait();
+
+            util.alertSimples("CADASTRO DE QUARTEIRÃO", "O quarteirão " + QA.getQuarteirao()
+                    + " da localidade " + QA.getLocalidade() + ",\nnão foi Excluído!!");
+
         }
     }
 

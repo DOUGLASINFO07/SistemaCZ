@@ -203,7 +203,6 @@ public class MenuControllerFXML implements Initializable {
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
-        System.gc();
 
         cadastroMenuBT.setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override
@@ -249,6 +248,8 @@ public class MenuControllerFXML implements Initializable {
                 VBoxRelatorio.setVisible(false);
             }
         });
+        
+        System.gc();
 
     }
 

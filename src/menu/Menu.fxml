@@ -14,9 +14,9 @@
    <children>
       <FlowPane fx:id="flowPaneBackground" alignment="CENTER" mouseTransparent="true" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="482.0" fitWidth="600.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="296.0" opacity="0.95" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/logoSistemaCZ%20-%20Copia.png" />
+                  <Image url="@../imagens/logoSistemaCZ.png" />
                </image>
             </ImageView>
          </children>
@@ -244,7 +244,7 @@
             </Label>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="540.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/dimtechSimbolo.png" />
+                  <Image url="@../imagens/dimtechSimbolo100x100.png" />
                </image>
             </ImageView>
             <Label fx:id="horasLB1" prefWidth="10.0">
@@ -254,7 +254,7 @@
             </Label>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="650.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/iconeSistemaCZ100x100.png" />
+                  <Image url="@../imagens/iconeSistemaCZ.png" />
                </image>
             </ImageView>
          </children>
